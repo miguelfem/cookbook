@@ -6,9 +6,9 @@
 
 CookBook is a local Rust runtime for repeatable workflows. Use Codex or Claude Code to turn a task you’ve solved into a versioned **recipe**. Chain scripts, APIs, MCP tools and different models in one run. CookBook handles branches, parallel batches, review handoffs and run history, and can return just the counts and a link to the full report.
 
-Think n8n-style workflow automation with recipes your agent writes and a runtime you run locally.
+Think n8n-style workflow automation with recipes your agent writes and a runtime you run locally. The source includes a loopback relay prototype that queues jobs while the CookBook worker is offline.
 
-[Try the demo](#try-the-demo) · [Connect your agent](#connect-your-agent) · [Chain models](#chain-models-in-one-recipe) · [Benchmarks](#what-we-measured)
+[Try the demo](#try-the-demo) · [Connect your agent](#connect-your-agent) · [Chain models](#chain-models-in-one-recipe) · [Relay prototype](#queue-jobs-for-an-offline-worker) · [Benchmarks](#what-we-measured)
 
 ## How it works
 
@@ -61,6 +61,12 @@ The launcher starts the local inspector with disposable sample data. Open **Run 
 3. **Verify your first recipe.** Ask the agent: “Use CookBook in this project. Check that its MCP tools are available, create and run the save-note starter, and show me the saved result.” Once it works, give the agent a task you actually repeat.
 
 For background execution, use [scheduled jobs](docs/runbooks/scheduled-jobs.md) or call `apr_run` directly from a client that already has the recipe and inputs. The [direct report helper](tools/direct_report.py) shows how to display counts and an authorized report link without starting a model turn. [Manual MCP setup](docs/runbooks/client-integration.md) · [First-project walkthrough](docs/runbooks/first-project.md)
+
+## Queue jobs for an offline worker
+
+The [relay prototype](tools/evals/benchmark_standalone_relay.py) accepts jobs over HTTP and persists them until a CookBook worker can claim them. In the simulated outage, the relay accepted work while CookBook was stopped, kept the job through a relay restart, and recovered from a lost acknowledgement with one recipe execution.
+
+The prototype runs on loopback with synthetic data. A VPS-hosted relay is a proposed deployment. [Outage test and deployment design](docs/evaluations/2026-11-19-fresh-threads-and-standalone.md#model-free-schedule-and-relay)
 
 ## What we measured
 

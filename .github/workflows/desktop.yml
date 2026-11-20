@@ -1,0 +1,78 @@
+name: Desktop preview checks
+on:
+  push:
+    branches: [main, codex/analytics-cost-foundation]
+    paths: ['apps/desktop/**', 'crates/**', 'Cargo*', '.github/workflows/desktop.yml']
+  pull_request:
+    paths: ['apps/desktop/**', 'crates/**', 'Cargo*', '.github/workflows/desktop.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: desktop-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            label: macos-arm64
+            bundles: app,dmg
+          - os: macos-15-intel
+            label: macos-intel
+            bundles: app,dmg
+          - os: ubuntu-24.04
+            label: linux-amd64
+            bundles: deb,appimage
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    env:
+      CARGO_INCREMENTAL: '0'
+      CARGO_PROFILE_DEV_DEBUG: '0'
+      CARGO_PROFILE_TEST_DEBUG: '0'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87
+        with:
+          toolchain: 1.94.0
+          components: rustfmt, clippy
+      - name: Linux native prerequisites
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y build-essential pkg-config libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf libssl-dev libfuse2 xvfb xdotool imagemagick
+      - run: npm ci --ignore-scripts --prefix apps/desktop
+      - name: Build preview with locked dependencies
+        working-directory: apps/desktop
+        run: npm run build -- --bundles ${{ matrix.bundles }} -- --locked
+      - run: cargo fmt --manifest-path apps/desktop/src-tauri/Cargo.toml -- --check
+      - run: cargo clippy --manifest-path apps/desktop/src-tauri/Cargo.toml --all-targets --locked -- -D warnings
+      - name: Linux native launch
+        if: runner.os == 'Linux'
+        run: |
+          export XDG_DATA_HOME="$RUNNER_TEMP/desktop-data" XDG_CONFIG_HOME="$RUNNER_TEMP/desktop-config"
+          mkdir -p "$XDG_DATA_HOME" "$XDG_CONFIG_HOME"
+          xvfb-run -a sh -c '
+            apps/desktop/src-tauri/target/release/cookbook-desktop > "$RUNNER_TEMP/desktop-launch.log" 2>&1 &
+            pid=$!
+            trap "kill $pid 2>/dev/null || true" EXIT
+            sleep 8
+            kill -0 "$pid"
+            xdotool search --name CookBook > "$RUNNER_TEMP/desktop-windows.txt"
+            import -window root "$RUNNER_TEMP/desktop-first-launch.png"
+          '
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: cookbook-${{ matrix.label }}
+          path: |
+            apps/desktop/src-tauri/target/release/bundle/
+            ${{ runner.temp }}/desktop-*.log
+            ${{ runner.temp }}/desktop-*.txt
+            ${{ runner.temp }}/desktop-*.png
+          retention-days: 7
+          if-no-files-found: warn

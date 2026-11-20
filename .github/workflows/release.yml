@@ -1,0 +1,119 @@
+name: Signed macOS and Linux release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Reviewed version already committed on main, for example 0.2.0'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  gate:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - id: check
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, re
+          version=os.environ['RELEASE_VERSION']
+          assert re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+',version), 'Invalid version'
+          assert json.loads(pathlib.Path('apps/desktop/src-tauri/tauri.conf.json').read_text())['version']==version, 'Version must already be reviewed in source'
+          assert pathlib.Path('LICENSE').is_file(), 'Owner must select APR license before release'
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f: f.write('version='+version+'\n')
+          PY
+  signed:
+    needs: gate
+    environment: release
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            label: macos-arm64
+            bundles: app,dmg
+          - os: macos-15-intel
+            label: macos-intel
+            bundles: app,dmg
+          - os: ubuntu-24.04
+            label: linux-amd64
+            bundles: deb,appimage
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    env:
+      COOKBOOK_UPDATE_PUBLIC_KEY: ${{ vars.COOKBOOK_UPDATE_PUBLIC_KEY }}
+      COOKBOOK_UPDATE_ENDPOINT: ${{ vars.COOKBOOK_UPDATE_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Required publisher configuration
+        run: |
+          test -n "$COOKBOOK_UPDATE_PUBLIC_KEY"
+          test -n "$COOKBOOK_UPDATE_ENDPOINT"
+      - uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87
+        with:
+          toolchain: 1.94.0
+      - name: Linux prerequisites
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y build-essential pkg-config libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf libssl-dev libfuse2
+      - run: npm ci --ignore-scripts --prefix apps/desktop
+      - name: Compile without signing secrets
+        working-directory: apps/desktop
+        run: npm run build -- --no-bundle -- --locked
+      - name: Sign and notarize without an unsigned fallback
+        working-directory: apps/desktop
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          test -n "$TAURI_SIGNING_PRIVATE_KEY"
+          if [ "$RUNNER_OS" = macOS ]; then
+            test -n "$APPLE_CERTIFICATE" && test -n "$APPLE_SIGNING_IDENTITY"
+            test -n "$APPLE_ID" && test -n "$APPLE_PASSWORD" && test -n "$APPLE_TEAM_ID"
+            umask 077
+            CERT="$RUNNER_TEMP/cookbook-signing.p12"
+            KEYCHAIN="$RUNNER_TEMP/cookbook-signing.keychain-db"
+            KEYCHAIN_PASSWORD="$(openssl rand -hex 32)"
+            trap 'security delete-keychain "$KEYCHAIN" >/dev/null 2>&1 || true; rm -f "$CERT"' EXIT
+            printf '%s' "$APPLE_CERTIFICATE" | base64 --decode > "$CERT"
+            security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+            security default-keychain -s "$KEYCHAIN"
+            security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+            security set-keychain-settings -t 3600 -u "$KEYCHAIN"
+            security import "$CERT" -k "$KEYCHAIN" -P "$APPLE_CERTIFICATE_PASSWORD" -T /usr/bin/codesign
+            security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+            rm -f "$CERT"
+          fi
+          ./node_modules/.bin/tauri bundle --bundles ${{ matrix.bundles }} --config '{"bundle":{"createUpdaterArtifacts":true}}'
+      - name: Verify notarization and signature
+        if: runner.os == 'macOS'
+        run: |
+          APP="apps/desktop/src-tauri/target/release/bundle/macos/CookBook APR.app"
+          codesign --verify --deep --strict "$APP"
+          xcrun stapler validate "$APP"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: signed-${{ matrix.label }}
+          path: apps/desktop/src-tauri/target/release/bundle/
+          retention-days: 7
+          if-no-files-found: error
+# Publication is deliberately a separate reviewed action. The owner supplies a
+# public HTTPS hosting origin; never embed a private GitHub credential in clients.
+# tools/release_manifest.py builds latest.json from the signed artifacts only.

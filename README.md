@@ -6,7 +6,7 @@
 
 CookBook is a local Rust runtime for repeatable workflows. Use Codex or Claude Code to turn a task you’ve solved into a versioned **recipe**. Chain scripts, APIs, MCP tools and different models in one run. CookBook handles branches, parallel batches, review handoffs and run history, and can return just the counts and a link to the full report.
 
-Think n8n-style workflow automation with recipes your agent writes and a runtime you run locally. The source includes a loopback relay prototype that queues jobs while the CookBook worker is offline.
+Think n8n-style workflow automation with recipes your agent writes and a runtime you run locally. The relay starter templates let an online endpoint queue jobs for a CookBook worker that may be offline.
 
 [Try the demo](#try-the-demo) · [Connect your agent](#connect-your-agent) · [Chain models](#chain-models-in-one-recipe) · [Relay prototype](#queue-jobs-for-an-offline-worker) · [Benchmarks](#what-we-measured)
 
@@ -64,9 +64,11 @@ For background execution, use [scheduled jobs](docs/runbooks/scheduled-jobs.md) 
 
 ## Queue jobs for an offline worker
 
+[Relay deployment templates](examples/relay/README.md) cover Docker Compose on a VPS and Railway with a persistent volume. They include the webhook relay and a local polling worker for saved recipes.
+
 The [relay prototype](tools/evals/benchmark_standalone_relay.py) accepts jobs over HTTP and persists them until a CookBook worker can claim them. In the simulated outage, the relay accepted work while CookBook was stopped, kept the job through a relay restart, and recovered from a lost acknowledgement with one recipe execution.
 
-The prototype runs on loopback with synthetic data. A VPS-hosted relay is a proposed deployment. [Outage test and deployment design](docs/evaluations/2026-11-19-fresh-threads-and-standalone.md#model-free-schedule-and-relay)
+The outage benchmark runs on loopback with synthetic data. The hosted templates are untested starter configurations. [Outage test and deployment design](docs/evaluations/2026-11-19-fresh-threads-and-standalone.md#model-free-schedule-and-relay)
 
 ## What we measured
 

@@ -1,0 +1,16 @@
+services:
+  relay:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      PORT: "8080"
+      APR_RELAY_RECIPES: "${APR_RELAY_RECIPES:?Set allowed recipe names}"
+      APR_RELAY_SUBMIT_TOKEN: "${APR_RELAY_SUBMIT_TOKEN:?Set the submit token}"
+      APR_RELAY_WORKER_TOKEN: "${APR_RELAY_WORKER_TOKEN:?Set the worker token}"
+    volumes:
+      - relay-data:/data
+
+volumes:
+  relay-data:

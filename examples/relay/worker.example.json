@@ -1,0 +1,9 @@
+{
+  "relay_url": "https://relay.example.com",
+  "apr": "apr",
+  "state_dir": "/absolute/path/to/cookbook-state",
+  "attachment": "/absolute/path/to/cookbook-state/attachments/relay.json",
+  "recipes": {
+    "save-note": "sha256:REPLACE_WITH_THE_REGISTERED_RECIPE_DIGEST"
+  }
+}

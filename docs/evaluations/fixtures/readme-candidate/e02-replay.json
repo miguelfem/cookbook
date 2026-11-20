@@ -1,0 +1,17 @@
+{
+  "same_run": true,
+  "full_output_exact": true,
+  "state": "succeeded",
+  "before": {
+    "runs": 5,
+    "effects": 5,
+    "source_lines": 10
+  },
+  "after": {
+    "runs": 5,
+    "effects": 5,
+    "source_lines": 10
+  },
+  "counts_unchanged": true,
+  "protocol": "Service from measured run had exited; start a new service and replay exact request key/input/version."
+}

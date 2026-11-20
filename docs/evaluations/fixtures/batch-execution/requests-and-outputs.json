@@ -1,0 +1,132 @@
+{
+  "interface": "fixed-attachment MCP; project-aware clients additionally supply their workspace handle",
+  "direct": {
+    "request": {
+      "input": {
+        "jobs": [
+          {
+            "id": "select-owner",
+            "payload": {
+              "count": 2,
+              "owner": "Ada"
+            },
+            "pointer": "/owner"
+          },
+          {
+            "id": "select-count",
+            "payload": {
+              "count": 7,
+              "owner": "Lin"
+            },
+            "pointer": "/count"
+          }
+        ]
+      },
+      "mode": "start",
+      "process_ref": "sha256:0a7beab3acc500bde9dfa9d78ae7e7234ccf3b94e2b2aaf41076b489ebcad7a1",
+      "request_key": "batch-direct-one-call-v1",
+      "wait_ms": 5000
+    },
+    "output": {
+      "results": [
+        {
+          "key": "select-owner",
+          "output": {
+            "value": "Ada"
+          }
+        },
+        {
+          "key": "select-count",
+          "output": {
+            "value": 7
+          }
+        }
+      ]
+    }
+  },
+  "composed": {
+    "request": {
+      "input": {
+        "echo_jobs": [
+          {
+            "id": "echo-blue",
+            "payload": {
+              "color": "blue"
+            }
+          },
+          {
+            "id": "echo-green",
+            "payload": {
+              "color": "green"
+            }
+          }
+        ],
+        "select_jobs": [
+          {
+            "id": "select-owner",
+            "payload": {
+              "count": 2,
+              "owner": "Ada"
+            },
+            "pointer": "/owner"
+          },
+          {
+            "id": "select-count",
+            "payload": {
+              "count": 7,
+              "owner": "Lin"
+            },
+            "pointer": "/count"
+          }
+        ]
+      },
+      "mode": "start",
+      "process_ref": "sha256:8b3870cb5493ef1d8dee08a339b848b78f930d4b82277b8d7e0e900570fdb114",
+      "request_key": "batch-composed-proof-v1",
+      "wait_ms": 5000
+    },
+    "first_state": "waiting_for_child",
+    "final_output": {
+      "echoed": [
+        {
+          "key": "echo-blue",
+          "output": {
+            "echoed": {
+              "color": "blue"
+            },
+            "id": "echo-blue",
+            "worker": "echo"
+          }
+        },
+        {
+          "key": "echo-green",
+          "output": {
+            "echoed": {
+              "color": "green"
+            },
+            "id": "echo-green",
+            "worker": "echo"
+          }
+        }
+      ],
+      "selected": [
+        {
+          "key": "select-owner",
+          "output": {
+            "id": "select-owner",
+            "selected": "Ada",
+            "worker": "select"
+          }
+        },
+        {
+          "key": "select-count",
+          "output": {
+            "id": "select-count",
+            "selected": 7,
+            "worker": "select"
+          }
+        }
+      ]
+    }
+  }
+}

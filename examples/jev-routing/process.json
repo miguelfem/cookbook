@@ -1,0 +1,359 @@
+{
+  "schema_version": "0.2",
+  "name": "operations.jev-routing",
+  "description": "Synthetic Jev observation with deterministic required-input validation, pinned route policy, caller review, and exact local result artifact; no business action.",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "ticket",
+      "evidence_ref"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "ticket": {
+        "type": "string",
+        "maxLength": 8000,
+        "minLength": 1
+      },
+      "evidence_ref": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "observation",
+      "route",
+      "result",
+      "artifact",
+      "evidence_ref"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "observation": {
+        "type": "object"
+      },
+      "route": {
+        "type": "object"
+      },
+      "result": {
+        "type": "object"
+      },
+      "artifact": {
+        "type": "object"
+      },
+      "evidence_ref": {
+        "type": "string"
+      }
+    }
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "model"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      }
+    },
+    "defaults": {
+      "model": "jev-latest"
+    },
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "connection",
+      "name": "typesafe"
+    },
+    {
+      "kind": "builtin"
+    },
+    {
+      "kind": "agent",
+      "capability": "review"
+    },
+    {
+      "kind": "artifacts"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 30000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 1,
+    "max_agent_requests": 1,
+    "max_call_depth": 1,
+    "max_child_runs": 1,
+    "max_step_instances": 9
+  },
+  "steps": [
+    {
+      "id": "project_ticket",
+      "kind": "builtin",
+      "operation": "json.select",
+      "effect": "pure",
+      "needs": [],
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "value": {
+          "input": ""
+        },
+        "pointer": {
+          "literal": "/ticket"
+        }
+      }
+    },
+    {
+      "id": "observe",
+      "kind": "connector",
+      "operation": "jev.evaluate",
+      "connection": "typesafe",
+      "needs": [
+        "project_ticket"
+      ],
+      "effect": "read",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "state": {
+          "step": "project_ticket",
+          "pointer": "/value"
+        },
+        "model": {
+          "config": "/model"
+        },
+        "questions": {
+          "literal": {
+            "team": {
+              "type": "choice",
+              "instructions": "Choose the team that can resolve this ticket. Use unclear when there is insufficient information.",
+              "criteria": {
+                "operations": "Account operations or fulfilment",
+                "engineering": "Software bugs or integration failures",
+                "unclear": "No supported team can be identified"
+              }
+            }
+          }
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "provider",
+          "requested_model",
+          "reported_model",
+          "answers",
+          "usage"
+        ]
+      }
+    },
+    {
+      "id": "route",
+      "kind": "decision",
+      "effect": "pure",
+      "needs": [
+        "observe"
+      ],
+      "inputs": {},
+      "retry": {
+        "max_attempts": 1
+      },
+      "decision": {
+        "source": "choice",
+        "routes": [
+          "operations",
+          "engineering",
+          "unclear"
+        ],
+        "value": {
+          "step": "observe",
+          "pointer": "/answers/team/choice"
+        },
+        "confidence": {
+          "step": "observe",
+          "pointer": "/answers/team/confidence"
+        },
+        "min_confidence": 0.75,
+        "no_match": "unclear",
+        "needs_clarification": "unclear"
+      }
+    },
+    {
+      "id": "operations",
+      "kind": "builtin",
+      "operation": "json.select",
+      "effect": "pure",
+      "needs": [
+        "route"
+      ],
+      "when": {
+        "decision": "route",
+        "route": "operations"
+      },
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "value": {
+          "literal": {
+            "team": "operations"
+          }
+        },
+        "pointer": {
+          "literal": ""
+        }
+      }
+    },
+    {
+      "id": "engineering",
+      "kind": "builtin",
+      "operation": "json.select",
+      "effect": "pure",
+      "needs": [
+        "route"
+      ],
+      "when": {
+        "decision": "route",
+        "route": "engineering"
+      },
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "value": {
+          "literal": {
+            "team": "engineering"
+          }
+        },
+        "pointer": {
+          "literal": ""
+        }
+      }
+    },
+    {
+      "id": "unclear",
+      "kind": "agent",
+      "effect": "agent",
+      "needs": [
+        "route"
+      ],
+      "when": {
+        "decision": "route",
+        "route": "unclear"
+      },
+      "retry": {
+        "max_attempts": 1
+      },
+      "capability": "review",
+      "instructions": "Review the supplied ticket and observation. Return the supported team or unclear. Do not contact anyone or take an external action.",
+      "inputs": {
+        "ticket": {
+          "input": "/ticket"
+        },
+        "observation": {
+          "step": "observe",
+          "pointer": ""
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "team"
+        ],
+        "properties": {
+          "team": {
+            "enum": [
+              "operations",
+              "engineering",
+              "unclear"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "join",
+      "kind": "join",
+      "effect": "pure",
+      "needs": [
+        "route",
+        "operations",
+        "engineering",
+        "unclear"
+      ],
+      "inputs": {},
+      "retry": {
+        "max_attempts": 1
+      },
+      "join": {
+        "decision": "route",
+        "branches": {
+          "operations": {
+            "step": "operations",
+            "pointer": "/value"
+          },
+          "engineering": {
+            "step": "engineering",
+            "pointer": "/value"
+          },
+          "unclear": {
+            "step": "unclear",
+            "pointer": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "result_artifact",
+      "kind": "builtin",
+      "operation": "json.write",
+      "effect": "pure",
+      "needs": [
+        "join"
+      ],
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "value": {
+          "step": "join",
+          "pointer": ""
+        }
+      }
+    }
+  ],
+  "output": {
+    "observation": {
+      "step": "observe",
+      "pointer": ""
+    },
+    "route": {
+      "step": "route",
+      "pointer": ""
+    },
+    "result": {
+      "step": "join",
+      "pointer": ""
+    },
+    "artifact": {
+      "step": "result_artifact",
+      "pointer": "/artifact"
+    },
+    "evidence_ref": {
+      "input": "/evidence_ref"
+    }
+  }
+}

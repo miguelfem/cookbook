@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-22",
+  "source_at_measurement": "1f2dcdc201b3eedd953f1fa6fd4b0b0377e9fb14",
+  "launch_acceptance_passed": false,
+  "platform": "macOS ARM64 development app",
+  "client": "codex-cli 0.155.0-alpha.9.2",
+  "model": "gpt-5.6-luna",
+  "package_sha256": "56d666dbd8cfe528309a3e463ae7df9619ac3ca5f1ebbfb783e4796fe7a7675e",
+  "new_package_built": false,
+  "studies": [
+    {
+      "id": "E01",
+      "status": "incomplete",
+      "saved_note_artifacts_verified": 3,
+      "runtime_runs_succeeded": 4,
+      "runtime_runs_failed": 1,
+      "approved_adapter_recipe_ran": false,
+      "cross_project_refusal_verified": true,
+      "data": "e01/metrics.json"
+    },
+    {
+      "id": "E02",
+      "status": "complete_quality_gate_failed",
+      "planned_attempts": 9,
+      "accepted": 8,
+      "by_condition": {
+        "direct_agent": {
+          "accepted": 3,
+          "attempted": 3
+        },
+        "reusable_script": {
+          "accepted": 3,
+          "attempted": 3
+        },
+        "cookbook": {
+          "accepted": 2,
+          "attempted": 3
+        }
+      },
+      "data": "e02/case-metrics.json"
+    },
+    {
+      "id": "E03",
+      "status": "stopped_inconclusive",
+      "attempted_dispatches": 2,
+      "graded_outputs": 0,
+      "unresolved_intents": 2,
+      "data": "providers/case-metrics.jsonl"
+    },
+    {
+      "id": "E04",
+      "status": "partial_jev_unresolved",
+      "caller_exact_routes": 24,
+      "rules_exact_routes": 6,
+      "routing_cases": 24,
+      "jev_smoke_attempted_dispatches": 1,
+      "jev_smoke_verified_responses": 0,
+      "learning_evaluator_calls": 0,
+      "data": "providers/case-metrics.jsonl"
+    },
+    {
+      "id": "E05",
+      "status": "blocked_pending_human_review",
+      "controlled_evaluations": 0,
+      "adoptions": 0,
+      "diagnostic_paired_arm_runs": 72,
+      "additional_diagnostic_probe_runs": 1,
+      "data": "e05/diagnostic-case-metrics.csv"
+    }
+  ],
+  "spend": {
+    "openrouter_authorized_ceiling_usd": 10,
+    "openrouter_self_cap_usd": 1,
+    "openrouter_attempted_dispatches": 1,
+    "gemini_attempted_dispatches": 1,
+    "jev_attempted_dispatches": 1,
+    "fal_attempted_dispatches": 0,
+    "monid_attempted_dispatches": 0,
+    "provider_reported_total_usd": null,
+    "client_billed_total_usd": null,
+    "uncertain_calls_retried": 0
+  },
+  "limitations": [
+    "development installation reused; no public distribution acceptance",
+    "Claude Code absent",
+    "two E01 sessions missing final client usage",
+    "controller and approval-review usage incomplete",
+    "E05 diagnostic holdout exposed; fresh holdout required",
+    "Jev and subsequent author writes unresolved; suspected Keychain wait not proven"
+  ]
+}

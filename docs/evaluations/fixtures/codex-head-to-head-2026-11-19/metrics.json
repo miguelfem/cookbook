@@ -1,0 +1,749 @@
+{
+  "protocol": {
+    "verified_mcp_servers": {
+      "codex": [],
+      "cookbook": [
+        "apr"
+      ]
+    },
+    "model": "gpt-6-sol",
+    "effort": "low",
+    "rounds": 4,
+    "installed_binary_sha256": "c70aa13715a13a033121957936b8f88a616145f98e90884621a45a5274b343ec",
+    "recipe_pins": {
+      "profiles": "sha256:7fac6e62e1689e299d974e1ed60692099323dc1612cf9750e014c1a22ff9a3f7",
+      "inventory": "sha256:aa285f8d0131d09fd6fd1b9ddcf59e172c1e8e848284fe3f1c1a76960981dde2",
+      "sla": "sha256:0a5ca2428d7d521b39ef64b88dcceb4929e63f300f04e6a16383617b8405744c"
+    },
+    "codex_version": "codex-cli 0.169.1",
+    "setup_seconds": 1.17,
+    "comparison": "Both arms prepared before timing; one warm thread per task and arm.",
+    "usage": "Per-turn delta in cumulative client counts; includes cached input."
+  },
+  "matched": [
+    {
+      "seconds": 7.156,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 41257,
+        "inputTokens": 41046,
+        "cachedInputTokens": 31744,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 211,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.185,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "profiles",
+      "round": 0,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 4,
+      "output_sha256": "90fb9ab61ad57ef59437af523630d01aa26486e866e67b2c0f67629abc6841b4"
+    },
+    {
+      "seconds": 7.53,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 41813,
+        "inputTokens": 41515,
+        "cachedInputTokens": 32000,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 298,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.386,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "profiles",
+      "round": 0,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 4,
+      "output_sha256": "90fb9ab61ad57ef59437af523630d01aa26486e866e67b2c0f67629abc6841b4"
+    },
+    {
+      "seconds": 7.92,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 42080,
+        "inputTokens": 41790,
+        "cachedInputTokens": 39936,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 290,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.205,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "inventory",
+      "round": 0,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 72,
+      "output_sha256": "0324489403c6109fd2fc43e3213b189664af97ad1477088c34397f3a2e47da91"
+    },
+    {
+      "seconds": 4.332,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 41116,
+        "inputTokens": 40998,
+        "cachedInputTokens": 31744,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 118,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "inventory",
+      "round": 0,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 72,
+      "output_sha256": "0324489403c6109fd2fc43e3213b189664af97ad1477088c34397f3a2e47da91"
+    },
+    {
+      "seconds": 3.265,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 41092,
+        "inputTokens": 41003,
+        "cachedInputTokens": 40576,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 89,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "sla",
+      "round": 0,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 72,
+      "output_sha256": "dab1f961fa0412753cfe1fdc005ec04cb3387e73014668edb670a25b0851479f"
+    },
+    {
+      "seconds": 6.793,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 42660,
+        "inputTokens": 42396,
+        "cachedInputTokens": 32128,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 264,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.155,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "sla",
+      "round": 0,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 72,
+      "output_sha256": "dab1f961fa0412753cfe1fdc005ec04cb3387e73014668edb670a25b0851479f"
+    },
+    {
+      "seconds": 3.645,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 41627,
+        "inputTokens": 41515,
+        "cachedInputTokens": 41088,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 112,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "inventory",
+      "round": 1,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 96,
+      "output_sha256": "3b59ae851163ca5ab210a852f7a6b468ce7dc78c7807448361f77fbe774cd88d"
+    },
+    {
+      "seconds": 7.931,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 43509,
+        "inputTokens": 43227,
+        "cachedInputTokens": 42496,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 282,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.167,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "inventory",
+      "round": 1,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 96,
+      "output_sha256": "3b59ae851163ca5ab210a852f7a6b468ce7dc78c7807448361f77fbe774cd88d"
+    },
+    {
+      "seconds": 7.232,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 44693,
+        "inputTokens": 44428,
+        "cachedInputTokens": 43776,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 265,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.149,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "sla",
+      "round": 1,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 96,
+      "output_sha256": "07328434add107ed68e1ab7eebcfd87c2d6fe55bedca1b4cfdd8dc78f46f41e9"
+    },
+    {
+      "seconds": 3.481,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 41619,
+        "inputTokens": 41533,
+        "cachedInputTokens": 41088,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 86,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "sla",
+      "round": 1,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 96,
+      "output_sha256": "07328434add107ed68e1ab7eebcfd87c2d6fe55bedca1b4cfdd8dc78f46f41e9"
+    },
+    {
+      "seconds": 12.484,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 43405,
+        "inputTokens": 42980,
+        "cachedInputTokens": 42112,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 425,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 1.084,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "profiles",
+      "round": 1,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 8,
+      "output_sha256": "f7127570eea13ef2647937994074c7aafb9c39888a87c19732bba4a331e29a7e"
+    },
+    {
+      "seconds": 8.873,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 42349,
+        "inputTokens": 42014,
+        "cachedInputTokens": 41344,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 335,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.474,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "profiles",
+      "round": 1,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 8,
+      "output_sha256": "f7127570eea13ef2647937994074c7aafb9c39888a87c19732bba4a331e29a7e"
+    },
+    {
+      "seconds": 4.367,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 42148,
+        "inputTokens": 42064,
+        "cachedInputTokens": 41600,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 84,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "sla",
+      "round": 2,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 144,
+      "output_sha256": "56e2a1c0df1fa5aacc23135a3856a3735a0dd755330837cc1500e0d73efe309e"
+    },
+    {
+      "seconds": 6.921,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 46068,
+        "inputTokens": 45807,
+        "cachedInputTokens": 45056,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 261,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.17,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "sla",
+      "round": 2,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 144,
+      "output_sha256": "56e2a1c0df1fa5aacc23135a3856a3735a0dd755330837cc1500e0d73efe309e"
+    },
+    {
+      "seconds": 12.604,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 43941,
+        "inputTokens": 43482,
+        "cachedInputTokens": 42752,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 459,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.703,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "profiles",
+      "round": 2,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 12,
+      "output_sha256": "119d758d0852622a78a7f0e24fdb3cafbda07d1a14f944573d8207c5eaa881d2"
+    },
+    {
+      "seconds": 13.138,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 45522,
+        "inputTokens": 44966,
+        "cachedInputTokens": 44032,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 556,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 1.111,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "profiles",
+      "round": 2,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 12,
+      "output_sha256": "119d758d0852622a78a7f0e24fdb3cafbda07d1a14f944573d8207c5eaa881d2"
+    },
+    {
+      "seconds": 6.557,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 44931,
+        "inputTokens": 44648,
+        "cachedInputTokens": 44032,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 283,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.148,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "inventory",
+      "round": 2,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 144,
+      "output_sha256": "335d58928fbb5a53fde1945034c4ef11c67b29c56ebaa0c8792a196184bb6078"
+    },
+    {
+      "seconds": 3.563,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 42147,
+        "inputTokens": 42031,
+        "cachedInputTokens": 41600,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 116,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "inventory",
+      "round": 2,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 144,
+      "output_sha256": "335d58928fbb5a53fde1945034c4ef11c67b29c56ebaa0c8792a196184bb6078"
+    },
+    {
+      "seconds": 16.775,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 48154,
+        "inputTokens": 47469,
+        "cachedInputTokens": 46464,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 685,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 1.366,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "profiles",
+      "round": 3,
+      "tool_output_exact": true,
+      "chat_reply_exact": false,
+      "grading_error": null,
+      "input_rows": 16,
+      "output_sha256": "3486d954d3746899ff1a770ca3c118faf91ad3f66d8ce032c99def62a9523f84"
+    },
+    {
+      "seconds": 14.357,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 46038,
+        "inputTokens": 45453,
+        "cachedInputTokens": 33792,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 585,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.967,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "profiles",
+      "round": 3,
+      "tool_output_exact": true,
+      "chat_reply_exact": false,
+      "grading_error": null,
+      "input_rows": 16,
+      "output_sha256": "3486d954d3746899ff1a770ca3c118faf91ad3f66d8ce032c99def62a9523f84"
+    },
+    {
+      "seconds": 4.073,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 42664,
+        "inputTokens": 42552,
+        "cachedInputTokens": 42112,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 112,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "inventory",
+      "round": 3,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 300,
+      "output_sha256": "89898a26a13c6017a7cd57b80752f9f023898ea6803609d02e0c3c0fbd71b1d9"
+    },
+    {
+      "seconds": 7.099,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 46338,
+        "inputTokens": 46061,
+        "cachedInputTokens": 45312,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 277,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.171,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "inventory",
+      "round": 3,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 300,
+      "output_sha256": "89898a26a13c6017a7cd57b80752f9f023898ea6803609d02e0c3c0fbd71b1d9"
+    },
+    {
+      "seconds": 6.554,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 47486,
+        "inputTokens": 47216,
+        "cachedInputTokens": 46592,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 270,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.165,
+          "status": "completed"
+        }
+      ],
+      "arm": "cookbook",
+      "task": "sla",
+      "round": 3,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 300,
+      "output_sha256": "909406bf9bd61ad61d2b3d6e6a587ad472ca2fe35e28d3f5da58ce52cac084e7"
+    },
+    {
+      "seconds": 3.769,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 42697,
+        "inputTokens": 42603,
+        "cachedInputTokens": 42112,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 94,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "arm": "codex",
+      "task": "sla",
+      "round": 3,
+      "tool_output_exact": true,
+      "chat_reply_exact": true,
+      "grading_error": null,
+      "input_rows": 300,
+      "output_sha256": "909406bf9bd61ad61d2b3d6e6a587ad472ca2fe35e28d3f5da58ce52cac084e7"
+    }
+  ],
+  "codex_first_use": [
+    {
+      "seconds": 8.565,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 41511,
+        "inputTokens": 41219,
+        "cachedInputTokens": 32000,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 292,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "task": "inventory",
+      "arm": "codex_from_scratch",
+      "input_rows": 144,
+      "tool_output_exact": true,
+      "chat_reply_exact": true
+    },
+    {
+      "seconds": 10.769,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 41626,
+        "inputTokens": 41318,
+        "cachedInputTokens": 32000,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 308,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "commandExecution",
+          "tool": null,
+          "seconds": 0.0,
+          "status": "completed"
+        }
+      ],
+      "task": "sla",
+      "arm": "codex_from_scratch",
+      "input_rows": 144,
+      "tool_output_exact": true,
+      "chat_reply_exact": true
+    }
+  ]
+}

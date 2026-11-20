@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "CookBook APR",
+  "version": "0.2.0",
+  "identifier": "ai.cookbook.apr",
+  "build": {
+    "beforeDevCommand": "python3 prepare.py",
+    "beforeBuildCommand": "python3 prepare.py",
+    "frontendDist": "../dist"
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "",
+      "endpoints": []
+    }
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [],
+    "security": {
+      "capabilities": [
+        "inspector",
+        "setup"
+      ],
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src ipc: http://ipc.localhost; object-src 'none'; base-uri 'none'; frame-src 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "externalBin": [
+      "binaries/apr"
+    ],
+    "shortDescription": "Your agents write recipes. CookBook runs them.",
+    "category": "DeveloperTool",
+    "icon": [
+      "icons/icon.png",
+      "icons/icon.icns"
+    ],
+    "resources": [
+      "../../../THIRD_PARTY_NOTICES.md"
+    ]
+  }
+}

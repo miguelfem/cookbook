@@ -1,0 +1,57 @@
+{
+  "study": "E02",
+  "task": "Synthetic invoice readiness wrapper",
+  "output_fields": {
+    "record_id": "exact input ID",
+    "customer": "profile.name stripped and every whitespace run collapsed to one space",
+    "currency": "profile.currency stripped and uppercase",
+    "total_minor": "sum quantity*unit_minor for ready ledger lines, integer",
+    "ready_quantity": "sum quantity for ready ledger lines",
+    "on_hold_lines": "count of hold ledger lines, not sum of their quantities",
+    "evidence": "object copying exact profile.source_id and ledger.source_id"
+  },
+  "inputs": {
+    "record_id": "string"
+  },
+  "source_interface": "service.py profile RECORD_ID and service.py ledger RECORD_ID; stdout JSON; nonzero exit means failure",
+  "development_ids": [
+    "dev-elm"
+  ],
+  "conditions": [
+    "direct_agent",
+    "reusable_script",
+    "cookbook"
+  ],
+  "matched_holdout_cases": 3,
+  "ordering": [
+    [
+      "direct_agent",
+      "reusable_script",
+      "cookbook"
+    ],
+    [
+      "reusable_script",
+      "cookbook",
+      "direct_agent"
+    ],
+    [
+      "cookbook",
+      "direct_agent",
+      "reusable_script"
+    ]
+  ],
+  "client": "codex-cli 0.155.0-alpha.9.2",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "low",
+  "approval": "normal automatic review, workspace-write",
+  "success": "Exact complete JSON object equality against independently specified expected output; no extra keys; both source reads and evidence required",
+  "costs": "No external providers in E02; client subscription dollar cost and reviewer usage unknown unless exposed",
+  "budgets": {
+    "measured_cases": 9,
+    "authoring_sessions_per_condition": 1,
+    "seconds_per_session": 300,
+    "tool_calls_per_session": 32
+  },
+  "no_retuning": "Freeze reusable code/recipe before opening holdout. Retain failed trials, no replacement samples.",
+  "custody": "Heldout labels kept outside author project and absent from prompts. Same-user filesystem access is not a hard isolation boundary."
+}

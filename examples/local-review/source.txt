@@ -1,0 +1,2 @@
+This local record is a synthetic review fixture.
+No provider, model or external service is called.

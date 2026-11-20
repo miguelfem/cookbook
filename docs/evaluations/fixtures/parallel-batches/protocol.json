@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "pairs": 3,
+  "order": "AB, BA, AB (alternating)",
+  "jobs": {
+    "jobs": [
+      {
+        "id": "owner",
+        "payload": {
+          "answer": "Ada",
+          "evidence": "  preserve spaces  "
+        }
+      },
+      {
+        "id": "amount",
+        "payload": {
+          "answer": 7,
+          "evidence": "line one\nline two"
+        }
+      },
+      {
+        "id": "label",
+        "payload": {
+          "answer": "Mérida / 東京",
+          "evidence": "quote: \"yes\""
+        }
+      },
+      {
+        "id": "flags",
+        "payload": {
+          "answer": [
+            true,
+            false,
+            null
+          ],
+          "evidence": "exact JSON"
+        }
+      }
+    ]
+  },
+  "cases": [
+    "composed-pure",
+    "direct-native",
+    "composed-native"
+  ],
+  "wait_ms": 5000,
+  "poll_ms_if_incomplete": 100,
+  "python_sleep_ms": 350,
+  "setup": "New private state, grant, service, MCP initialization and all registration excluded from reuse timing; retained separately.",
+  "quality": "Exact complete id/payload including Unicode, whitespace and JSON types; timestamps are measured outputs.",
+  "acceptance": "All outputs exact; candidate first call complete; native overlap between 2 and 4; same request key adds no effects.",
+  "measurement": "Actual MCP tool boundaries; compact JSON byte counts are not model tokens. No real provider/model calls.",
+  "binary_sha256": {
+    "baseline": "df9b08eae1d36d10b2dded2047d63e9cb1e2239845417e535ab05842b36b37b8",
+    "candidate": "63d382cc74ea6a952bd8e8e1aa4ec98009befeffa161420d111e7fa0c09aac47"
+  },
+  "helper_sha256": "dbb13da91a31f9532ea1763a3da99e3782bc0b13106ae674577ca3a6e2352876",
+  "worker_sha256": "020a3348248df59381badeede27dae7bc9c62d1a67fc68868a5ef04fd2465a0f"
+}

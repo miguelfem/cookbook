@@ -1,0 +1,857 @@
+{
+  "benchmark": "apr-synthetic-domain-outcomes-v1",
+  "binary_bytes": 12804800,
+  "binary_sha256": "beb5b9d6e83f9d397d07010b07704b5dfa0877b5a79de367222174fb874501dc",
+  "cases_per_iteration": 6,
+  "caveats": [
+    "Synthetic fixtures and canned caller results check runtime correctness; no model, human-quality assessment, or live provider participates.",
+    "First/reuse phases refer to existing saved definitions. Authoring, setup maintenance, direct-agent baselines and correction effort are not measured.",
+    "Protocol bytes are exact UTF-8 frames, including auth fields and polling. They are not model tokens or inferred savings; no token values are printed.",
+    "Elapsed run time includes Python calls and 10 ms polling; verification/replay traffic is reported separately.",
+    "The executable is supplied by the caller; the harness does not attest its build profile or complete installed footprint.",
+    "No runtime settings or client configuration are installed. Temporary state is removed; the runtime-managed permanent endpoint lock remains."
+  ],
+  "definitions": [
+    {
+      "cases_sha256": "d8c8ab7a060e02f1b49859170e180bc59346f4dc61ae60ff73999c9ebfe9ae23",
+      "domain": "research-triage",
+      "manifest_bytes": 4115,
+      "manifest_sha256": "33b155fd7da85eb0630cdc5a7e5a2fe9a4f3b7c459e9eaaa681653b5fd3d983a",
+      "process_ref": "sha256:c64764850713994d824d0de853accadf5a3d8743bcfcd98ad4793a9d1acb49af",
+      "validation_and_registration_ms": 81.934
+    },
+    {
+      "cases_sha256": "c3639a3aa067d2df124086001cde4273e52386aa18bde8ca3ddd869272631ce9",
+      "domain": "operations-intake",
+      "manifest_bytes": 4100,
+      "manifest_sha256": "8ae75532de338872c61d2338a98c1643690dd4ebd009764acc8975c7a5f8ee6b",
+      "process_ref": "sha256:93783ead72d7b0c711e5f748d6b39ab86b33b5bdc6de380e6439e36bf0c4ff6f",
+      "validation_and_registration_ms": 80.895
+    },
+    {
+      "cases_sha256": "9e95cfc6a0a91738324d65741069430e030f4cd98a0cad442d1fcb8b7f40fce7",
+      "domain": "software-verification",
+      "manifest_bytes": 4169,
+      "manifest_sha256": "2ba49dd005b056120245e7d29ebe207cfc8662d86498614af50869808950547b",
+      "process_ref": "sha256:df4733d17d70e4461cf4b8424d3bc7067f1bd627c016f5c8d4a4c04fcf0d5976",
+      "validation_and_registration_ms": 59.638
+    }
+  ],
+  "final_storage_metadata": {
+    "database_bytes": 4525560,
+    "orphan_object_bytes": 0,
+    "quota_bytes": null,
+    "quota_mode": "unlimited",
+    "quota_used_bytes": 560,
+    "registered_artifact_bytes": 560,
+    "registered_artifacts": 6,
+    "runs": 18,
+    "schema_version": 8,
+    "stored_object_bytes": 560
+  },
+  "fixture_setup_ms": 101.851,
+  "graceful_owned_service_shutdown": true,
+  "iterations_per_case": 3,
+  "machine": "arm64",
+  "model_cost": null,
+  "model_tokens": null,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python_version": "3.11.1",
+  "release_context": {
+    "association": "Operator-supplied release-ready build context; the binary hash is verified, but this script does not independently attest its source or compiler.",
+    "cached_archive_sha256": "b9c90e49558af2b2c976a2fe9f9bb79b23a89654a327a9f6fa2dd862b90f23a8",
+    "declared_features": [],
+    "declared_target": "aarch64-apple-darwin",
+    "source_revision": "e80754cf69c12003d0e002a2519ce8bc267223bc",
+    "source_verification": {
+      "committed_source_index_matches": true,
+      "executed_harness_and_fixture_bytes_match_commit": true,
+      "full_working_tree_content_scan_completed": false,
+      "limitation": "The initial broad Git working-tree source reread timed out on Documents filesystem reads. Source-to-binary association relies on the operator release-ready statement; the exact binary digest, committed source/index, executed harness/fixtures, and package inputs are verified."
+    }
+  },
+  "run_elapsed_ms": {
+    "max": 218.248,
+    "median": 178.742,
+    "min": 151.254
+  },
+  "samples": [
+    {
+      "artifact_bytes": 78,
+      "artifact_count": 1,
+      "artifact_sha256": "c433254a0858c86b4b6a0c6de6979d77cdc289a1007e5c4b008967c9c0bc7ef4",
+      "caller_handoffs": 0,
+      "case": "primary_source",
+      "domain": "research-triage",
+      "elapsed_ms": 151.254,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "run": 1
+        },
+        "calls": 6,
+        "request_bytes": 1643,
+        "response_bytes": 5483
+      },
+      "iteration": 0,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "first_saved_definition_run",
+      "provider_cost": null,
+      "selected_route": "accept",
+      "step_attempts": {
+        "accept": 1,
+        "join": 1,
+        "report": 1,
+        "review": 0,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1099,
+        "response_bytes": 2964
+      }
+    },
+    {
+      "artifact_bytes": 119,
+      "artifact_count": 1,
+      "artifact_sha256": "dd98f49aa8a12547c0c0ad343cfa4ee2f0b0a34376200c732e548ac9718a3986",
+      "caller_handoffs": 1,
+      "case": "secondary_source",
+      "domain": "research-triage",
+      "elapsed_ms": 208.448,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 6,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 8,
+        "request_bytes": 2627,
+        "response_bytes": 8272
+      },
+      "iteration": 0,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "first_saved_definition_run",
+      "provider_cost": null,
+      "selected_route": "review",
+      "step_attempts": {
+        "accept": 0,
+        "join": 1,
+        "report": 1,
+        "review": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1827,
+        "response_bytes": 4770
+      }
+    },
+    {
+      "artifact_bytes": 78,
+      "artifact_count": 1,
+      "artifact_sha256": "c433254a0858c86b4b6a0c6de6979d77cdc289a1007e5c4b008967c9c0bc7ef4",
+      "caller_handoffs": 0,
+      "case": "primary_source",
+      "domain": "research-triage",
+      "elapsed_ms": 159.267,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "run": 1
+        },
+        "calls": 6,
+        "request_bytes": 1649,
+        "response_bytes": 5479
+      },
+      "iteration": 1,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "accept",
+      "step_attempts": {
+        "accept": 1,
+        "join": 1,
+        "report": 1,
+        "review": 0,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1099,
+        "response_bytes": 2973
+      }
+    },
+    {
+      "artifact_bytes": 119,
+      "artifact_count": 1,
+      "artifact_sha256": "dd98f49aa8a12547c0c0ad343cfa4ee2f0b0a34376200c732e548ac9718a3986",
+      "caller_handoffs": 1,
+      "case": "secondary_source",
+      "domain": "research-triage",
+      "elapsed_ms": 191.578,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 7,
+        "request_bytes": 2376,
+        "response_bytes": 7404
+      },
+      "iteration": 1,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "review",
+      "step_attempts": {
+        "accept": 0,
+        "join": 1,
+        "report": 1,
+        "review": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1827,
+        "response_bytes": 4770
+      }
+    },
+    {
+      "artifact_bytes": 78,
+      "artifact_count": 1,
+      "artifact_sha256": "c433254a0858c86b4b6a0c6de6979d77cdc289a1007e5c4b008967c9c0bc7ef4",
+      "caller_handoffs": 0,
+      "case": "primary_source",
+      "domain": "research-triage",
+      "elapsed_ms": 179.934,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "run": 1
+        },
+        "calls": 6,
+        "request_bytes": 1649,
+        "response_bytes": 5479
+      },
+      "iteration": 2,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "accept",
+      "step_attempts": {
+        "accept": 1,
+        "join": 1,
+        "report": 1,
+        "review": 0,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1099,
+        "response_bytes": 2973
+      }
+    },
+    {
+      "artifact_bytes": 119,
+      "artifact_count": 1,
+      "artifact_sha256": "dd98f49aa8a12547c0c0ad343cfa4ee2f0b0a34376200c732e548ac9718a3986",
+      "caller_handoffs": 1,
+      "case": "secondary_source",
+      "domain": "research-triage",
+      "elapsed_ms": 196.429,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 7,
+        "request_bytes": 2376,
+        "response_bytes": 7404
+      },
+      "iteration": 2,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "review",
+      "step_attempts": {
+        "accept": 0,
+        "join": 1,
+        "report": 1,
+        "review": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1827,
+        "response_bytes": 4770
+      }
+    },
+    {
+      "artifact_bytes": 75,
+      "artifact_count": 1,
+      "artifact_sha256": "cafc11e7d07088beb42fe577ca0cf9d2cda2cbdcbc148f86449522156a0f3f51",
+      "caller_handoffs": 1,
+      "case": "critical_incident",
+      "domain": "operations-intake",
+      "elapsed_ms": 174.595,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 7,
+        "request_bytes": 2331,
+        "response_bytes": 7379
+      },
+      "iteration": 0,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "first_saved_definition_run",
+      "provider_cost": null,
+      "selected_route": "escalate",
+      "step_attempts": {
+        "escalate": 1,
+        "join": 1,
+        "report": 1,
+        "route": 1,
+        "routine": 0
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1781,
+        "response_bytes": 4658
+      }
+    },
+    {
+      "artifact_bytes": 77,
+      "artifact_count": 1,
+      "artifact_sha256": "b22b43739af4b42fa4641c743423f40e4b50a82b9422a6a73e2a866a2a9a93ac",
+      "caller_handoffs": 0,
+      "case": "routine_request",
+      "domain": "operations-intake",
+      "elapsed_ms": 194.288,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 6,
+          "run": 1
+        },
+        "calls": 7,
+        "request_bytes": 1897,
+        "response_bytes": 6386
+      },
+      "iteration": 0,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "first_saved_definition_run",
+      "provider_cost": null,
+      "selected_route": "routine",
+      "step_attempts": {
+        "escalate": 0,
+        "join": 1,
+        "report": 1,
+        "route": 1,
+        "routine": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1096,
+        "response_bytes": 2983
+      }
+    },
+    {
+      "artifact_bytes": 75,
+      "artifact_count": 1,
+      "artifact_sha256": "cafc11e7d07088beb42fe577ca0cf9d2cda2cbdcbc148f86449522156a0f3f51",
+      "caller_handoffs": 1,
+      "case": "critical_incident",
+      "domain": "operations-intake",
+      "elapsed_ms": 199.603,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 7,
+        "request_bytes": 2331,
+        "response_bytes": 7379
+      },
+      "iteration": 1,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "escalate",
+      "step_attempts": {
+        "escalate": 1,
+        "join": 1,
+        "report": 1,
+        "route": 1,
+        "routine": 0
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1781,
+        "response_bytes": 4658
+      }
+    },
+    {
+      "artifact_bytes": 77,
+      "artifact_count": 1,
+      "artifact_sha256": "b22b43739af4b42fa4641c743423f40e4b50a82b9422a6a73e2a866a2a9a93ac",
+      "caller_handoffs": 0,
+      "case": "routine_request",
+      "domain": "operations-intake",
+      "elapsed_ms": 156.275,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "run": 1
+        },
+        "calls": 6,
+        "request_bytes": 1650,
+        "response_bytes": 5518
+      },
+      "iteration": 1,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "routine",
+      "step_attempts": {
+        "escalate": 0,
+        "join": 1,
+        "report": 1,
+        "route": 1,
+        "routine": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1099,
+        "response_bytes": 2986
+      }
+    },
+    {
+      "artifact_bytes": 75,
+      "artifact_count": 1,
+      "artifact_sha256": "cafc11e7d07088beb42fe577ca0cf9d2cda2cbdcbc148f86449522156a0f3f51",
+      "caller_handoffs": 1,
+      "case": "critical_incident",
+      "domain": "operations-intake",
+      "elapsed_ms": 210.093,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 7,
+        "request_bytes": 2338,
+        "response_bytes": 7386
+      },
+      "iteration": 2,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "escalate",
+      "step_attempts": {
+        "escalate": 1,
+        "join": 1,
+        "report": 1,
+        "route": 1,
+        "routine": 0
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1785,
+        "response_bytes": 4668
+      }
+    },
+    {
+      "artifact_bytes": 77,
+      "artifact_count": 1,
+      "artifact_sha256": "b22b43739af4b42fa4641c743423f40e4b50a82b9422a6a73e2a866a2a9a93ac",
+      "caller_handoffs": 0,
+      "case": "routine_request",
+      "domain": "operations-intake",
+      "elapsed_ms": 155.738,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "run": 1
+        },
+        "calls": 6,
+        "request_bytes": 1652,
+        "response_bytes": 5520
+      },
+      "iteration": 2,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "routine",
+      "step_attempts": {
+        "escalate": 0,
+        "join": 1,
+        "report": 1,
+        "route": 1,
+        "routine": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1099,
+        "response_bytes": 2997
+      }
+    },
+    {
+      "artifact_bytes": 96,
+      "artifact_count": 1,
+      "artifact_sha256": "f25c75f36a93263baa03a592ff4f38d85b4d3710c3bd7a6227b6f72de70656e0",
+      "caller_handoffs": 0,
+      "case": "passing_checks",
+      "domain": "software-verification",
+      "elapsed_ms": 174.584,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "run": 1
+        },
+        "calls": 6,
+        "request_bytes": 1641,
+        "response_bytes": 5552
+      },
+      "iteration": 0,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "first_saved_definition_run",
+      "provider_cost": null,
+      "selected_route": "ready",
+      "step_attempts": {
+        "investigate": 0,
+        "join": 1,
+        "ready": 1,
+        "report": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1088,
+        "response_bytes": 3032
+      }
+    },
+    {
+      "artifact_bytes": 115,
+      "artifact_count": 1,
+      "artifact_sha256": "4908882ab69bf67f4fb2accd1638e4832b8426c2448d7b4cf3221ceec73c8017",
+      "caller_handoffs": 1,
+      "case": "failing_checks",
+      "domain": "software-verification",
+      "elapsed_ms": 177.55,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 7,
+        "request_bytes": 2363,
+        "response_bytes": 7452
+      },
+      "iteration": 0,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "first_saved_definition_run",
+      "provider_cost": null,
+      "selected_route": "investigate",
+      "step_attempts": {
+        "investigate": 1,
+        "join": 1,
+        "ready": 0,
+        "report": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1811,
+        "response_bytes": 4812
+      }
+    },
+    {
+      "artifact_bytes": 96,
+      "artifact_count": 1,
+      "artifact_sha256": "f25c75f36a93263baa03a592ff4f38d85b4d3710c3bd7a6227b6f72de70656e0",
+      "caller_handoffs": 0,
+      "case": "passing_checks",
+      "domain": "software-verification",
+      "elapsed_ms": 170.503,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "run": 1
+        },
+        "calls": 6,
+        "request_bytes": 1641,
+        "response_bytes": 5551
+      },
+      "iteration": 1,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "ready",
+      "step_attempts": {
+        "investigate": 0,
+        "join": 1,
+        "ready": 1,
+        "report": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1088,
+        "response_bytes": 3032
+      }
+    },
+    {
+      "artifact_bytes": 115,
+      "artifact_count": 1,
+      "artifact_sha256": "4908882ab69bf67f4fb2accd1638e4832b8426c2448d7b4cf3221ceec73c8017",
+      "caller_handoffs": 1,
+      "case": "failing_checks",
+      "domain": "software-verification",
+      "elapsed_ms": 191.048,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 7,
+        "request_bytes": 2363,
+        "response_bytes": 7451
+      },
+      "iteration": 1,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "investigate",
+      "step_attempts": {
+        "investigate": 1,
+        "join": 1,
+        "ready": 0,
+        "report": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1811,
+        "response_bytes": 4812
+      }
+    },
+    {
+      "artifact_bytes": 96,
+      "artifact_count": 1,
+      "artifact_sha256": "f25c75f36a93263baa03a592ff4f38d85b4d3710c3bd7a6227b6f72de70656e0",
+      "caller_handoffs": 0,
+      "case": "passing_checks",
+      "domain": "software-verification",
+      "elapsed_ms": 159.498,
+      "event_count": 10,
+      "execution_transport": {
+        "actions": {
+          "inspect": 5,
+          "run": 1
+        },
+        "calls": 6,
+        "request_bytes": 1641,
+        "response_bytes": 5551
+      },
+      "iteration": 2,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "ready",
+      "step_attempts": {
+        "investigate": 0,
+        "join": 1,
+        "ready": 1,
+        "report": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "run": 1
+        },
+        "calls": 3,
+        "request_bytes": 1088,
+        "response_bytes": 3032
+      }
+    },
+    {
+      "artifact_bytes": 115,
+      "artifact_count": 1,
+      "artifact_sha256": "4908882ab69bf67f4fb2accd1638e4832b8426c2448d7b4cf3221ceec73c8017",
+      "caller_handoffs": 1,
+      "case": "failing_checks",
+      "domain": "software-verification",
+      "elapsed_ms": 218.248,
+      "event_count": 9,
+      "execution_transport": {
+        "actions": {
+          "inspect": 6,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 8,
+        "request_bytes": 2615,
+        "response_bytes": 8317
+      },
+      "iteration": 2,
+      "model_cost": null,
+      "model_tokens": null,
+      "outcome_verified": true,
+      "phase": "saved_definition_reuse",
+      "provider_cost": null,
+      "selected_route": "investigate",
+      "step_attempts": {
+        "investigate": 1,
+        "join": 1,
+        "ready": 0,
+        "report": 1,
+        "route": 1
+      },
+      "verification_transport": {
+        "actions": {
+          "inspect": 2,
+          "resume": 1,
+          "run": 1
+        },
+        "calls": 4,
+        "request_bytes": 1811,
+        "response_bytes": 4812
+      }
+    }
+  ],
+  "timestamp_utc": "2026-09-16T22:39:27.142402+00:00",
+  "total_elapsed_ms": 5388.793,
+  "verified_runs": 18
+}

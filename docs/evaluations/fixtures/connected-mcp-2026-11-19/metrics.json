@@ -1,0 +1,422 @@
+{
+  "agent_turns": {
+    "mcp": [
+      {
+        "seconds": 11.137,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 0.877,
+            "result_bytes": 1434,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 50987,
+          "inputTokens": 50623,
+          "cachedInputTokens": 37760,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 364,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 25855,
+          "inputTokens": 25629,
+          "cachedInputTokens": 24960,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "mcp",
+        "trial": 0,
+        "exact": true
+      },
+      {
+        "seconds": 8.844,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 0.798,
+            "result_bytes": 1434,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 67093,
+          "inputTokens": 66729,
+          "cachedInputTokens": 58752,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 364,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 33878,
+          "inputTokens": 33652,
+          "cachedInputTokens": 33024,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "mcp",
+        "trial": 1,
+        "exact": true
+      },
+      {
+        "seconds": 9.312,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 0.925,
+            "result_bytes": 1434,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 68827,
+          "inputTokens": 68459,
+          "cachedInputTokens": 67712,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 368,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 34649,
+          "inputTokens": 34423,
+          "cachedInputTokens": 34048,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "mcp",
+        "trial": 2,
+        "exact": true
+      }
+    ],
+    "slim": [
+      {
+        "seconds": 12.837,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 1.411,
+            "result_bytes": 1125,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 54203,
+          "inputTokens": 53827,
+          "cachedInputTokens": 39424,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 376,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 27396,
+          "inputTokens": 27170,
+          "cachedInputTokens": 26624,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "slim",
+        "trial": 0,
+        "exact": true
+      },
+      {
+        "seconds": 10.564,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 0.982,
+            "result_bytes": 1125,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 55889,
+          "inputTokens": 55508,
+          "cachedInputTokens": 54784,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 381,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 28180,
+          "inputTokens": 27954,
+          "cachedInputTokens": 27520,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "slim",
+        "trial": 1,
+        "exact": true
+      },
+      {
+        "seconds": 9.832,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 0.834,
+            "result_bytes": 1125,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 57457,
+          "inputTokens": 57076,
+          "cachedInputTokens": 56320,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 381,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 28964,
+          "inputTokens": 28738,
+          "cachedInputTokens": 28288,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "slim",
+        "trial": 2,
+        "exact": true
+      }
+    ],
+    "managed-slim": [
+      {
+        "seconds": 12.103,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 0.865,
+            "result_bytes": 1125,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 54327,
+          "inputTokens": 53927,
+          "cachedInputTokens": 39552,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 400,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 27458,
+          "inputTokens": 27232,
+          "cachedInputTokens": 26752,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "managed-slim",
+        "trial": 0,
+        "exact": true
+      },
+      {
+        "seconds": 10.245,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 0.984,
+            "result_bytes": 1125,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 56152,
+          "inputTokens": 55752,
+          "cachedInputTokens": 54912,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 400,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 28340,
+          "inputTokens": 28114,
+          "cachedInputTokens": 27648,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "managed-slim",
+        "trial": 1,
+        "exact": true
+      },
+      {
+        "seconds": 10.81,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "mcpToolCall",
+            "tool": "apr_run",
+            "seconds": 0.828,
+            "result_bytes": 1125,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 57919,
+          "inputTokens": 57519,
+          "cachedInputTokens": 56704,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 400,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 29225,
+          "inputTokens": 28999,
+          "cachedInputTokens": 28544,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "managed-slim",
+        "trial": 2,
+        "exact": true
+      }
+    ],
+    "script": [
+      {
+        "seconds": 9.879,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "commandExecution",
+            "tool": null,
+            "seconds": 0.444,
+            "result_bytes": 1102,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 50529,
+          "inputTokens": 50208,
+          "cachedInputTokens": 37632,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 321,
+          "reasoningOutputTokens": 9
+        },
+        "last_request_usage": {
+          "totalTokens": 25532,
+          "inputTokens": 25306,
+          "cachedInputTokens": 24832,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "script",
+        "trial": 0,
+        "exact": true
+      },
+      {
+        "seconds": 8.751,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "commandExecution",
+            "tool": null,
+            "seconds": 0.465,
+            "result_bytes": 1102,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 65979,
+          "inputTokens": 65669,
+          "cachedInputTokens": 57856,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 310,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 33225,
+          "inputTokens": 32999,
+          "cachedInputTokens": 32512,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "script",
+        "trial": 1,
+        "exact": true
+      },
+      {
+        "seconds": 8.228,
+        "status": "completed",
+        "calls": [
+          {
+            "type": "commandExecution",
+            "tool": null,
+            "seconds": 0.447,
+            "result_bytes": 1102,
+            "status": "completed"
+          }
+        ],
+        "usage": {
+          "totalTokens": 67237,
+          "inputTokens": 66927,
+          "cachedInputTokens": 66176,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 310,
+          "reasoningOutputTokens": 0
+        },
+        "last_request_usage": {
+          "totalTokens": 33854,
+          "inputTokens": 33628,
+          "cachedInputTokens": 33152,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 226,
+          "reasoningOutputTokens": 0
+        },
+        "arm": "script",
+        "trial": 2,
+        "exact": true
+      }
+    ]
+  },
+  "host_invocations": [
+    {
+      "arm": "managed-direct",
+      "trial": 0,
+      "seconds": 0.835,
+      "exact": true,
+      "bytes": 1128,
+      "model_tokens": 0
+    },
+    {
+      "arm": "managed-direct",
+      "trial": 1,
+      "seconds": 0.834,
+      "exact": true,
+      "bytes": 1128,
+      "model_tokens": 0
+    },
+    {
+      "arm": "managed-direct",
+      "trial": 2,
+      "seconds": 0.891,
+      "exact": true,
+      "bytes": 1128,
+      "model_tokens": 0
+    }
+  ]
+}

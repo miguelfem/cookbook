@@ -1,0 +1,39 @@
+{
+  "attempted_model_turns": 4,
+  "completed_model_turns": 4,
+  "exact_holdouts": 3,
+  "holdouts": 3,
+  "failures": [],
+  "holdout_wall_seconds": 16.918152583999998,
+  "holdout_tool_seconds": 0.46199999999999997,
+  "holdout_apr_durable_seconds": 0.306,
+  "holdout_approval_events": 0,
+  "holdout_tokens": {
+    "turn_total_tokens": 186872,
+    "turn_input_tokens": 186294,
+    "turn_cached_input_tokens": 174592,
+    "turn_noncached_input_tokens": 11702,
+    "turn_output_tokens": 578,
+    "turn_reasoning_output_tokens": 68
+  },
+  "study": "E02 later trusted prepared-conversation amendment, 2026-09-22",
+  "client": "Codex CLI 0.155.0-alpha.9.2",
+  "model": "gpt-5.6-luna",
+  "requested_effort": "low",
+  "effective_per_turn_effort": null,
+  "billed_cost": null,
+  "separate_review_usage": null,
+  "installed_apr_sha256": "11b3b47d6c0c035ec1e2405163f370d430300744f3863726375341eaa0d21712",
+  "active_surface": "fixed run attachment; apr_run and apr_inspect enabled",
+  "approval_mode": "approve for apr_run only",
+  "oracle_provenance": "separately authored deterministic frozen oracle; not human reviewed",
+  "comparison_limit": "later run, not interleaved; newly installed skill catalog and different setup behavior; no isolated causal latency/token saving",
+  "skill_catalog_visible": true,
+  "explicit_skill_body_read_observed": false,
+  "private_evidence_sha256": {
+    "report.md": "6def810b2f56205e22f937d7ea763aae402ff3ad27edca2026227920f808c0cf",
+    "harness-freeze.json": "ba94d6c4e7feab3229b51dc02b1085aeec4f06d072435948134d453e655143c9",
+    "case-metrics.jsonl": "623dd46cc307f2ca6084b75679c5c1ea2633afb0b3e1fda21e4d797c37a47245",
+    "metrics-summary.json": "0e7eda059ee20d69faf878554922b93848913d47abf37faa89e937c9b1b0d664"
+  }
+}

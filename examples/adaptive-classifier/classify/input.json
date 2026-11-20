@@ -1,0 +1,12 @@
+{
+  "records": [
+    {
+      "id": "example-account",
+      "text": "I cannot sign in to my account."
+    },
+    {
+      "id": "example-refund",
+      "text": "I was charged twice and need a refund."
+    }
+  ]
+}

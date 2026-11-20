@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.2",
+  "name": "starter.save-note",
+  "description": "Save a note as a reusable JSON artifact. No account, network or model is needed.",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "note"
+    ],
+    "properties": {
+      "note": {
+        "type": "string",
+        "maxLength": 8000
+      }
+    },
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "saved_note"
+    ],
+    "properties": {
+      "saved_note": {
+        "type": "object"
+      }
+    },
+    "additionalProperties": false
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "builtin"
+    },
+    {
+      "kind": "artifacts"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 10000,
+    "max_artifact_bytes": 65536,
+    "max_provider_calls": 0,
+    "max_agent_requests": 0,
+    "max_call_depth": 1,
+    "max_child_runs": 1,
+    "max_step_instances": 4
+  },
+  "steps": [
+    {
+      "id": "save",
+      "kind": "builtin",
+      "operation": "json.write",
+      "needs": [],
+      "effect": "pure",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "value": {
+          "input": ""
+        }
+      }
+    }
+  ],
+  "output": {
+    "saved_note": {
+      "step": "save",
+      "pointer": "/artifact"
+    }
+  }
+}

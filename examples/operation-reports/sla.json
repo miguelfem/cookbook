@@ -1,0 +1,215 @@
+{
+  "schema_version": "0.2",
+  "name": "synthetic.sla",
+  "description": "Validate and summarize synthetic sla CSV data.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "source",
+      "include_rows"
+    ],
+    "properties": {
+      "source": {
+        "type": "object"
+      },
+      "include_rows": {
+        "type": "boolean"
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "summary",
+      "report",
+      "rows"
+    ],
+    "properties": {
+      "summary": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "checked",
+          "breached",
+          "unanswered"
+        ],
+        "properties": {
+          "checked": {
+            "type": "integer"
+          },
+          "breached": {
+            "type": "integer"
+          },
+          "unanswered": {
+            "type": "integer"
+          }
+        }
+      },
+      "report": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "sha256",
+          "media_type",
+          "bytes"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "media_type": {
+            "const": "application/json"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "rows": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "files": [
+    {
+      "path": "sla.py",
+      "sha256": "d701f08b84ec4afea55b149af69d942bb5ba341544106b847f4abf3515861fd9"
+    }
+  ],
+  "capabilities": [
+    {
+      "kind": "script",
+      "language": "python"
+    },
+    {
+      "kind": "artifacts"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 5000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 0,
+    "max_agent_requests": 0,
+    "max_step_instances": 1
+  },
+  "steps": [
+    {
+      "id": "sla",
+      "kind": "script",
+      "entrypoint": "sla.py",
+      "effect": "write",
+      "needs": [],
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "source": {
+          "input": "/source"
+        },
+        "include_rows": {
+          "input": "/include_rows"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "summary",
+          "report",
+          "rows"
+        ],
+        "properties": {
+          "summary": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "checked",
+              "breached",
+              "unanswered"
+            ],
+            "properties": {
+              "checked": {
+                "type": "integer"
+              },
+              "breached": {
+                "type": "integer"
+              },
+              "unanswered": {
+                "type": "integer"
+              }
+            }
+          },
+          "report": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "artifact_id",
+              "sha256",
+              "media_type",
+              "bytes"
+            ],
+            "properties": {
+              "artifact_id": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string"
+              },
+              "media_type": {
+                "const": "application/json"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          },
+          "rows": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "output": {
+    "summary": {
+      "step": "sla",
+      "pointer": "/summary"
+    },
+    "report": {
+      "step": "sla",
+      "pointer": "/report"
+    },
+    "rows": {
+      "step": "sla",
+      "pointer": "/rows"
+    }
+  }
+}

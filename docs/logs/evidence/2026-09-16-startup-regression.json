@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-16",
+  "source_commit": "8f15b10",
+  "status": "corrected_and_focused_checks_passed",
+  "observed_failure": {
+    "platform": "macOS ARM64",
+    "rust_toolchain": "1.94.0",
+    "command": "cargo test --workspace --all-features --locked --offline",
+    "test": "concurrent_clients_start_one_authenticated_supervisor",
+    "symptom": "The final service test remained live beyond 60 seconds while the other service tests had passed.",
+    "parent_stack": [
+      "ServiceClient::call",
+      "ServiceClient::start_service",
+      "std::process::Command::spawn",
+      "std::sys::process::unix::spawn",
+      "read"
+    ],
+    "sample_observation": "All 3116 samples of the blocked client worker remained in the spawn read. The test thread waited for that worker to join.",
+    "supervisor_observation": "The already-started supervisor was healthy and idle in its accept loop and two channel receivers.",
+    "paired_pipe_ownership": "The blocked launcher retained a pipe read endpoint. The living supervisor retained the peer write endpoint. No raw descriptor addresses or process identifiers are included.",
+    "diagnosis": "The stacks and paired pipe endpoints strongly indicate an inherited fork/exec handshake writer keeping another concurrent Command::spawn blocked. This is not a SQLite deadlock or a sampled filesystem-path read stall.",
+    "timeout_gap": "Existing connection/read deadlines begin after spawn returns and therefore could not bound this stall."
+  },
+  "source_review": {
+    "runtime_contract": "One supervisor owns accepted work independently of the client bridge. Startup attempts converge, and launcher process-group teardown must not stop the supervisor.",
+    "session_contract": "The documented contract does not require a new session or guarantee survival of user logout or whole-session termination.",
+    "rust_references": [
+      {
+        "url": "https://github.com/rust-lang/rust/blob/1.94.0/library/std/src/sys/process/unix/unix.rs#L431-L439",
+        "finding": "A pre_exec callback prevents the posix_spawn path."
+      },
+      {
+        "url": "https://github.com/rust-lang/rust/blob/1.94.0/library/std/src/sys/process/unix/unix.rs#L675-L677",
+        "finding": "A requested process group is supported through posix_spawn attributes."
+      },
+      {
+        "url": "https://doc.rust-lang.org/std/os/unix/process/trait.CommandExt.html#tymethod.process_group",
+        "finding": "The stable process_group(0) API uses the child process identifier for its new group."
+      }
+    ]
+  },
+  "correction": {
+    "file": "crates/apr-runtime/src/service.rs",
+    "change": "Replace the pre_exec setsid callback with CommandExt::process_group(0).",
+    "preserved_behavior": [
+      "Independent supervisor process group",
+      "Null standard streams",
+      "Background child reaping",
+      "Foreground diagnostic service behavior",
+      "Existing service connection and response deadlines"
+    ],
+    "additional_dependencies": false,
+    "custom_unsafe_spawn_implementation": false
+  },
+  "behavioral_regressions": [
+    {
+      "test": "concurrent_clients_start_one_authenticated_supervisor",
+      "assertion": "Eight simultaneous real clients return the same authenticated supervisor identity, and a later client returns that same identity.",
+      "failure_bound": "The test runs startup inside an owned launcher process group with a 20-second outer deadline. A stuck spawn or join no longer traps the entire test harness. Cleanup targets only the owned launcher group and fixture supervisor."
+    },
+    {
+      "test": "supervisor_survives_launcher_process_group_teardown",
+      "assertion": "Terminate the real launcher's process group with SIGTERM, confirm the launcher terminated from that signal, and verify the same supervisor through raw authenticated IPC that cannot start a replacement."
+    }
+  ],
+  "validation": [
+    {
+      "phase": "before_correction",
+      "command": "cargo test -p apr-cli --test service --all-features --locked --offline supervisor_survives_launcher_process_group_teardown -- --exact",
+      "result": "1 passed, 0 failed",
+      "test_duration_seconds": 0.99,
+      "purpose": "Confirm the added teardown test preserves existing behavior. The captured live concurrency hang is the failing reproduction; this preservation test is not claimed to fail before the correction."
+    },
+    {
+      "phase": "after_correction",
+      "command": "cargo test -p apr-cli --test service --all-features --locked --offline",
+      "source_state": "8f15b10 plus the startup correction and regression tests",
+      "result": "16 passed, 0 failed, 0 ignored",
+      "test_duration_seconds": 6.0,
+      "coverage": "Includes concurrent startup, launcher-group teardown, client disconnect, recovery, authentication, response budgets, and native-work cancellation."
+    },
+    {
+      "phase": "after_correction",
+      "command": "rustfmt --edition 2024 --check crates/apr-runtime/src/service.rs crates/apr-cli/tests/service.rs",
+      "result": "passed"
+    }
+  ],
+  "limits": [
+    "The focused checks above ran on macOS ARM64. Final workspace, strict lint and Linux gates are coordinated separately.",
+    "No blanket arbitrary inherited-file-descriptor cleanup guarantee is asserted. The pinned Rust posix_spawn implementation does not set POSIX_SPAWN_CLOEXEC_DEFAULT.",
+    "Raw process samples and host-specific paths remain outside this sanitized record."
+  ],
+  "fix_source_commit": "e80754cf69c12003d0e002a2519ce8bc267223bc"
+}

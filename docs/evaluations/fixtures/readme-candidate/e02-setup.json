@@ -1,0 +1,136 @@
+{
+  "original_autonomous": [
+    {
+      "arm": "direct",
+      "development_exact": true,
+      "source_audit": {
+        "profile_calls": 1,
+        "ledger_calls": 1,
+        "has_both_sources": true
+      },
+      "turn_status": "completed",
+      "stop_reason": null,
+      "wall_seconds": 24.449898917,
+      "tool_calls": 3,
+      "usage": {
+        "totalTokens": 96886,
+        "inputTokens": 96034,
+        "cachedInputTokens": 65536,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 852,
+        "reasoningOutputTokens": 159
+      }
+    },
+    {
+      "arm": "script",
+      "development_exact": true,
+      "source_audit": {
+        "profile_calls": 3,
+        "ledger_calls": 3,
+        "has_both_sources": true
+      },
+      "turn_status": "completed",
+      "stop_reason": null,
+      "wall_seconds": 39.519739834,
+      "tool_calls": 5,
+      "usage": {
+        "totalTokens": 196518,
+        "inputTokens": 194888,
+        "cachedInputTokens": 175104,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1630,
+        "reasoningOutputTokens": 271
+      }
+    },
+    {
+      "arm": "cookbook",
+      "development_exact": false,
+      "source_audit": {
+        "profile_calls": 0,
+        "ledger_calls": 0,
+        "has_both_sources": false
+      },
+      "turn_status": null,
+      "stop_reason": "wall_clock_limit",
+      "wall_seconds": null,
+      "tool_calls": 21,
+      "usage": {
+        "totalTokens": 861397,
+        "inputTokens": 855464,
+        "cachedInputTokens": 781568,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 5933,
+        "reasoningOutputTokens": 1905
+      }
+    }
+  ],
+  "assisted_prepared_practice": [
+    {
+      "arm": "direct",
+      "development_exact": true,
+      "source_audit": {
+        "profile_calls": 2,
+        "ledger_calls": 2,
+        "has_both_sources": true
+      },
+      "turn_status": "completed",
+      "stop_reason": null,
+      "wall_seconds": 22.120578917,
+      "tool_calls": 3,
+      "usage": {
+        "totalTokens": 114870,
+        "inputTokens": 114107,
+        "cachedInputTokens": 98048,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 763,
+        "reasoningOutputTokens": 140
+      }
+    },
+    {
+      "arm": "script",
+      "development_exact": true,
+      "source_audit": {
+        "profile_calls": 4,
+        "ledger_calls": 4,
+        "has_both_sources": true
+      },
+      "turn_status": "completed",
+      "stop_reason": null,
+      "wall_seconds": 23.131821791,
+      "tool_calls": 4,
+      "usage": {
+        "totalTokens": 118454,
+        "inputTokens": 117521,
+        "cachedInputTokens": 101120,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 933,
+        "reasoningOutputTokens": 186
+      }
+    },
+    {
+      "arm": "cookbook",
+      "development_exact": true,
+      "source_audit": {
+        "profile_calls": 2,
+        "ledger_calls": 2,
+        "has_both_sources": true
+      },
+      "turn_status": "completed",
+      "stop_reason": null,
+      "wall_seconds": 43.3387495,
+      "tool_calls": 5,
+      "usage": {
+        "totalTokens": 252276,
+        "inputTokens": 250614,
+        "cachedInputTokens": 226048,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1662,
+        "reasoningOutputTokens": 225
+      }
+    }
+  ],
+  "manual_authoring_seconds": null,
+  "original_cookbook_stop_after_seconds": 180,
+  "failed_manual_preparation": "Semantic write-effect requirement; no registration or dispatch",
+  "cost_scope": "Actual client subscription dollars and manual authoring time unknown. Original and amended setup are excluded from prepared reuse but remain attributable setup."
+}

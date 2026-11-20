@@ -1,0 +1,148 @@
+{
+  "schema_version": "0.2",
+  "name": "example.profile-batch",
+  "description": "Return fictional name, organization and role for each fixture address, in input order.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "emails"
+    ],
+    "properties": {
+      "emails": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 16,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "pattern": "^person(0[1-9]|1[0-6])@example\\.test$"
+        }
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "profiles"
+    ],
+    "properties": {
+      "profiles": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "key",
+            "output"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "key": {
+              "type": "string",
+              "pattern": "^person(0[1-9]|1[0-6])@example\\.test$"
+            },
+            "output": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "organization",
+                "role"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "organization": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "files": [
+    {
+      "path": "profiles.py",
+      "sha256": "b0021b26f4fb0e249e406c1fca98a7f66a0b999635f49d70b59d284e6b8e0647"
+    }
+  ],
+  "capabilities": [
+    {
+      "kind": "script",
+      "language": "python"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 2000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 0,
+    "max_agent_requests": 0,
+    "max_step_instances": 17
+  },
+  "steps": [
+    {
+      "id": "profiles",
+      "kind": "script",
+      "entrypoint": "profiles.py",
+      "effect": "write",
+      "needs": [],
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "email": {
+          "item": ""
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "organization",
+          "role"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      },
+      "foreach": {
+        "items": {
+          "input": "/emails"
+        },
+        "key": "",
+        "max_items": 16,
+        "concurrency": 4
+      }
+    }
+  ],
+  "output": {
+    "profiles": {
+      "step": "profiles",
+      "pointer": "/items"
+    }
+  }
+}

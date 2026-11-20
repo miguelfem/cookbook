@@ -1,0 +1,160 @@
+{
+  "schema_version": "0.2",
+  "name": "batch.composed-parent",
+  "description": "Synthetic, provider-free batch execution proof.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "select_jobs": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 8,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            "payload": {
+              "type": "object"
+            },
+            "pointer": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          "required": [
+            "id",
+            "payload",
+            "pointer"
+          ]
+        }
+      },
+      "echo_jobs": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 8,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            "payload": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "id",
+            "payload"
+          ]
+        }
+      }
+    },
+    "required": [
+      "select_jobs",
+      "echo_jobs"
+    ]
+  },
+  "output_schema": {
+    "type": "object"
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [],
+  "limits": {
+    "max_step_ms": 1000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 0,
+    "max_agent_requests": 0,
+    "max_call_depth": 4,
+    "max_child_runs": 16,
+    "max_step_instances": 64
+  },
+  "steps": [
+    {
+      "id": "select_jobs",
+      "kind": "call",
+      "effect": "control",
+      "needs": [],
+      "retry": {
+        "max_attempts": 1
+      },
+      "foreach": {
+        "items": {
+          "input": "/select_jobs"
+        },
+        "key": "/id",
+        "max_items": 8,
+        "concurrency": 4
+      },
+      "inputs": {
+        "id": {
+          "item": "/id"
+        },
+        "payload": {
+          "item": "/payload"
+        },
+        "pointer": {
+          "item": "/pointer"
+        }
+      },
+      "call": {
+        "process_ref": "sha256:7448b4cb243df4fead4d6ea943beb6bc43efb2427be79b068323dfc752c2296e",
+        "output_pointer": ""
+      }
+    },
+    {
+      "id": "echo_jobs",
+      "kind": "call",
+      "effect": "control",
+      "needs": [],
+      "retry": {
+        "max_attempts": 1
+      },
+      "foreach": {
+        "items": {
+          "input": "/echo_jobs"
+        },
+        "key": "/id",
+        "max_items": 8,
+        "concurrency": 4
+      },
+      "inputs": {
+        "id": {
+          "item": "/id"
+        },
+        "payload": {
+          "item": "/payload"
+        }
+      },
+      "call": {
+        "process_ref": "sha256:a33b22c74208d3b7cb40c9a8be50ff44fe25eff5d1ea9532f25e16f32d6c5cce",
+        "output_pointer": ""
+      }
+    }
+  ],
+  "output": {
+    "selected": {
+      "step": "select_jobs",
+      "pointer": "/items"
+    },
+    "echoed": {
+      "step": "echo_jobs",
+      "pointer": "/items"
+    }
+  }
+}

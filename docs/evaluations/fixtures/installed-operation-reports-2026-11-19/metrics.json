@@ -1,0 +1,617 @@
+{
+  "install": {
+    "source_commit": "c25b6480b16a3ea41298a4d030cefdeb43b1d7c4",
+    "old_sha": "ba57e8f4bd0989bbdd9ccf51814db0bd750a92cb49c394ed5e325c47b237b28f",
+    "installed_sha": "c70aa13715a13a033121957936b8f88a616145f98e90884621a45a5274b343ec",
+    "tables_preserved": 51,
+    "run_states_preserved": {
+      "needs_reconciliation": 5,
+      "succeeded": 54
+    },
+    "schedule_states_preserved": {},
+    "config_preserved": true,
+    "credential_bytes_preserved": true
+  },
+  "installed_profile": {
+    "seconds": 12.663,
+    "status": "completed",
+    "usage": {
+      "totalTokens": 54361,
+      "inputTokens": 53957,
+      "cachedInputTokens": 39552,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 404,
+      "reasoningOutputTokens": 0
+    },
+    "tool_calls": [
+      {
+        "type": "mcpToolCall",
+        "tool": "apr_run",
+        "seconds": 0.869,
+        "bytes": 1125
+      }
+    ],
+    "exact": true,
+    "profiles": 8,
+    "runtime_path_matches": true
+  },
+  "one_time_codex_authoring": {
+    "input_tokens": 228928,
+    "cached_input_tokens": 214016,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4029,
+    "reasoning_output_tokens": 186
+  },
+  "client_comparison": [
+    {
+      "seconds": 9.095,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 56341,
+        "inputTokens": 56029,
+        "cachedInputTokens": 39680,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 312,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.116,
+          "bytes": 6988
+        }
+      ],
+      "task": "inventory",
+      "phase": "inline",
+      "rows": 72,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 6538,
+      "report_sha256": "0324489403c6109fd2fc43e3213b189664af97ad1477088c34397f3a2e47da91"
+    },
+    {
+      "seconds": 7.626,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 54190,
+        "inputTokens": 53900,
+        "cachedInputTokens": 39680,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 290,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.112,
+          "bytes": 463
+        }
+      ],
+      "task": "inventory",
+      "phase": "report",
+      "rows": 72,
+      "tool_exact": true,
+      "agent_exact": false,
+      "report_bytes": 6538,
+      "report_sha256": "0324489403c6109fd2fc43e3213b189664af97ad1477088c34397f3a2e47da91"
+    },
+    {
+      "seconds": 8.337,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 55488,
+        "inputTokens": 55184,
+        "cachedInputTokens": 54528,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 304,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.151,
+          "bytes": 463
+        }
+      ],
+      "task": "inventory",
+      "phase": "report",
+      "rows": 96,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 8715,
+      "report_sha256": "3b59ae851163ca5ab210a852f7a6b468ce7dc78c7807448361f77fbe774cd88d"
+    },
+    {
+      "seconds": 7.623,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 59795,
+        "inputTokens": 59470,
+        "cachedInputTokens": 58880,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 325,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.158,
+          "bytes": 9165
+        }
+      ],
+      "task": "inventory",
+      "phase": "inline",
+      "rows": 96,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 8715,
+      "report_sha256": "3b59ae851163ca5ab210a852f7a6b468ce7dc78c7807448361f77fbe774cd88d"
+    },
+    {
+      "seconds": 7.597,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 61133,
+        "inputTokens": 60808,
+        "cachedInputTokens": 60160,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 325,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.177,
+          "bytes": 13518
+        }
+      ],
+      "task": "inventory",
+      "phase": "inline",
+      "rows": 144,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 13066,
+      "report_sha256": "335d58928fbb5a53fde1945034c4ef11c67b29c56ebaa0c8792a196184bb6078"
+    },
+    {
+      "seconds": 8.976,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 56951,
+        "inputTokens": 56621,
+        "cachedInputTokens": 56064,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 330,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.169,
+          "bytes": 465
+        }
+      ],
+      "task": "inventory",
+      "phase": "report",
+      "rows": 144,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 13066,
+      "report_sha256": "335d58928fbb5a53fde1945034c4ef11c67b29c56ebaa0c8792a196184bb6078"
+    },
+    {
+      "seconds": 9.063,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 56478,
+        "inputTokens": 56172,
+        "cachedInputTokens": 52224,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 306,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.174,
+          "bytes": 8546
+        }
+      ],
+      "task": "sla",
+      "phase": "inline",
+      "rows": 72,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 8098,
+      "report_sha256": "dab1f961fa0412753cfe1fdc005ec04cb3387e73014668edb670a25b0851479f"
+    },
+    {
+      "seconds": 8.629,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 54342,
+        "inputTokens": 54034,
+        "cachedInputTokens": 52224,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 308,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.11,
+          "bytes": 461
+        }
+      ],
+      "task": "sla",
+      "phase": "report",
+      "rows": 72,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 8098,
+      "report_sha256": "dab1f961fa0412753cfe1fdc005ec04cb3387e73014668edb670a25b0851479f"
+    },
+    {
+      "seconds": 7.893,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 55797,
+        "inputTokens": 55466,
+        "cachedInputTokens": 54784,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 331,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.167,
+          "bytes": 462
+        }
+      ],
+      "task": "sla",
+      "phase": "report",
+      "rows": 96,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 10794,
+      "report_sha256": "07328434add107ed68e1ab7eebcfd87c2d6fe55bedca1b4cfdd8dc78f46f41e9"
+    },
+    {
+      "seconds": 7.609,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 60067,
+        "inputTokens": 59739,
+        "cachedInputTokens": 59136,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 328,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.148,
+          "bytes": 11243
+        }
+      ],
+      "task": "sla",
+      "phase": "inline",
+      "rows": 96,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 10794,
+      "report_sha256": "07328434add107ed68e1ab7eebcfd87c2d6fe55bedca1b4cfdd8dc78f46f41e9"
+    },
+    {
+      "seconds": 8.308,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 61395,
+        "inputTokens": 61072,
+        "cachedInputTokens": 60416,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 323,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.157,
+          "bytes": 16636
+        }
+      ],
+      "task": "sla",
+      "phase": "inline",
+      "rows": 144,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 16186,
+      "report_sha256": "56e2a1c0df1fa5aacc23135a3856a3735a0dd755330837cc1500e0d73efe309e"
+    },
+    {
+      "seconds": 7.816,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 57135,
+        "inputTokens": 56809,
+        "cachedInputTokens": 56064,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 326,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.147,
+          "bytes": 463
+        }
+      ],
+      "task": "sla",
+      "phase": "report",
+      "rows": 144,
+      "tool_exact": true,
+      "agent_exact": true,
+      "report_bytes": 16186,
+      "report_sha256": "56e2a1c0df1fa5aacc23135a3856a3735a0dd755330837cc1500e0d73efe309e"
+    },
+    {
+      "task": "inventory",
+      "phase": "standalone_script",
+      "rows": 72,
+      "seconds": 0.01967841712757945,
+      "exact": true,
+      "report_sha256": "0324489403c6109fd2fc43e3213b189664af97ad1477088c34397f3a2e47da91",
+      "report_bytes": 6538,
+      "stdout_bytes": 142
+    },
+    {
+      "task": "inventory",
+      "phase": "standalone_script",
+      "rows": 96,
+      "seconds": 0.018468542024493217,
+      "exact": true,
+      "report_sha256": "3b59ae851163ca5ab210a852f7a6b468ce7dc78c7807448361f77fbe774cd88d",
+      "report_bytes": 8715,
+      "stdout_bytes": 142
+    },
+    {
+      "task": "inventory",
+      "phase": "standalone_script",
+      "rows": 144,
+      "seconds": 0.018280500080436468,
+      "exact": true,
+      "report_sha256": "335d58928fbb5a53fde1945034c4ef11c67b29c56ebaa0c8792a196184bb6078",
+      "report_bytes": 13066,
+      "stdout_bytes": 143
+    },
+    {
+      "task": "sla",
+      "phase": "standalone_script",
+      "rows": 72,
+      "seconds": 0.0189407910220325,
+      "exact": true,
+      "report_sha256": "dab1f961fa0412753cfe1fdc005ec04cb3387e73014668edb670a25b0851479f",
+      "report_bytes": 8098,
+      "stdout_bytes": 140
+    },
+    {
+      "task": "sla",
+      "phase": "standalone_script",
+      "rows": 96,
+      "seconds": 0.018497667042538524,
+      "exact": true,
+      "report_sha256": "07328434add107ed68e1ab7eebcfd87c2d6fe55bedca1b4cfdd8dc78f46f41e9",
+      "report_bytes": 10794,
+      "stdout_bytes": 140
+    },
+    {
+      "task": "sla",
+      "phase": "standalone_script",
+      "rows": 144,
+      "seconds": 0.019184291129931808,
+      "exact": true,
+      "report_sha256": "56e2a1c0df1fa5aacc23135a3856a3735a0dd755330837cc1500e0d73efe309e",
+      "report_bytes": 16186,
+      "stdout_bytes": 141
+    }
+  ],
+  "brief_validation": [
+    {
+      "seconds": 8.654,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 54083,
+        "inputTokens": 53795,
+        "cachedInputTokens": 39680,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 288,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.119,
+          "bytes": 454
+        }
+      ],
+      "task": "inventory",
+      "rows": 300,
+      "tool_exact": true,
+      "agent_exact": false,
+      "typed_host_seconds": 0.508,
+      "typed_host_model_tokens": 0,
+      "typed_host_response_bytes": 457,
+      "report_bytes": 27210
+    },
+    {
+      "seconds": 7.483,
+      "status": "completed",
+      "usage": {
+        "totalTokens": 55398,
+        "inputTokens": 55103,
+        "cachedInputTokens": 54272,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 295,
+        "reasoningOutputTokens": 0
+      },
+      "tool_calls": [
+        {
+          "type": "mcpToolCall",
+          "tool": "apr_run",
+          "seconds": 0.11,
+          "bytes": 452
+        }
+      ],
+      "task": "sla",
+      "rows": 300,
+      "tool_exact": true,
+      "agent_exact": true,
+      "typed_host_seconds": 0.115,
+      "typed_host_model_tokens": 0,
+      "typed_host_response_bytes": 455,
+      "report_bytes": 33710
+    }
+  ],
+  "standalone_reproduction": [
+    {
+      "recipe": "inventory",
+      "rows": 72,
+      "mode": "inline",
+      "reply_bytes": 6991,
+      "report_bytes": 6538,
+      "seconds": 0.16477783303707838,
+      "exact": true
+    },
+    {
+      "recipe": "inventory",
+      "rows": 72,
+      "mode": "report",
+      "reply_bytes": 466,
+      "report_bytes": 6538,
+      "seconds": 0.16532387514598668,
+      "exact": true
+    },
+    {
+      "recipe": "inventory",
+      "rows": 96,
+      "mode": "inline",
+      "reply_bytes": 9168,
+      "report_bytes": 8715,
+      "seconds": 0.15444008400663733,
+      "exact": true
+    },
+    {
+      "recipe": "inventory",
+      "rows": 96,
+      "mode": "report",
+      "reply_bytes": 466,
+      "report_bytes": 8715,
+      "seconds": 0.1551672499626875,
+      "exact": true
+    },
+    {
+      "recipe": "inventory",
+      "rows": 144,
+      "mode": "inline",
+      "reply_bytes": 13521,
+      "report_bytes": 13066,
+      "seconds": 0.1594861252233386,
+      "exact": true
+    },
+    {
+      "recipe": "inventory",
+      "rows": 144,
+      "mode": "report",
+      "reply_bytes": 468,
+      "report_bytes": 13066,
+      "seconds": 0.15810879180207849,
+      "exact": true
+    },
+    {
+      "recipe": "inventory",
+      "rows": 300,
+      "mode": "brief",
+      "reply_bytes": 457,
+      "report_bytes": 27210,
+      "seconds": 0.16663808398880064,
+      "exact": true
+    },
+    {
+      "recipe": "sla",
+      "rows": 72,
+      "mode": "inline",
+      "reply_bytes": 8549,
+      "report_bytes": 8098,
+      "seconds": 0.1669357919599861,
+      "exact": true
+    },
+    {
+      "recipe": "sla",
+      "rows": 72,
+      "mode": "report",
+      "reply_bytes": 464,
+      "report_bytes": 8098,
+      "seconds": 0.1159209581092,
+      "exact": true
+    },
+    {
+      "recipe": "sla",
+      "rows": 96,
+      "mode": "inline",
+      "reply_bytes": 11246,
+      "report_bytes": 10794,
+      "seconds": 0.1177600419614464,
+      "exact": true
+    },
+    {
+      "recipe": "sla",
+      "rows": 96,
+      "mode": "report",
+      "reply_bytes": 465,
+      "report_bytes": 10794,
+      "seconds": 0.11545541719533503,
+      "exact": true
+    },
+    {
+      "recipe": "sla",
+      "rows": 144,
+      "mode": "inline",
+      "reply_bytes": 16639,
+      "report_bytes": 16186,
+      "seconds": 0.16750283306464553,
+      "exact": true
+    },
+    {
+      "recipe": "sla",
+      "rows": 144,
+      "mode": "report",
+      "reply_bytes": 466,
+      "report_bytes": 16186,
+      "seconds": 0.11606799997389317,
+      "exact": true
+    },
+    {
+      "recipe": "sla",
+      "rows": 300,
+      "mode": "brief",
+      "reply_bytes": 455,
+      "report_bytes": 33710,
+      "seconds": 0.11805304209701717,
+      "exact": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "identifier": "inspector",
+  "description": "Bundled recipe inspector. No owner approvals, arbitrary files or shell execution.",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "allow-desktop-status",
+    "allow-scoped-call",
+    "allow-open-setup",
+    "dialog:allow-message",
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "allow-app-preview-open"
+  ]
+}

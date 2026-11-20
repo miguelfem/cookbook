@@ -1,0 +1,1076 @@
+{
+  "schema_version": 2,
+  "recorded_at_utc": "2026-09-16T22:42:39.965927+00:00",
+  "current_run": {
+    "id": 35158279980,
+    "head_sha": "e80754cf69c12003d0e002a2519ce8bc267223bc",
+    "created_at": "2026-09-16T22:33:44Z",
+    "updated_at": "2026-09-16T22:39:57Z",
+    "status": "completed",
+    "conclusion": "success",
+    "uploaded_artifact_count": 0,
+    "jobs": [
+      {
+        "id": 105002804320,
+        "name": "rust (macos-latest)",
+        "conclusion": "success",
+        "runner_image": "macos-26-arm64",
+        "rust_host": "aarch64-apple-darwin",
+        "rust_version": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:33:50Z",
+            "completed_at": "2026-09-16T22:33:51Z"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:33:51Z",
+            "completed_at": "2026-09-16T22:33:53Z"
+          },
+          {
+            "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:33:53Z",
+            "completed_at": "2026-09-16T22:34:00Z"
+          },
+          {
+            "name": "Linux native build prerequisites",
+            "conclusion": "skipped",
+            "started_at": "2026-09-16T22:34:00Z",
+            "completed_at": "2026-09-16T22:34:00Z"
+          },
+          {
+            "name": "Verify Python and pin the native worker interpreter",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:00Z",
+            "completed_at": "2026-09-16T22:34:01Z"
+          },
+          {
+            "name": "Fetch the locked dependency graph",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:01Z",
+            "completed_at": "2026-09-16T22:34:06Z"
+          },
+          {
+            "name": "Run cargo fmt --all -- --check",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:06Z",
+            "completed_at": "2026-09-16T22:34:07Z"
+          },
+          {
+            "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:07Z",
+            "completed_at": "2026-09-16T22:34:40Z"
+          },
+          {
+            "name": "Run cargo test --workspace --locked",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:40Z",
+            "completed_at": "2026-09-16T22:35:50Z"
+          },
+          {
+            "name": "Run cargo test --workspace --all-features --locked",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:35:50Z",
+            "completed_at": "2026-09-16T22:36:51Z"
+          },
+          {
+            "name": "Validate documentation and complete JSON Schemas",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:36:51Z",
+            "completed_at": "2026-09-16T22:36:54Z"
+          },
+          {
+            "name": "Test development distribution tooling",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:36:54Z",
+            "completed_at": "2026-09-16T22:36:55Z"
+          },
+          {
+            "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:36:55Z",
+            "completed_at": "2026-09-16T22:38:43Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:38:43Z",
+            "completed_at": "2026-09-16T22:38:44Z"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:38:44Z",
+            "completed_at": "2026-09-16T22:38:46Z"
+          }
+        ],
+        "rust_tests": {
+          "default": {
+            "passed": 174,
+            "failed": 0,
+            "ignored": 1,
+            "harnesses": 44,
+            "step_conclusion": "success",
+            "complete": true
+          },
+          "all_features": {
+            "passed": 199,
+            "failed": 0,
+            "ignored": 1,
+            "harnesses": 44,
+            "step_conclusion": "success",
+            "complete": true
+          }
+        },
+        "ignored_native_credential_tests": [
+          "native_credential_backend_roundtrip_uses_only_a_new_synthetic_entry"
+        ],
+        "regressions_observed": {
+          "concurrent_clients_start_one_authenticated_supervisor": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "supervisor_survives_launcher_process_group_teardown": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "compact_composed_runs_keep_family_identity_and_bounded_child_navigation": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "fixture_consumes_a_post_body_sent_after_its_headers": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "broker_injects_secret_and_returns_validated_json": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "fixture_rejects_eof_during_headers_or_body": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "dropping_owner_unlocks_even_when_its_descriptor_was_duplicated": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "a_retried_update_recovers_its_journal_without_a_hidden_plan_file": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "active_owner_blocks_update_without_changing_installed_files": {
+            "default": "ok",
+            "all_features": "ok"
+          }
+        },
+        "python_distribution_test_count": 12,
+        "full_document_schema_validation": "passed",
+        "development_package": {
+          "bytes": 5829911,
+          "components": 195,
+          "missing_upstream_license_texts": [],
+          "mode": "development",
+          "sha256": "9ac061b97d18c497cd6c08e402cf06921499870206aebc83c554f9b58fee083c",
+          "published_artifact": false,
+          "archive_lifecycle": "Built and checked in a temporary directory; workflow cleanup removes it."
+        },
+        "failure_excerpt": []
+      },
+      {
+        "id": 105002804738,
+        "name": "rust (ubuntu-latest)",
+        "conclusion": "success",
+        "runner_image": "ubuntu-24.04",
+        "rust_host": "x86_64-unknown-linux-gnu",
+        "rust_version": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:33:47Z",
+            "completed_at": "2026-09-16T22:33:48Z"
+          },
+          {
+            "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:33:48Z",
+            "completed_at": "2026-09-16T22:33:48Z"
+          },
+          {
+            "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:33:48Z",
+            "completed_at": "2026-09-16T22:33:56Z"
+          },
+          {
+            "name": "Linux native build prerequisites",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:33:56Z",
+            "completed_at": "2026-09-16T22:34:05Z"
+          },
+          {
+            "name": "Verify Python and pin the native worker interpreter",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:05Z",
+            "completed_at": "2026-09-16T22:34:06Z"
+          },
+          {
+            "name": "Fetch the locked dependency graph",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:06Z",
+            "completed_at": "2026-09-16T22:34:08Z"
+          },
+          {
+            "name": "Run cargo fmt --all -- --check",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:08Z",
+            "completed_at": "2026-09-16T22:34:09Z"
+          },
+          {
+            "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:09Z",
+            "completed_at": "2026-09-16T22:34:47Z"
+          },
+          {
+            "name": "Run cargo test --workspace --locked",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:34:47Z",
+            "completed_at": "2026-09-16T22:36:14Z"
+          },
+          {
+            "name": "Run cargo test --workspace --all-features --locked",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:36:14Z",
+            "completed_at": "2026-09-16T22:37:19Z"
+          },
+          {
+            "name": "Validate documentation and complete JSON Schemas",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:37:19Z",
+            "completed_at": "2026-09-16T22:37:23Z"
+          },
+          {
+            "name": "Test development distribution tooling",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:37:23Z",
+            "completed_at": "2026-09-16T22:37:24Z"
+          },
+          {
+            "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:37:24Z",
+            "completed_at": "2026-09-16T22:39:54Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:39:54Z",
+            "completed_at": "2026-09-16T22:39:54Z"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success",
+            "started_at": "2026-09-16T22:39:54Z",
+            "completed_at": "2026-09-16T22:39:54Z"
+          }
+        ],
+        "rust_tests": {
+          "default": {
+            "passed": 174,
+            "failed": 0,
+            "ignored": 1,
+            "harnesses": 44,
+            "step_conclusion": "success",
+            "complete": true
+          },
+          "all_features": {
+            "passed": 199,
+            "failed": 0,
+            "ignored": 1,
+            "harnesses": 44,
+            "step_conclusion": "success",
+            "complete": true
+          }
+        },
+        "ignored_native_credential_tests": [
+          "native_credential_backend_roundtrip_uses_only_a_new_synthetic_entry"
+        ],
+        "regressions_observed": {
+          "concurrent_clients_start_one_authenticated_supervisor": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "supervisor_survives_launcher_process_group_teardown": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "compact_composed_runs_keep_family_identity_and_bounded_child_navigation": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "fixture_consumes_a_post_body_sent_after_its_headers": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "fixture_rejects_eof_during_headers_or_body": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "broker_injects_secret_and_returns_validated_json": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "dropping_owner_unlocks_even_when_its_descriptor_was_duplicated": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "a_retried_update_recovers_its_journal_without_a_hidden_plan_file": {
+            "default": "ok",
+            "all_features": "ok"
+          },
+          "active_owner_blocks_update_without_changing_installed_files": {
+            "default": "ok",
+            "all_features": "ok"
+          }
+        },
+        "python_distribution_test_count": 12,
+        "full_document_schema_validation": "passed",
+        "development_package": {
+          "bytes": 6745829,
+          "components": 203,
+          "missing_upstream_license_texts": [],
+          "mode": "development",
+          "sha256": "eb4b6cbcdf66e1535519db995f7b15b93f3e8209ba37227442e2c70ebad7c09b",
+          "published_artifact": false,
+          "archive_lifecycle": "Built and checked in a temporary directory; workflow cleanup removes it."
+        },
+        "failure_excerpt": []
+      }
+    ],
+    "qualification": {
+      "complete_hosted_matrix": true,
+      "scope": "Hosted Rust formatting, strict Clippy, default/all-feature tests, full document/schema validation, Python distribution tests, and fresh default CLI synthetic/development-package verification.",
+      "excluded": "Ignored native credential backend test and real external model/client journeys are not covered by this hosted run."
+    }
+  },
+  "prior_runs": [
+    {
+      "id": 35154137327,
+      "head_sha": "a0a5c71448f04aad31af3ada3bd44b4599eb3a33",
+      "status": "completed",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "id": 104989398512,
+          "name": "rust (macos-latest)",
+          "conclusion": "failure",
+          "runner_image": "macos-26-arm64",
+          "rust_host": "aarch64-apple-darwin",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+              "conclusion": "success"
+            },
+            {
+              "name": "Linux native build prerequisites",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Verify Python and pin the native worker interpreter",
+              "conclusion": "success"
+            },
+            {
+              "name": "Fetch the locked dependency graph",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo fmt --all -- --check",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo test --workspace --locked",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Run cargo test --workspace --all-features --locked",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Validate documentation and complete JSON Schemas",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Test development distribution tooling",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ],
+          "rust_tests": {
+            "default": {
+              "passed": 30,
+              "failed": 1,
+              "harnesses": 9,
+              "step_conclusion": "failure",
+              "complete": false
+            },
+            "all_features": {
+              "step_conclusion": "skipped",
+              "complete": false
+            }
+          },
+          "python_distribution_test_count": null,
+          "full_document_schema_validation": "not_reached",
+          "development_package": null,
+          "failure_excerpt": [
+            "thread 'compact_composed_runs_keep_family_identity_and_bounded_child_navigation' (19811) panicked at crates/apr-cli/tests/service.rs:338:9:"
+          ]
+        },
+        {
+          "id": 104989398861,
+          "name": "rust (ubuntu-latest)",
+          "conclusion": "success",
+          "runner_image": "ubuntu-24.04",
+          "rust_host": "x86_64-unknown-linux-gnu",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+              "conclusion": "success"
+            },
+            {
+              "name": "Linux native build prerequisites",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify Python and pin the native worker interpreter",
+              "conclusion": "success"
+            },
+            {
+              "name": "Fetch the locked dependency graph",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo fmt --all -- --check",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo test --workspace --locked",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo test --workspace --all-features --locked",
+              "conclusion": "success"
+            },
+            {
+              "name": "Validate documentation and complete JSON Schemas",
+              "conclusion": "success"
+            },
+            {
+              "name": "Test development distribution tooling",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ],
+          "rust_tests": {
+            "default": {
+              "passed": 169,
+              "failed": 0,
+              "harnesses": 44,
+              "step_conclusion": "success",
+              "complete": true
+            },
+            "all_features": {
+              "passed": 194,
+              "failed": 0,
+              "harnesses": 44,
+              "step_conclusion": "success",
+              "complete": true
+            }
+          },
+          "python_distribution_test_count": 12,
+          "full_document_schema_validation": "passed",
+          "development_package": {
+            "bytes": 6745258,
+            "components": 203,
+            "missing_upstream_license_texts": [],
+            "mode": "development",
+            "sha256": "91d6c0796b91abbfcda66d462992e89ba12aee7f1b21f6105429928340c8098e",
+            "published_artifact": false,
+            "archive_lifecycle": "Built and checked in a temporary directory; workflow cleanup removes it."
+          },
+          "failure_excerpt": []
+        }
+      ],
+      "failure_context": {
+        "test": "compact_composed_runs_keep_family_identity_and_bounded_child_navigation",
+        "cause_observed": "The 40-child fixture remained queued at its five-second readiness deadline before compaction assertions were reached.",
+        "correction_in_current_head": "This fixture alone now has a bounded 20-second parent/child readiness wait; the shared default remains five seconds and all behavior/size assertions remain."
+      }
+    },
+    {
+      "id": 35155172188,
+      "head_sha": "852465dc670c67bb1586ad395d412829e4c6ecd6",
+      "status": "completed",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "id": 104992791696,
+          "name": "rust (macos-latest)",
+          "conclusion": "failure",
+          "runner_image": "macos-26-arm64",
+          "rust_host": "aarch64-apple-darwin",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+              "conclusion": "success"
+            },
+            {
+              "name": "Linux native build prerequisites",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Verify Python and pin the native worker interpreter",
+              "conclusion": "success"
+            },
+            {
+              "name": "Fetch the locked dependency graph",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo fmt --all -- --check",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo test --workspace --locked",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Run cargo test --workspace --all-features --locked",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Validate documentation and complete JSON Schemas",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Test development distribution tooling",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ],
+          "rust_tests": {
+            "default": {
+              "passed": 70,
+              "failed": 1,
+              "harnesses": 21,
+              "step_conclusion": "failure",
+              "complete": false
+            },
+            "all_features": {
+              "step_conclusion": "skipped",
+              "complete": false
+            }
+          },
+          "python_distribution_test_count": null,
+          "full_document_schema_validation": "not_reached",
+          "development_package": null,
+          "failure_excerpt": [
+            "thread 'a_retried_update_recovers_its_journal_without_a_hidden_plan_file' (23807) panicked at crates/apr-integrations/tests/managed_setup.rs:335:39:",
+            "called `Result::unwrap()` on an `Err` value: Busy"
+          ]
+        },
+        {
+          "id": 104992792015,
+          "name": "rust (ubuntu-latest)",
+          "conclusion": "success",
+          "runner_image": "ubuntu-24.04",
+          "rust_host": "x86_64-unknown-linux-gnu",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+              "conclusion": "success"
+            },
+            {
+              "name": "Linux native build prerequisites",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify Python and pin the native worker interpreter",
+              "conclusion": "success"
+            },
+            {
+              "name": "Fetch the locked dependency graph",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo fmt --all -- --check",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo test --workspace --locked",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo test --workspace --all-features --locked",
+              "conclusion": "success"
+            },
+            {
+              "name": "Validate documentation and complete JSON Schemas",
+              "conclusion": "success"
+            },
+            {
+              "name": "Test development distribution tooling",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ],
+          "rust_tests": {
+            "default": {
+              "passed": 169,
+              "failed": 0,
+              "harnesses": 44,
+              "step_conclusion": "success",
+              "complete": true
+            },
+            "all_features": {
+              "passed": 194,
+              "failed": 0,
+              "harnesses": 44,
+              "step_conclusion": "success",
+              "complete": true
+            }
+          },
+          "python_distribution_test_count": 12,
+          "full_document_schema_validation": "passed",
+          "development_package": {
+            "bytes": 6745258,
+            "components": 203,
+            "missing_upstream_license_texts": [],
+            "mode": "development",
+            "sha256": "91d6c0796b91abbfcda66d462992e89ba12aee7f1b21f6105429928340c8098e",
+            "published_artifact": false,
+            "archive_lifecycle": "Built and checked in a temporary directory; workflow cleanup removes it."
+          },
+          "failure_excerpt": []
+        }
+      ],
+      "failure_context": {
+        "test": "a_retried_update_recovers_its_journal_without_a_hidden_plan_file",
+        "location": "crates/apr-integrations/tests/managed_setup.rs:335",
+        "observed_error": "Busy on the retry after an interrupted managed update.",
+        "diagnosis_status": "A local duplicate-descriptor regression reproduces close-only flock ownership persisting after owner drop (macOS errno 35, WouldBlock). This defect is consistent with CI; the exact hosted interleaving was not captured. The guard correction is not in this run head."
+      }
+    },
+    {
+      "id": 35156580607,
+      "head_sha": "8f15b10d83df0cfed84c9ae1e59e3628861d34a1",
+      "status": "completed",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "id": 104997349367,
+          "name": "rust (macos-latest)",
+          "conclusion": "failure",
+          "runner_image": "macos-26-arm64",
+          "rust_host": "aarch64-apple-darwin",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:47Z",
+              "completed_at": "2026-09-16T22:13:49Z"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:49Z",
+              "completed_at": "2026-09-16T22:13:51Z"
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:51Z",
+              "completed_at": "2026-09-16T22:14:05Z"
+            },
+            {
+              "name": "Linux native build prerequisites",
+              "conclusion": "skipped",
+              "started_at": "2026-09-16T22:14:05Z",
+              "completed_at": "2026-09-16T22:14:05Z"
+            },
+            {
+              "name": "Verify Python and pin the native worker interpreter",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:14:05Z",
+              "completed_at": "2026-09-16T22:14:08Z"
+            },
+            {
+              "name": "Fetch the locked dependency graph",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:14:08Z",
+              "completed_at": "2026-09-16T22:14:25Z"
+            },
+            {
+              "name": "Run cargo fmt --all -- --check",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:14:25Z",
+              "completed_at": "2026-09-16T22:14:27Z"
+            },
+            {
+              "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:14:27Z",
+              "completed_at": "2026-09-16T22:15:42Z"
+            },
+            {
+              "name": "Run cargo test --workspace --locked",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:15:42Z",
+              "completed_at": "2026-09-16T22:18:10Z"
+            },
+            {
+              "name": "Run cargo test --workspace --all-features --locked",
+              "conclusion": "failure",
+              "started_at": "2026-09-16T22:18:10Z",
+              "completed_at": "2026-09-16T22:19:30Z"
+            },
+            {
+              "name": "Validate documentation and complete JSON Schemas",
+              "conclusion": "skipped",
+              "started_at": "2026-09-16T22:19:30Z",
+              "completed_at": "2026-09-16T22:19:30Z"
+            },
+            {
+              "name": "Test development distribution tooling",
+              "conclusion": "skipped",
+              "started_at": "2026-09-16T22:19:30Z",
+              "completed_at": "2026-09-16T22:19:30Z"
+            },
+            {
+              "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+              "conclusion": "skipped",
+              "started_at": "2026-09-16T22:19:30Z",
+              "completed_at": "2026-09-16T22:19:30Z"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:19:30Z",
+              "completed_at": "2026-09-16T22:19:32Z"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:19:32Z",
+              "completed_at": "2026-09-16T22:19:36Z"
+            }
+          ],
+          "rust_tests": {
+            "default": {
+              "passed": 171,
+              "failed": 0,
+              "harnesses": 44,
+              "step_conclusion": "success",
+              "complete": true
+            },
+            "all_features": {
+              "passed": 42,
+              "failed": 1,
+              "harnesses": 12,
+              "step_conclusion": "failure",
+              "complete": false
+            }
+          },
+          "regressions_observed": {
+            "concurrent_clients_start_one_authenticated_supervisor": {
+              "default": "ok",
+              "all_features": "ok"
+            },
+            "broker_injects_secret_and_returns_validated_json": {
+              "default": "ok",
+              "all_features": "FAILED"
+            },
+            "dropping_owner_unlocks_even_when_its_descriptor_was_duplicated": {
+              "default": "ok"
+            },
+            "a_retried_update_recovers_its_journal_without_a_hidden_plan_file": {
+              "default": "ok"
+            },
+            "active_owner_blocks_update_without_changing_installed_files": {
+              "default": "ok"
+            }
+          },
+          "python_distribution_test_count": null,
+          "full_document_schema_validation": "not_reached",
+          "development_package": null,
+          "failure_excerpt": [
+            "thread 'http::broker_injects_secret_and_returns_validated_json' (35594) panicked at crates/apr-connectors/tests/transport.rs:106:14:",
+            "called `Result::unwrap()` on an `Err` value: Uncertain"
+          ]
+        },
+        {
+          "id": 104997349601,
+          "name": "rust (ubuntu-latest)",
+          "conclusion": "success",
+          "runner_image": "ubuntu-24.04",
+          "rust_host": "x86_64-unknown-linux-gnu",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:37Z",
+              "completed_at": "2026-09-16T22:13:38Z"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:38Z",
+              "completed_at": "2026-09-16T22:13:39Z"
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:39Z",
+              "completed_at": "2026-09-16T22:13:48Z"
+            },
+            {
+              "name": "Linux native build prerequisites",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:48Z",
+              "completed_at": "2026-09-16T22:13:58Z"
+            },
+            {
+              "name": "Verify Python and pin the native worker interpreter",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:58Z",
+              "completed_at": "2026-09-16T22:13:58Z"
+            },
+            {
+              "name": "Fetch the locked dependency graph",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:13:58Z",
+              "completed_at": "2026-09-16T22:14:01Z"
+            },
+            {
+              "name": "Run cargo fmt --all -- --check",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:14:01Z",
+              "completed_at": "2026-09-16T22:14:02Z"
+            },
+            {
+              "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:14:02Z",
+              "completed_at": "2026-09-16T22:14:33Z"
+            },
+            {
+              "name": "Run cargo test --workspace --locked",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:14:33Z",
+              "completed_at": "2026-09-16T22:15:58Z"
+            },
+            {
+              "name": "Run cargo test --workspace --all-features --locked",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:15:58Z",
+              "completed_at": "2026-09-16T22:17:05Z"
+            },
+            {
+              "name": "Validate documentation and complete JSON Schemas",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:17:05Z",
+              "completed_at": "2026-09-16T22:17:10Z"
+            },
+            {
+              "name": "Test development distribution tooling",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:17:10Z",
+              "completed_at": "2026-09-16T22:17:12Z"
+            },
+            {
+              "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:17:12Z",
+              "completed_at": "2026-09-16T22:19:09Z"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:19:09Z",
+              "completed_at": "2026-09-16T22:19:09Z"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "started_at": "2026-09-16T22:19:09Z",
+              "completed_at": "2026-09-16T22:19:09Z"
+            }
+          ],
+          "rust_tests": {
+            "default": {
+              "passed": 171,
+              "failed": 0,
+              "harnesses": 44,
+              "step_conclusion": "success",
+              "complete": true
+            },
+            "all_features": {
+              "passed": 196,
+              "failed": 0,
+              "harnesses": 44,
+              "step_conclusion": "success",
+              "complete": true
+            }
+          },
+          "regressions_observed": {
+            "concurrent_clients_start_one_authenticated_supervisor": {
+              "default": "ok",
+              "all_features": "ok"
+            },
+            "broker_injects_secret_and_returns_validated_json": {
+              "default": "ok",
+              "all_features": "ok"
+            },
+            "dropping_owner_unlocks_even_when_its_descriptor_was_duplicated": {
+              "default": "ok",
+              "all_features": "ok"
+            },
+            "a_retried_update_recovers_its_journal_without_a_hidden_plan_file": {
+              "default": "ok",
+              "all_features": "ok"
+            },
+            "active_owner_blocks_update_without_changing_installed_files": {
+              "default": "ok",
+              "all_features": "ok"
+            }
+          },
+          "python_distribution_test_count": 12,
+          "full_document_schema_validation": "passed",
+          "development_package": {
+            "bytes": 6745324,
+            "components": 203,
+            "missing_upstream_license_texts": [],
+            "mode": "development",
+            "sha256": "b4ec6f1a71c0d09e3dc6bfc4cc2cee026163ae4385b01b6b2c9a2af864193af9",
+            "published_artifact": false,
+            "archive_lifecycle": "Built and checked in a temporary directory; workflow cleanup removes it."
+          },
+          "failure_excerpt": []
+        }
+      ],
+      "failure_context": {
+        "test": "http::broker_injects_secret_and_returns_validated_json",
+        "location": "crates/apr-connectors/tests/transport.rs:106",
+        "observed_error": "Uncertain in the macOS all-feature step; transport suite 3 passed and 1 failed in 0.79 seconds.",
+        "diagnosis_status": "A synchronized segmented-body regression reproduced the fixture defect: the original server captured zero body bytes after headers. A bounded complete-request reader fixes that regression and preserves the 250ms broker deadline. The exact hosted low-level transport error was not captured. The correction is not in this run head.",
+        "separate_local_blocker": "The local all-feature gate observed a Command::spawn handshake hang due to an inherited peer descriptor. That hang was not observed in this hosted run, which completed normally with a connector test failure.",
+        "local_followup_evidence": "apr-http-fixture-regression-20260916.json"
+      }
+    }
+  ],
+  "interpretation_notes": [
+    "The current revision has a complete green macOS ARM64 and Ubuntu x86_64 hosted matrix. Each platform passed 174 default and 199 all-feature Rust tests; one native credential test was intentionally ignored in each suite.",
+    "Rust totals sum harness result lines within each cargo test step. Partial totals and exact failure contexts remain preserved for the three earlier attempts.",
+    "Workspace feature unification enables the controlled HTTP tests in the default workspace test gate, so both new fixture regressions are included in its count.",
+    "Development package results are validation evidence, not published release artifacts; the Actions artifact API confirms zero uploaded artifacts for this run.",
+    "Synthetic benchmark commands succeeded as part of the final combined verification step. Detailed measurements were redirected to temporary files and are not present in finalized job logs.",
+    "No raw logs, credentials, attachment contents, or machine-local file paths are included."
+  ]
+}

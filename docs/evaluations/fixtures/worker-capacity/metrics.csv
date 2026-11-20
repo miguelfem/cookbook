@@ -1,0 +1,4 @@
+policy,quality_pass,setup_ms,wall_ms,status_peak,model_tokens,provider_calls,interval_peak,refilled_before_slow_end,exact_outputs,attempted_jobs
+4,True,229.216,12804.374,4,,0,4,True,64,64
+32,True,180.447,2730.939,32,,0,32,True,64,64
+64,True,210.369,2936.884,64,,0,64,,64,64

@@ -1,0 +1,28 @@
+{
+  "study": "E03",
+  "revision": "2026-09-22.1",
+  "task": "Extract four fields from a supplied synthetic status memo and cite an exact source line for each field.",
+  "providers": {
+    "gemini": {"tool": "eval_gemini", "model": "gemini-2.5-flash-lite", "temperature": 0, "max_output_tokens": 240},
+    "openrouter": {"tool": "eval_openrouter", "model": "openai/gpt-4.1-mini", "temperature": 0, "max_output_tokens": 240}
+  },
+  "prompt": "Return only a JSON object with keys project, owner, due_date, status, and evidence. Use only the memo. Copy project, owner, due_date, and status exactly from their labeled lines. Evidence must be an object with those same four keys, each containing the entire exact source line supporting the copied value. If a labeled field is absent, use null for its value and evidence. No inferred values or prose.",
+  "acceptance": {
+    "mandatory": "All four values and all four evidence lines exactly match the independent synthetic memo specification; JSON parses; no extra keys.",
+    "quality_floor": "At least 9 of 10 cases accepted in each repetition; any fabricated value or evidence rejects the case.",
+    "grader": "Deterministic exact comparison against labels created with the memos, before provider output; no model grading. Provider is hidden from the grader's input object."
+  },
+  "bounds": {"cases": 10, "repetitions": 2, "dispatches_max": 40, "openrouter_usd_ceiling": 1.0, "gemini_usd_ceiling": 1.0, "max_input_tokens_reserved_per_call": 2500, "max_output_tokens_reserved_per_call": 240, "no_retries": true},
+  "cases": [
+    {"id":"s01","memo":"Project: Atlas inventory\nOwner: Mira Vale\nDue date: 2026-10-03\nStatus: Ready for review\nNote: The draft is in the shared folder."},
+    {"id":"s02","memo":"Status: Waiting on materials\nDue date: 2026-10-06\nProject: Harbor survey\nOwner: Theo Marsh\nNote: Do not infer a revised deadline."},
+    {"id":"s03","memo":"Project: Cedar migration\nOwner: Imani Wells\nDue date: 2026-10-08\nStatus: In progress\nHistory: Status was blocked last week."},
+    {"id":"s04","memo":"Project: Quartz catalog\nOwner: Noel Price\nDue date: 2026-10-11\nStatus: Blocked\nNote: A separate team owns the workaround."},
+    {"id":"s05","memo":"Owner: Samir Cole\nProject: Orchard audit\nStatus: Completed\nDue date: 2026-10-14\nNote: The invoice is outside this memo."},
+    {"id":"s06","memo":"Project: Delta handoff\nOwner: Avery North\nDue date: 2026-10-17\nStatus: Needs approval\nMention: The word owner appears here without a new assignment."},
+    {"id":"s07","memo":"Project: Lumen index\nOwner: Jo Park\nDue date: 2026-10-21\nStatus: Scheduled\nNote: A 2026-10-19 rehearsal is not the due date."},
+    {"id":"s08","memo":"Project: Pine archive\nOwner: Ren Ellis\nDue date: 2026-10-24\nStatus: Paused\nNote: The project title is Pine archive, not Archive Pine."},
+    {"id":"s09","memo":"Project: Beacon register\nOwner: Dana Reed\nDue date: 2026-10-27\nStatus: Draft\nNote: Draft status is final for this snapshot."},
+    {"id":"s10","memo":"Project: Vale cleanup\nOwner: Kiran Moss\nDue date: 2026-10-30\nStatus: Approved\nNote: Approval does not authorize any external action."}
+  ]
+}

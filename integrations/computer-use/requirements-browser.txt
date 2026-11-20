@@ -1,0 +1,2 @@
+# Explicit setup only; runtime execution never installs software.
+playwright==1.63.0

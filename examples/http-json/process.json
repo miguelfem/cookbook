@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "name": "operations.http-json",
+  "description": "Call one owner-approved JSON operation with durable effect accounting.",
+  "input_schema": {
+    "type": "object"
+  },
+  "output_schema": {
+    "type": "object"
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "connection",
+      "name": "records"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 2000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 1,
+    "max_agent_requests": 0
+  },
+  "steps": [
+    {
+      "id": "request",
+      "kind": "connector",
+      "operation": "http.json",
+      "connection": "records",
+      "needs": [],
+      "effect": "write",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "record": {
+          "input": ""
+        }
+      },
+      "result_schema": {
+        "type": "object"
+      }
+    }
+  ],
+  "output": {
+    "result": {
+      "step": "request",
+      "pointer": ""
+    }
+  }
+}

@@ -1,0 +1,7 @@
+cycle,state_after_attempt,freeze_error_code,evaluator_result,adoption,acceptance_scope
+simpler,proposed,INVALID_INPUT,not_run,not_run,blocked_pending_human_review
+cheaper_wrong,proposed,INVALID_INPUT,not_run,not_run,blocked_pending_human_review
+missing_evidence,proposed,INVALID_INPUT,not_run,not_run,blocked_pending_human_review
+unsupported,proposed,INVALID_INPUT,not_run,not_run,blocked_pending_human_review
+effect,proposed,INVALID_INPUT,not_run,not_run,blocked_pending_human_review
+no_label_closure,closed,not_applicable,not_run,not_run,more_evidence_required

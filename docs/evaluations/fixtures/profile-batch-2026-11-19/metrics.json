@@ -1,0 +1,482 @@
+{
+  "runtime_protocol": {
+    "binary_sha256": "c2a46328dfd2f37bce14b1d910f8e4ec3cee314f8d13b7179dceb5260ac66ab5",
+    "emails": [
+      "person03@example.test",
+      "person01@example.test",
+      "person08@example.test",
+      "person05@example.test",
+      "person02@example.test",
+      "person04@example.test",
+      "person07@example.test",
+      "person06@example.test"
+    ],
+    "oracle": {
+      "profiles": [
+        {
+          "key": "person03@example.test",
+          "output": {
+            "name": "Example Person 03",
+            "organization": "Cedar Lab",
+            "role": "Writer"
+          }
+        },
+        {
+          "key": "person01@example.test",
+          "output": {
+            "name": "Example Person 01",
+            "organization": "Fable Studio",
+            "role": "Engineer"
+          }
+        },
+        {
+          "key": "person08@example.test",
+          "output": {
+            "name": "Example Person 08",
+            "organization": "Harbor Works",
+            "role": "Designer"
+          }
+        },
+        {
+          "key": "person05@example.test",
+          "output": {
+            "name": "Example Person 05",
+            "organization": "Harbor Works",
+            "role": "Engineer"
+          }
+        },
+        {
+          "key": "person02@example.test",
+          "output": {
+            "name": "Example Person 02",
+            "organization": "Harbor Works",
+            "role": "Researcher"
+          }
+        },
+        {
+          "key": "person04@example.test",
+          "output": {
+            "name": "Example Person 04",
+            "organization": "Fable Studio",
+            "role": "Designer"
+          }
+        },
+        {
+          "key": "person07@example.test",
+          "output": {
+            "name": "Example Person 07",
+            "organization": "Fable Studio",
+            "role": "Writer"
+          }
+        },
+        {
+          "key": "person06@example.test",
+          "output": {
+            "name": "Example Person 06",
+            "organization": "Cedar Lab",
+            "role": "Researcher"
+          }
+        }
+      ]
+    },
+    "manifest_sha256": "5172d9ce5981f7831d5ce42e7bc2e3e4c0fea7a558895dbdbfd1942fc65f4199",
+    "fixture_sha256": "b0021b26f4fb0e249e406c1fca98a7f66a0b999635f49d70b59d284e6b8e0647"
+  },
+  "agent_protocol": {
+    "binary_sha256": "373cbfe0a453ac581541451573d7884cde113c4c5a4d3e906906ae1d97039881",
+    "emails": [
+      "person03@example.test",
+      "person01@example.test",
+      "person08@example.test",
+      "person05@example.test",
+      "person02@example.test",
+      "person04@example.test",
+      "person07@example.test",
+      "person06@example.test"
+    ],
+    "oracle": {
+      "profiles": [
+        {
+          "key": "person03@example.test",
+          "output": {
+            "name": "Example Person 03",
+            "organization": "Cedar Lab",
+            "role": "Writer"
+          }
+        },
+        {
+          "key": "person01@example.test",
+          "output": {
+            "name": "Example Person 01",
+            "organization": "Fable Studio",
+            "role": "Engineer"
+          }
+        },
+        {
+          "key": "person08@example.test",
+          "output": {
+            "name": "Example Person 08",
+            "organization": "Harbor Works",
+            "role": "Designer"
+          }
+        },
+        {
+          "key": "person05@example.test",
+          "output": {
+            "name": "Example Person 05",
+            "organization": "Harbor Works",
+            "role": "Engineer"
+          }
+        },
+        {
+          "key": "person02@example.test",
+          "output": {
+            "name": "Example Person 02",
+            "organization": "Harbor Works",
+            "role": "Researcher"
+          }
+        },
+        {
+          "key": "person04@example.test",
+          "output": {
+            "name": "Example Person 04",
+            "organization": "Fable Studio",
+            "role": "Designer"
+          }
+        },
+        {
+          "key": "person07@example.test",
+          "output": {
+            "name": "Example Person 07",
+            "organization": "Fable Studio",
+            "role": "Writer"
+          }
+        },
+        {
+          "key": "person06@example.test",
+          "output": {
+            "name": "Example Person 06",
+            "organization": "Cedar Lab",
+            "role": "Researcher"
+          }
+        }
+      ]
+    },
+    "manifest_sha256": "5172d9ce5981f7831d5ce42e7bc2e3e4c0fea7a558895dbdbfd1942fc65f4199",
+    "fixture_sha256": "b0021b26f4fb0e249e406c1fca98a7f66a0b999635f49d70b59d284e6b8e0647",
+    "elapsed_seconds": 0.4082110410090536,
+    "model": "gpt-6-sol",
+    "reasoning_effort": "low",
+    "approval": "approve-for-me"
+  },
+  "runtime": [
+    {
+      "trial": 0,
+      "arm": "apr-1",
+      "seconds": 2.9920861669816077,
+      "setup_seconds": 0.3559154998511076,
+      "result_bytes": 1437,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 0,
+      "arm": "apr-4",
+      "seconds": 0.8328353750985116,
+      "setup_seconds": 0.3690172501374036,
+      "result_bytes": 1437,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 0,
+      "arm": "script-1",
+      "seconds": 2.069487541913986,
+      "setup_seconds": null,
+      "result_bytes": 953,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 0,
+      "arm": "script-4",
+      "seconds": 0.5812957498710603,
+      "setup_seconds": null,
+      "result_bytes": 953,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 1,
+      "arm": "apr-4",
+      "seconds": 0.9159810000564903,
+      "setup_seconds": 0.3690172501374036,
+      "result_bytes": 1437,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 1,
+      "arm": "script-1",
+      "seconds": 2.0696074159350246,
+      "setup_seconds": null,
+      "result_bytes": 953,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 1,
+      "arm": "script-4",
+      "seconds": 0.6015278750564903,
+      "setup_seconds": null,
+      "result_bytes": 953,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 1,
+      "arm": "apr-1",
+      "seconds": 2.943975792033598,
+      "setup_seconds": 0.3559154998511076,
+      "result_bytes": 1437,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 2,
+      "arm": "script-1",
+      "seconds": 2.067393708974123,
+      "setup_seconds": null,
+      "result_bytes": 953,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 2,
+      "arm": "script-4",
+      "seconds": 0.5985268328804523,
+      "setup_seconds": null,
+      "result_bytes": 953,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 2,
+      "arm": "apr-1",
+      "seconds": 2.7069941249210387,
+      "setup_seconds": 0.3559154998511076,
+      "result_bytes": 1437,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 2,
+      "arm": "apr-4",
+      "seconds": 0.8758198341820389,
+      "setup_seconds": 0.3690172501374036,
+      "result_bytes": 1437,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 3,
+      "arm": "script-4",
+      "seconds": 0.5817369997967035,
+      "setup_seconds": null,
+      "result_bytes": 953,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 3,
+      "arm": "apr-1",
+      "seconds": 2.74715454201214,
+      "setup_seconds": 0.3559154998511076,
+      "result_bytes": 1437,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 3,
+      "arm": "apr-4",
+      "seconds": 0.7991947080008686,
+      "setup_seconds": 0.3690172501374036,
+      "result_bytes": 1437,
+      "calls": 1,
+      "exact": true
+    },
+    {
+      "trial": 3,
+      "arm": "script-1",
+      "seconds": 2.053849291987717,
+      "setup_seconds": null,
+      "result_bytes": 953,
+      "calls": 1,
+      "exact": true
+    }
+  ],
+  "client": [
+    {
+      "trial": 0,
+      "arm": "direct",
+      "seconds": 12.061222875025123,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 42322,
+        "cached_input_tokens": 32512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 317,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "command_execution"
+      ],
+      "errors": []
+    },
+    {
+      "trial": 0,
+      "arm": "apr",
+      "seconds": 22.00497466698289,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 36681,
+        "cached_input_tokens": 29696,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 386,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "apr_run"
+      ],
+      "errors": []
+    },
+    {
+      "trial": 0,
+      "arm": "script",
+      "seconds": 13.258953584125265,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 42258,
+        "cached_input_tokens": 32512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 317,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "command_execution"
+      ],
+      "errors": []
+    },
+    {
+      "trial": 1,
+      "arm": "apr",
+      "seconds": 19.53039333410561,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 65064,
+        "cached_input_tokens": 54272,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 394,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "apr_run"
+      ],
+      "errors": []
+    },
+    {
+      "trial": 1,
+      "arm": "script",
+      "seconds": 10.854219625005499,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 36149,
+        "cached_input_tokens": 29440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 294,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "command_execution"
+      ],
+      "errors": []
+    },
+    {
+      "trial": 1,
+      "arm": "direct",
+      "seconds": 13.206073666922748,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 36190,
+        "cached_input_tokens": 29440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 294,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "command_execution"
+      ],
+      "errors": []
+    },
+    {
+      "trial": 2,
+      "arm": "script",
+      "seconds": 11.59364916710183,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 36149,
+        "cached_input_tokens": 29440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 294,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "command_execution"
+      ],
+      "errors": []
+    },
+    {
+      "trial": 2,
+      "arm": "direct",
+      "seconds": 12.06821229099296,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 36242,
+        "cached_input_tokens": 29440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 323,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "command_execution"
+      ],
+      "errors": []
+    },
+    {
+      "trial": 2,
+      "arm": "apr",
+      "seconds": 21.533370916033164,
+      "exit_code": 0,
+      "exact": true,
+      "usage": {
+        "input_tokens": 65113,
+        "cached_input_tokens": 54272,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 417,
+        "reasoning_output_tokens": 0
+      },
+      "calls": [
+        "apr_run"
+      ],
+      "errors": []
+    }
+  ]
+}

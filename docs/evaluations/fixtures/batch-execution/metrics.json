@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-22",
+  "source_head": "e7de5595be5ec16e4fb6e973a9cb1c389d186fc2",
+  "installed_apr_sha256": "df9b08eae1d36d10b2dded2047d63e9cb1e2239845417e535ab05842b36b37b8",
+  "direct": {
+    "jobs": 2,
+    "start_calls": 1,
+    "followup_inspects": 0,
+    "complete_output_in_start": true,
+    "start_wall_ms": 122.261
+  },
+  "composed": {
+    "jobs": 4,
+    "start_calls": 1,
+    "followup_inspects": 2,
+    "first_state": "waiting_for_child",
+    "start_wall_ms": 363.057,
+    "root_and_child_runs": 5,
+    "complete_final_output": true
+  },
+  "checks": {
+    "request_key_replay_reuses_runs": true,
+    "invalid_input_refused": true,
+    "native_execution_grants": 0,
+    "model_provider_calls": 0
+  },
+  "private_evidence_sha256": {
+    "run.py": "4a0fc28a0778814c3b9334f3070ee918147ad298e26829559d3615eb41a85794",
+    "result.json": "c2f2a95dd8e5495e1a6f7eac0eea2b0ba1f4b5df94456857d5a7a5dde2baac3a",
+    "raw.json": "f1e0c5ba0b2713c68f716835137dcdeaa4d825bac75881d340163a60db01b3fc",
+    "attempts.json": "4d6f3c4545fd23ea9ffca1663119876bc91f8a993aff9dccbadd894e15a06261"
+  },
+  "attempts": {
+    "count": 2,
+    "first": "Harness wrongly expected immediate composed success; observed waiting_for_child. Finding retained in attempts.json; its disposable state was removed and full first-attempt trace is unavailable.",
+    "second": "Corrected capability proof completed; not a matched performance or savings study."
+  },
+  "concurrency": "Source inspection establishes serialized dispatch; no native overlap benchmark was run.",
+  "model_tokens": null,
+  "comparative_token_savings": null,
+  "native_overlap_timing": null
+}

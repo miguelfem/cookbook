@@ -1,0 +1,50 @@
+{
+  "acceptance": "Full object exact equality, including two source IDs and no extra keys, for all 9 attempts.",
+  "arms": [
+    "direct",
+    "script",
+    "cookbook"
+  ],
+  "assets": {
+    "TASK.md": "005a19811e247bbd404b69530bcd3ab0555ec0f9260812269b5cd70745216a9f",
+    "oracle.json": "6d520cad7a81aeb0ced51b1e220cb8561a947350f40060730c8e5dfafb4f4193",
+    "service.py": "4542df21699d49a8183cc2e56b10b8c05346419cd97211d6a67c178f0f98bcf3",
+    "sources.json": "fda539e0e5d31cc35207e00faf52407551d25df98cbb879040a77359e63f3e62"
+  },
+  "authoring": "Original Luna authoring failure retained; lead repaired manifest/worker using development ID only. New sessions practice the saved contracts before the same never-queried holdouts. First-use acceptance remains failed.",
+  "costs": "No external provider calls; client subscription dollars remain unknown.",
+  "custody": "Oracle is outside all three project roots; same-user filesystem access is not hard isolation.",
+  "development_id": "dev-jade",
+  "holdout_ids": [
+    "held-onyx",
+    "held-opal",
+    "held-ruby"
+  ],
+  "model": "gpt-5.6-luna",
+  "no_artificial_delay": true,
+  "no_replacement": true,
+  "order": [
+    [
+      "direct",
+      "script",
+      "cookbook"
+    ],
+    [
+      "script",
+      "cookbook",
+      "direct"
+    ],
+    [
+      "cookbook",
+      "direct",
+      "script"
+    ]
+  ],
+  "reasoning": "low",
+  "revision": "e02-source-v8-assisted",
+  "task": "two approved synthetic source commands by record ID",
+  "parent_protocol_sha256": "1aa44fc0d5d66d637f2d0bea55a4d7929626c2a1d6f1ecdd1bee7666b0afc62c",
+  "amendment": "All original setup time/usage is retained separately. This measures prepared execution after assisted setup, not autonomous first use. Complete exact output, source audits, order and model unchanged; no held-out result was previously queried.",
+  "private_protocol_sha256": "7f936ae0b99934fb72a14a194125f928e2bd39cedce38a6adde79bd7c12bfe7c",
+  "export_note": "Original model prompts and source identities retained privately; synthetic task data are exported alongside this selected protocol."
+}

@@ -1,0 +1,140 @@
+{
+  "status": "partial_stopped_with_uncertainty",
+  "candidate_apr_sha256": "779e75c0b17038e0f9d4a317068a5d3127d15ebecff3cc69574cacd0af273781",
+  "protocol_sha256": "c2c09531313b7535a1027077a29721db0652e8a4f6baa04105f0acdf8fe1c314",
+  "e03": {
+    "openrouter": {
+      "attempted": 1,
+      "successful": 0,
+      "untouched": 19,
+      "state": "needs_reconciliation",
+      "adapter_receipt_exists": false,
+      "actual_charge_usd": null
+    },
+    "gemini": {
+      "attempted_generation": 0,
+      "successful_generation": 0,
+      "untouched_generation": 20,
+      "binding_state": "approved_scoped_revision_1_no_library_share",
+      "metadata_probe": {
+        "operation": "models",
+        "generation": false,
+        "attempted": 1,
+        "state": "needs_reconciliation",
+        "elapsed_seconds": 30.026,
+        "adapter_receipt_exists": false,
+        "http_observed": null,
+        "response_observed": false,
+        "actual_charge_usd": null
+      },
+      "generation_stopped_reason": "metadata_transport_unhealthy",
+      "actual_charge_usd": null
+    },
+    "paired_quality_claim": false
+  },
+  "e04": {
+    "routing": {
+      "attempted": 24,
+      "succeeded": 24,
+      "exact": 13,
+      "mandatory_review_failures": 0,
+      "unnecessary_reviews": 5,
+      "threshold_exact": 22,
+      "passed": false,
+      "model_reported": {
+        "jev-1.13.0": 24
+      },
+      "usage": {
+        "input_tokens": 10128,
+        "output_tokens": 1113
+      },
+      "median_elapsed_seconds": 0.512,
+      "range_elapsed_seconds": [
+        0.429,
+        0.667
+      ],
+      "confusion": {
+        "documents->documents": 5,
+        "documents->unclear": 1,
+        "records->records": 2,
+        "records->unclear": 4,
+        "unclear->unclear": 6,
+        "other->unclear": 6
+      },
+      "actual_charge_usd": null,
+      "raw_prediction_exact": 21
+    },
+    "discovery": {
+      "attempted": 6,
+      "succeeded_effects": 5,
+      "uncertain_effects": 1,
+      "untouched": 2,
+      "qualifying_learning_output": false,
+      "candidate_created": false,
+      "evaluator_started": false,
+      "actual_charge_usd": null
+    },
+    "candidate_adopted": false,
+    "caller_baseline": {
+      "study": "one_batched_turn_24_cases",
+      "requested_model": "gpt-5.6-luna",
+      "requested_turn_effort": "low",
+      "effective_turn_effort": "unobserved",
+      "valid_full_response": true,
+      "exact": 24,
+      "mandatory_review_failures": 0,
+      "wall_seconds": 6.74102725,
+      "usage": {
+        "totalTokens": 21285,
+        "inputTokens": 21074,
+        "cachedInputTokens": 9984,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 211,
+        "reasoningOutputTokens": 78
+      },
+      "failed_wrapper_launch_model_calls": 0,
+      "actual_charge_usd": null
+    },
+    "rules_baseline": {
+      "exact": 24,
+      "mandatory_review_failures": 0,
+      "model_calls": 0,
+      "scope": "Rules authored from the same synthetic specification; not independent population evidence."
+    }
+  },
+  "historical_uncertain_selfcap_reservation_usd": 2.25,
+  "fresh_protocol_selfcaps_usd": {
+    "gemini": 0.5,
+    "openrouter": 0.5,
+    "jev": 0.25
+  },
+  "invoice_source": "unavailable; runtime billing unpriced/unknown",
+  "notes": [
+    "Protocol self-caps and listed-price reservation are not observed bills.",
+    "No uncertain effect was retried or manually reconciled.",
+    "Synthetic labels were authored from specification without separate human review.",
+    "Owner explicitly approved the exact Gemini revision in GEMINI-REVIEW.md for the synthetic assignment; metadata probe stopped uncertain, so no Gemini generation was dispatched."
+  ],
+  "fresh_assignment_external_effects": {
+    "total": 32,
+    "succeeded": 29,
+    "uncertain": 3,
+    "gemini_generation": 0
+  },
+  "live_original_rows_identical_to_pre_install": {
+    "runs": 24,
+    "connection_requests": 20,
+    "execution_grants": 10,
+    "saved_accounts": 6,
+    "connection_library": 9
+  },
+  "new_saved_accounts": 0,
+  "gemini_approval": {
+    "user_authorized": true,
+    "scope": "synthetic_assignment_only",
+    "binding_revision": 1,
+    "library_share": false,
+    "new_key": false
+  },
+  "preservation_readback_sha256": "ba6c60494e2940cc339fe9edd166a12b014aebb13caa847618833ade5f2eb9c7"
+}

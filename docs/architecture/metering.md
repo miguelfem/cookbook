@@ -1,0 +1,59 @@
+# Local analytics and connection metering
+
+## Desktop 0.2 / macOS–Linux extension — 2026-09-18
+
+[Current execution and billing contract](macos-linux-completion.md) adds owner OAuth/refresh, MCP resources/prompts/bounded subscriptions and durable user/model continuations, optional approved text sampling workers, read-only Apps, durable whole-period billing, invoice matching, dispatch reservations, reviewed price refresh, and signed-update/release tooling. Earlier tools-only/no-OAuth/no-ledger/no-updater statements below describe the 0.1 baseline and are superseded for this extension. Native Windows remains excluded. Actual publisher signing, live accounts and complete native credential acceptance require separate evidence; implementation is not a signed stable release. Recipe authoring and cost analysis remain agent-driven.
+
+## Recipe/desktop extension — 2026-09-17
+
+On the implementation branch, recipe-author payload/cost analysis, scoped connection proposals, trusted owner approvals, outbound tools-only MCP, and the Tauri desktop now extend the earlier inspector. [Current architecture](../architecture/recipe-connections.md) and [desktop runbook](../runbooks/desktop.md) supersede earlier statements that all of those surfaces are deferred. Workflows are branded **Recipes**; wire identifiers stay compatible. Source presence is not release evidence: consult the validation log for actual checks. OAuth login/refresh, Windows, signing, general visual building, invoice reconciliation and hard monetary caps are not implied.
+
+Implementation slice, 2026-09-17. Verification is recorded in the [validation log](../logs/runtime-validation.md). This adds local observation and read-only inspection; it does not implement desktop packaging, outbound MCP execution, owner credential-entry UI, autonomous reasoning workers, live price feeds, invoicing, or monetary budget enforcement.
+
+## Accounting boundary
+
+The external **attempt/intent** is the accounting grain. A retry is a new attempt; replaying a start receipt is not. Child intents belong to their actual child runs and are counted once in a root tree. Cancelling or failing a workflow does not erase a possible charge. An uncertain response without usage stays unknown, never zero. APR never repeats an external operation to recover its metrics.
+
+Owner-approved connections optionally contain `metering`, a bounded public mapping and price card. It is validated with the connection and frozen into each run's existing binding snapshot. Changing a mapping or price creates a binding revision; historical runs are not retroactively repriced. This extends the connection JSON, not the process manifest. Existing connections without this field work unchanged and report unknown cost.
+
+The broker extracts only configured numeric JSON-pointer values after its transport, credential-echo and connection-output checks, but before provider translation and workflow-output validation. A `usage.observed` event commits in the same transaction as the effect outcome. Therefore a valid provider response that fails the workflow's output schema can still have observable usage. Rejected/unreadable broker responses and a crash before the outcome transaction leave unknown usage. No additional billing calls occur.
+
+Reconciliation can append a new observation using the frozen mapping and validated caller-supplied response. Its provenance is `caller_reported`, not `broker_observed`. The latest observation for the same intent is the current accounting view; prior observations remain in events. Reconciliation never adds a second charge for that attempt. Provider-reported amounts remain unverified against invoices, whether supplied through the broker or a caller.
+
+No database migration is needed: observations use existing scoped events. Existing run/event retention and backup behavior apply. This is retained local operational data, not remote product telemetry. No payload content, credentials, request headers, returned model names or provider response bodies are copied into analytics. Owner-provided provider/meter identifiers must be public labels, not secrets. Ordinary run artifacts remain governed by the existing retention/privacy model.
+
+## Common extraction contract
+
+`crates/apr-connectors/src/metering.rs` implements the shared pure-Rust interface: `MeteringConfig::validate()` and `MeteringConfig::observe(response)`. No provider SDK, inference call, arbitrary expressions, or new dependency is involved.
+
+A mapping contains a provider identifier, revision, currency, optional exact response identity check, and up to sixteen meters. Each meter has a public name/unit, one or more numeric JSON pointers to add, optional pointers to subtract, and an optional fixed-point rate. There are at most eight arithmetic terms per meter. Duplicate meter names or repeated terms within a meter are rejected. Each observed term must be a nonnegative integer no greater than 10^12. Missing, null, fractional, negative or string counts stay unknown. Underflow is an inconsistent-usage error. Overlapping *different* meters cannot be inferred by the engine; the owner must configure mutually exclusive billable categories.
+
+Units may be tokens, images, milliseconds, requests, credits, or other declared integer units. Fractional durations should use an integer base unit such as milliseconds. A missing rate still permits usage inspection, but no invented monetary conversion. Subscription allocation, tiers, discounts, taxes, minimum charges, free allowances and opaque MCP-service fees require explicit future billing adapters or owner models; none are inferred here.
+
+Rates are decimal strings with at most nine fractional digits and twelve whole digits, plus a positive integer `per_units` (maximum 10^12). Arithmetic uses integer nanocurrency units and rounds a computed line upward only at 10^-9 currency precision. Serialized monetary amounts are decimal integer strings; frontend formatting uses BigInt. Prices such as NaN, negative values, scientific notation and overprecision are rejected, not rounded silently. Currencies remain separate: there is no conversion or assumption that every currency uses two minor-unit decimals.
+
+`estimated_nanos` is a **subtotal for configured meters**. `estimate_status` is `unknown`, `partial`, or `estimated`; even `estimated` does not establish a complete provider bill. An optional `reported_cost_pointer` reads a strict decimal provider-reported monetary subtotal in the configured currency. It is separate from the estimate, not additive to it, and is not called invoice-confirmed cost. The owner must bind the currency and scope of that reported field. Refunds and credits are not represented as negative usage charges in this slice.
+
+Use an exact response identity check when a price is valid for only one model; alternatively constrain the operation's request/output schemas to that exact identity. A mismatch preserves usage but withholds estimates. Do not attach model-specific pricing to an unconstrained generic model endpoint. The engine does not resolve mutable aliases, context-size tiers, modality mix, service tiers or cache-write lifetimes. Those require separate constrained bindings/meters.
+
+The [synthetic mapping](../../examples/metering/synthetic.json) is a `metering` object, **not** a complete Connection configuration. Its rates are deliberately synthetic, not current vendor prices. Place a reviewed object at the `metering` key of the owner-controlled connection file and use the existing `apr execution configure-connection` command. Secrets still arrive only through the established secure stdin flow; do not put them in the file.
+
+## Provider semantics and extension points
+
+There is no universal field that returns the cost of every API or MCP call. This implementation supplies a common observation format and explicit per-operation mappings, not automatic provider detection. OpenAI Responses, Claude Messages and Gemini-style usage arithmetic have synthetic unit-test examples; no production-provider request was issued to qualify them.
+
+OpenAI Responses exposes input/output usage and detail fields. Cached counts can overlap the input total; reasoning detail can overlap the output total. Do not charge both an inclusive total and its detail again. New cache-write or modality categories require separately reviewed mappings. Claude cache reads/writes are distinct from its ordinary input count, and cache-write lifetime can affect pricing. Gemini reports prompt, candidate and thought counts separately. Optional absent fields remain unknown under this generic contract, rather than being treated as zero without a provider-specific guarantee.
+
+References checked for this slice: [OpenAI response object](https://platform.openai.com/docs/api-reference/responses/object), [OpenAI Usage and Costs API](https://platform.openai.com/docs/api-reference/usage), [Claude prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching), and [Gemini generation usage](https://ai.google.dev/api/generate-content#UsageMetadata). These are contract references, not a bundled price catalog or live conformance claim.
+
+Future outbound MCP adapters should submit the same observation type only after validating explicit server usage metadata or owner-configured unit mappings. A successful MCP tool result without usage/cost information remains unknown. Costs from Codex/Claude client subscriptions and calls made outside APR are not visible to this ledger. Importing organization billing data later must preserve account/time/scope matching and avoid adding an invoice subtotal on top of already-estimated calls.
+
+## Read-only inspection and UI
+
+`apr_inspect` adds `view: "analytics"`, with optional `run_id`, `limit` (1–20, default 10), and `after`. As with other large views, request `detail: true` through MCP. Without run_id it reports the attached assignment. With any authorized run, it reports that run's whole root tree, including authorized siblings; the response names its root. Cross-assignment access is checked before reading run data. Inspect adds no credential or execution authority.
+
+Summary measures include retained root-state counts, child-run count, attempts, retry attempts, pending handoffs, external attempt count, and the mean recorded duration of finished attempts. Terminal root success rate uses succeeded/(succeeded + failed + cancelled); an empty denominator is null, not 100%. Waiting/active runs are not failures. Durations are attempt timings, not human effort or complete workflow latency. Synthetic/fixture runs are included; no production filter or date filter exists yet.
+
+Call pages include actual child identity, intent, binding revision, status, observed usage and provenance. Each page has separate currency subtotals for its returned rows only, explicitly `scope: "this_page_only"`. Reported and estimated amounts must never be summed together. Unknown/partial and not-sent counts remain visible. Do not display these page subtotals as assignment or monthly spend. Results are capped at 40 KiB of ledger rows to fit the 64 KiB transport. Pages use stable intent ordering; refresh to see newly inserted intents that precede the current cursor. Summary queries and pages are live retained-state views, not an atomic billing-period snapshot.
+
+The existing inspector adds **Analytics & costs** and **Connections** sections. Connections shows scoped binding names, types, revisions and enabled/revoked state, not connectivity health or credentials. The UI contains no fake key-entry or MCP-install control. Graph authoring, narrow Jev tuning and original controls remain unchanged. The frontend renders labels as text; returned JSON is not HTML. No cost savings, exhaustive billing coverage, signed desktop release, remote telemetry or spending guarantee is claimed.

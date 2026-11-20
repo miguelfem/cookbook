@@ -1,0 +1,6 @@
+{
+  "data_sha256": "3e551591e178d8abf8b493b2d5df748295bd965265014def04ce9168b87a8618",
+  "plotter_sha256": "b1f514cd042caef34edcfb4cc0a15dbf9a2bb230c4d0a0c63ece5ef0fc54f1f7",
+  "matplotlib_version": "3.10.6",
+  "export_normalization": "SVG line trailing whitespace stripped; plotted values and graphics unchanged."
+}

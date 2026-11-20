@@ -1,0 +1,12 @@
+{
+  "schema_version":"0.2","name":"synthetic.copy-review","description":"Synthetic direct selection preserves answer and evidence",
+  "input_schema":{"type":"object","required":["answer","evidence"],"properties":{"answer":{"type":"string"},"evidence":{"type":"string"}},"additionalProperties":false},
+  "output_schema":{"type":"object","required":["answer","evidence"],"properties":{"answer":{"type":"string"},"evidence":{"type":"string"}},"additionalProperties":false},
+  "config":{"schema":{"type":"object","additionalProperties":false},"defaults":{},"run_override_keys":[]},
+  "capabilities":[{"kind":"builtin"}],
+  "limits":{"max_step_ms":10000,"max_artifact_bytes":65536,"max_provider_calls":0,"max_agent_requests":0,"max_call_depth":1,"max_child_runs":1,"max_step_instances":4},
+  "steps":[
+    {"id":"answer","kind":"builtin","operation":"json.select","effect":"pure","needs":[],"retry":{"max_attempts":1},"inputs":{"value":{"input":""},"pointer":{"literal":"/answer"}}}
+  ],
+  "output":{"answer":{"step":"answer","pointer":"/value"},"evidence":{"input":"/evidence"}}
+}

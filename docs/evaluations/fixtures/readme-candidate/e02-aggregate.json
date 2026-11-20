@@ -1,0 +1,72 @@
+{
+  "arms": {
+    "direct": {
+      "attempted": 3,
+      "exact": 3,
+      "wall_seconds": 40.425656916,
+      "tool_calls": 6,
+      "inputTokens": 383334,
+      "cachedInputTokens": 343040,
+      "noncachedInputTokens": 40294,
+      "outputTokens": 1524,
+      "reasoningOutputTokens": 187
+    },
+    "script": {
+      "attempted": 3,
+      "exact": 3,
+      "wall_seconds": 41.292720249999995,
+      "tool_calls": 6,
+      "inputTokens": 231305,
+      "cachedInputTokens": 221952,
+      "noncachedInputTokens": 9353,
+      "outputTokens": 1469,
+      "reasoningOutputTokens": 88
+    },
+    "cookbook": {
+      "attempted": 3,
+      "exact": 3,
+      "wall_seconds": 84.867001917,
+      "tool_calls": 9,
+      "inputTokens": 499945,
+      "cachedInputTokens": 485632,
+      "noncachedInputTokens": 14313,
+      "outputTokens": 2269,
+      "reasoningOutputTokens": 213
+    }
+  },
+  "client_approval_reviews": [
+    {
+      "case": "held-onyx",
+      "approval_reviews": 0
+    },
+    {
+      "case": "held-opal",
+      "approval_reviews": 0
+    },
+    {
+      "case": "held-ruby",
+      "approval_reviews": 0
+    }
+  ],
+  "apr_run_calls": [
+    {
+      "case": "held-onyx",
+      "tool_ms": 167,
+      "status": "completed"
+    },
+    {
+      "case": "held-opal",
+      "tool_ms": 194,
+      "status": "completed"
+    },
+    {
+      "case": "held-ruby",
+      "tool_ms": 203,
+      "status": "completed"
+    }
+  ],
+  "calls_all_returned_complete": true,
+  "provider_calls": 0,
+  "client_dollars": null,
+  "scope": "Assisted setup; fixed assignment attachment; three sequential prepared holdouts. Not a parallel workload, autonomous first-use pass or population savings estimate."
+}

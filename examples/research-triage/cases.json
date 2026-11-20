@@ -1,0 +1,43 @@
+[
+  {
+    "label": "primary_source",
+    "input": {
+      "candidate_class": "primary",
+      "title": "Synthetic methods paper"
+    },
+    "caller_results": {},
+    "expected_result": {
+      "route": "accept",
+      "output": {
+        "disposition": "retain",
+        "reason": "Primary source"
+      }
+    },
+    "expected_skipped": [
+      "review"
+    ]
+  },
+  {
+    "label": "secondary_source",
+    "input": {
+      "candidate_class": "secondary",
+      "title": "Synthetic unsourced summary"
+    },
+    "caller_results": {
+      "review": {
+        "disposition": "needs_corroboration",
+        "reason": "Synthetic review requests a primary source"
+      }
+    },
+    "expected_result": {
+      "route": "review",
+      "output": {
+        "disposition": "needs_corroboration",
+        "reason": "Synthetic review requests a primary source"
+      }
+    },
+    "expected_skipped": [
+      "accept"
+    ]
+  }
+]

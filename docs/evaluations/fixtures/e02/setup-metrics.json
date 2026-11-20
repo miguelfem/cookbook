@@ -1,0 +1,36 @@
+{
+  "scope": "cold authoring, not heldout performance sample",
+  "sessions": [
+    {
+      "condition": "direct_agent",
+      "elapsed_seconds": 15.68885925016366,
+      "input_tokens": 49653,
+      "cached_input_tokens": 41216,
+      "output_tokens": 449,
+      "tool_calls": 2,
+      "manual_correction_after_session": false,
+      "client_billed_cost_usd": null
+    },
+    {
+      "condition": "reusable_script",
+      "elapsed_seconds": 56.09105770802125,
+      "input_tokens": 123428,
+      "cached_input_tokens": 103680,
+      "output_tokens": 2460,
+      "tool_calls": 4,
+      "manual_correction_after_session": false,
+      "client_billed_cost_usd": null
+    },
+    {
+      "condition": "cookbook",
+      "elapsed_seconds": 166.16698645800352,
+      "input_tokens": 631881,
+      "cached_input_tokens": 592128,
+      "output_tokens": 6234,
+      "tool_calls": 20,
+      "manual_correction_after_session": true,
+      "client_billed_cost_usd": null
+    }
+  ],
+  "manual_repair_and_grant_timing": "not measured"
+}

@@ -1,0 +1,228 @@
+{
+  "schema_version": "0.2",
+  "name": "synthetic.reviewed-update",
+  "description": "Runtime preparation, one caller judgment, then a scoped write with explicit receipt handling.",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "record_id"
+    ],
+    "properties": {
+      "record_id": {
+        "type": "string",
+        "maxLength": 64
+      }
+    },
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "record",
+      "policy"
+    ],
+    "properties": {
+      "record": {
+        "type": "object"
+      },
+      "policy": {
+        "type": "object"
+      }
+    },
+    "additionalProperties": false
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "connection",
+      "name": "records"
+    },
+    {
+      "kind": "connection",
+      "name": "policy"
+    },
+    {
+      "kind": "agent",
+      "capability": "review"
+    },
+    {
+      "kind": "connection",
+      "name": "updates"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 10000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 3,
+    "max_agent_requests": 1
+  },
+  "steps": [
+    {
+      "id": "fetch_record",
+      "kind": "connector",
+      "operation": "mcp.call",
+      "connection": "records",
+      "needs": [],
+      "effect": "read",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "record_id": {
+          "input": "/record_id"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "summary",
+          "revision"
+        ],
+        "properties": {
+          "summary": {
+            "type": "object"
+          },
+          "revision": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    {
+      "id": "fetch_policy",
+      "kind": "connector",
+      "operation": "mcp.call",
+      "connection": "policy",
+      "needs": [
+        "fetch_record"
+      ],
+      "effect": "read",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "revision": {
+          "step": "fetch_record",
+          "pointer": "/revision"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "decision_rules",
+          "revision"
+        ],
+        "properties": {
+          "decision_rules": {
+            "type": "object"
+          },
+          "revision": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    {
+      "id": "judge",
+      "kind": "agent",
+      "effect": "agent",
+      "needs": [
+        "fetch_record",
+        "fetch_policy"
+      ],
+      "retry": {
+        "max_attempts": 1
+      },
+      "capability": "review",
+      "instructions": "Judge the compact synthetic record against the policy and return an explicit decision and rationale. Do not fetch data or perform the write.",
+      "inputs": {
+        "record": {
+          "step": "fetch_record",
+          "pointer": "/summary"
+        },
+        "policy": {
+          "step": "fetch_policy",
+          "pointer": "/decision_rules"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "approve",
+          "reason"
+        ],
+        "properties": {
+          "approve": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "write_decision",
+      "kind": "connector",
+      "operation": "mcp.call",
+      "connection": "updates",
+      "needs": [
+        "judge"
+      ],
+      "effect": "write",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "record_id": {
+          "input": "/record_id"
+        },
+        "expected_revision": {
+          "step": "fetch_record",
+          "pointer": "/revision"
+        },
+        "decision": {
+          "step": "judge",
+          "pointer": "/approve"
+        },
+        "reason": {
+          "step": "judge",
+          "pointer": "/reason"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "receipt_id",
+          "revision"
+        ],
+        "properties": {
+          "receipt_id": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ],
+  "output": {
+    "receipt": {
+      "step": "write_decision",
+      "pointer": ""
+    }
+  }
+}

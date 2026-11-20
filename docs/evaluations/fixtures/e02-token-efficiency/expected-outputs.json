@@ -1,0 +1,321 @@
+{
+  "dev-spruce": {
+    "case_id": "dev-spruce",
+    "currency_totals": [
+      {
+        "currency": "CAD",
+        "event_count": 10,
+        "total_minor": 388074
+      },
+      {
+        "currency": "EUR",
+        "event_count": 11,
+        "total_minor": 369613
+      },
+      {
+        "currency": "GBP",
+        "event_count": 11,
+        "total_minor": 544460
+      },
+      {
+        "currency": "USD",
+        "event_count": 9,
+        "total_minor": 349594
+      }
+    ],
+    "dataset_version": "synthetic-pages-v1",
+    "duplicate_rows": 5,
+    "evidence": {
+      "page_ids": [
+        "dev-spruce-page-01",
+        "dev-spruce-page-02",
+        "dev-spruce-page-03",
+        "dev-spruce-page-04",
+        "dev-spruce-page-05"
+      ],
+      "page_set_sha256": "6ecd33b066221a036cf92cc13d48fd8af97dcb4654611fdc315c3f0793b0b202"
+    },
+    "invalid_rows": 6,
+    "pages_scanned": 5,
+    "qualifying_rows": 41,
+    "rejected": {
+      "amount": 3,
+      "risk": 42,
+      "status": 63
+    },
+    "rows_scanned": 160,
+    "state": "succeeded",
+    "top_accounts": [
+      {
+        "account": "Delta Works",
+        "currency": "CAD",
+        "event_count": 6,
+        "total_minor": 269850
+      },
+      {
+        "account": "North Star",
+        "currency": "GBP",
+        "event_count": 4,
+        "total_minor": 259508
+      },
+      {
+        "account": "Oak Station",
+        "currency": "USD",
+        "event_count": 4,
+        "total_minor": 216772
+      },
+      {
+        "account": "Oak Station",
+        "currency": "GBP",
+        "event_count": 6,
+        "total_minor": 207756
+      },
+      {
+        "account": "Delta Works",
+        "currency": "EUR",
+        "event_count": 7,
+        "total_minor": 157869
+      }
+    ]
+  },
+  "page-amber": {
+    "case_id": "page-amber",
+    "currency_totals": [
+      {
+        "currency": "CAD",
+        "event_count": 15,
+        "total_minor": 653627
+      },
+      {
+        "currency": "EUR",
+        "event_count": 14,
+        "total_minor": 595270
+      },
+      {
+        "currency": "GBP",
+        "event_count": 14,
+        "total_minor": 514068
+      },
+      {
+        "currency": "USD",
+        "event_count": 16,
+        "total_minor": 688352
+      }
+    ],
+    "dataset_version": "synthetic-pages-v1",
+    "duplicate_rows": 7,
+    "evidence": {
+      "page_ids": [
+        "page-amber-page-01",
+        "page-amber-page-02",
+        "page-amber-page-03",
+        "page-amber-page-04",
+        "page-amber-page-05",
+        "page-amber-page-06"
+      ],
+      "page_set_sha256": "13e092d0b25edb5cfc288dfcddf56ae2f4522febb03a15920f12ecfb5b56388c"
+    },
+    "invalid_rows": 9,
+    "pages_scanned": 6,
+    "qualifying_rows": 59,
+    "rejected": {
+      "amount": 7,
+      "risk": 52,
+      "status": 88
+    },
+    "rows_scanned": 222,
+    "state": "succeeded",
+    "top_accounts": [
+      {
+        "account": "Amber Quay",
+        "currency": "CAD",
+        "event_count": 7,
+        "total_minor": 418055
+      },
+      {
+        "account": "Cobalt Field",
+        "currency": "USD",
+        "event_count": 7,
+        "total_minor": 285190
+      },
+      {
+        "account": "Cobalt Field",
+        "currency": "GBP",
+        "event_count": 6,
+        "total_minor": 252852
+      },
+      {
+        "account": "Linden Vale",
+        "currency": "EUR",
+        "event_count": 6,
+        "total_minor": 229974
+      },
+      {
+        "account": "North Star",
+        "currency": "USD",
+        "event_count": 4,
+        "total_minor": 220860
+      }
+    ]
+  },
+  "page-cobalt": {
+    "case_id": "page-cobalt",
+    "currency_totals": [
+      {
+        "currency": "CAD",
+        "event_count": 17,
+        "total_minor": 833001
+      },
+      {
+        "currency": "EUR",
+        "event_count": 12,
+        "total_minor": 482592
+      },
+      {
+        "currency": "GBP",
+        "event_count": 12,
+        "total_minor": 449908
+      },
+      {
+        "currency": "USD",
+        "event_count": 16,
+        "total_minor": 485576
+      }
+    ],
+    "dataset_version": "synthetic-pages-v1",
+    "duplicate_rows": 7,
+    "evidence": {
+      "page_ids": [
+        "page-cobalt-page-01",
+        "page-cobalt-page-02",
+        "page-cobalt-page-03",
+        "page-cobalt-page-04",
+        "page-cobalt-page-05",
+        "page-cobalt-page-06",
+        "page-cobalt-page-07"
+      ],
+      "page_set_sha256": "cb53678f26fbfd5332ced04b316a2804ed0bf2205aa96419f39e9a0a9eac92c9"
+    },
+    "invalid_rows": 9,
+    "pages_scanned": 7,
+    "qualifying_rows": 57,
+    "rejected": {
+      "amount": 9,
+      "risk": 60,
+      "status": 75
+    },
+    "rows_scanned": 217,
+    "state": "succeeded",
+    "top_accounts": [
+      {
+        "account": "Delta Works",
+        "currency": "CAD",
+        "event_count": 7,
+        "total_minor": 399163
+      },
+      {
+        "account": "Linden Vale",
+        "currency": "EUR",
+        "event_count": 6,
+        "total_minor": 313698
+      },
+      {
+        "account": "Oak Station",
+        "currency": "USD",
+        "event_count": 5,
+        "total_minor": 241930
+      },
+      {
+        "account": "Amber Quay",
+        "currency": "CAD",
+        "event_count": 4,
+        "total_minor": 234776
+      },
+      {
+        "account": "Cobalt Field",
+        "currency": "USD",
+        "event_count": 7,
+        "total_minor": 206974
+      }
+    ]
+  },
+  "page-linden": {
+    "case_id": "page-linden",
+    "currency_totals": [
+      {
+        "currency": "CAD",
+        "event_count": 15,
+        "total_minor": 682899
+      },
+      {
+        "currency": "EUR",
+        "event_count": 15,
+        "total_minor": 630357
+      },
+      {
+        "currency": "GBP",
+        "event_count": 13,
+        "total_minor": 546736
+      },
+      {
+        "currency": "USD",
+        "event_count": 14,
+        "total_minor": 563848
+      }
+    ],
+    "dataset_version": "synthetic-pages-v1",
+    "duplicate_rows": 7,
+    "evidence": {
+      "page_ids": [
+        "page-linden-page-01",
+        "page-linden-page-02",
+        "page-linden-page-03",
+        "page-linden-page-04",
+        "page-linden-page-05"
+      ],
+      "page_set_sha256": "2641a6196b9557af4022e541456e1dc2f7e2eb0d3278c920f053dbbd5ee42451"
+    },
+    "invalid_rows": 9,
+    "pages_scanned": 5,
+    "qualifying_rows": 57,
+    "rejected": {
+      "amount": 6,
+      "risk": 53,
+      "status": 83
+    },
+    "rows_scanned": 215,
+    "state": "succeeded",
+    "top_accounts": [
+      {
+        "account": "Linden Vale",
+        "currency": "CAD",
+        "event_count": 6,
+        "total_minor": 386994
+      },
+      {
+        "account": "Oak Station",
+        "currency": "GBP",
+        "event_count": 7,
+        "total_minor": 288208
+      },
+      {
+        "account": "Cobalt Field",
+        "currency": "USD",
+        "event_count": 5,
+        "total_minor": 275358
+      },
+      {
+        "account": "Linden Vale",
+        "currency": "EUR",
+        "event_count": 6,
+        "total_minor": 241686
+      },
+      {
+        "account": "Delta Works",
+        "currency": "CAD",
+        "event_count": 6,
+        "total_minor": 230622
+      }
+    ]
+  }
+}

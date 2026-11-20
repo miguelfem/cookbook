@@ -1,0 +1,41 @@
+[
+  {
+    "policy": 4,
+    "quality_pass": true,
+    "setup_ms": 229.216,
+    "wall_ms": 12804.374,
+    "status_peak": 4,
+    "model_tokens": null,
+    "provider_calls": 0,
+    "interval_peak": 4,
+    "refilled_before_slow_end": true,
+    "exact_outputs": 64,
+    "attempted_jobs": 64
+  },
+  {
+    "policy": 32,
+    "quality_pass": true,
+    "setup_ms": 180.447,
+    "wall_ms": 2730.939,
+    "status_peak": 32,
+    "model_tokens": null,
+    "provider_calls": 0,
+    "interval_peak": 32,
+    "refilled_before_slow_end": true,
+    "exact_outputs": 64,
+    "attempted_jobs": 64
+  },
+  {
+    "policy": 64,
+    "quality_pass": true,
+    "setup_ms": 210.369,
+    "wall_ms": 2936.884,
+    "status_peak": 64,
+    "model_tokens": null,
+    "provider_calls": 0,
+    "interval_peak": 64,
+    "refilled_before_slow_end": null,
+    "exact_outputs": 64,
+    "attempted_jobs": 64
+  }
+]

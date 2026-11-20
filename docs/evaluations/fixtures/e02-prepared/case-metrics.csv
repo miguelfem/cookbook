@@ -1,0 +1,7 @@
+case_index,case_id,order_in_case,condition,accepted_exact,elapsed_seconds,input_tokens,cached_input_tokens,reported_noncached_input_tokens,output_tokens,reasoning_output_tokens,tool_calls,tool_event_elapsed_seconds_sum,command_calls,apr_run_calls,apr_inspect_calls,failed_inspect_missing_view,apr_run_tool_elapsed_seconds,first_apr_run_to_final_inspect_seconds,runtime_created_to_succeeded_ms,runtime_effect_elapsed_ms,profile_source_reads,ledger_source_reads,stop_reason,client_billed_cost_usd
+1,prep-ash,1,direct_agent,True,14.8522803329397,49621,41216,8405,486,91,3,7.850355250295252,3,0,0,0,0,,,,1,1,,
+1,prep-ash,2,cookbook,True,29.3980549168773,206119,164864,41255,733,152,4,13.932972206966951,1,1,2,1,4.378054332919419,9.707269915845245,137,135,1,1,,
+2,prep-birch,2,direct_agent,True,24.063134209020063,49645,41216,8429,514,110,3,12.988344624172896,3,0,0,0,0,,,,1,1,,
+2,prep-birch,1,cookbook,True,46.81745970901102,204507,162816,41691,667,149,4,25.447133540874347,1,1,2,1,12.293063292047009,19.039753041928634,133,130,1,1,,
+3,prep-pine,1,direct_agent,True,15.375382666941732,49496,41216,8280,455,120,3,8.124440749175847,3,0,0,0,0,,,,1,1,,
+3,prep-pine,2,cookbook,True,28.83290541707538,204533,179200,25333,657,125,4,14.263912458205596,1,1,2,1,6.2070262499619275,11.33343550004065,111,109,1,1,,

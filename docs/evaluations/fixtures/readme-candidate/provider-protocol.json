@@ -1,0 +1,462 @@
+{
+  "e03": {
+    "cases": [
+      {
+        "expected": {
+          "due_date": "2026-11-02",
+          "evidence": {
+            "due_date": "Due date: 2026-11-02",
+            "owner": "Owner: Ada Flint",
+            "project": "Project: Willow ledger",
+            "status": "Status: Draft"
+          },
+          "owner": "Ada Flint",
+          "project": "Willow ledger",
+          "status": "Draft"
+        },
+        "id": "x01",
+        "memo": "Project: Willow ledger\nOwner: Ada Flint\nDue date: 2026-11-02\nStatus: Draft\nNote: Deadline was previously October 30."
+      },
+      {
+        "expected": {
+          "due_date": "2026-11-04",
+          "evidence": {
+            "due_date": "Due date: 2026-11-04",
+            "owner": "Owner: Ben Ortiz",
+            "project": "Project: Glass index",
+            "status": "Status: Pending review"
+          },
+          "owner": "Ben Ortiz",
+          "project": "Glass index",
+          "status": "Pending review"
+        },
+        "id": "x02",
+        "memo": "Status: Pending review\nProject: Glass index\nDue date: 2026-11-04\nOwner: Ben Ortiz\nNote: The reviewer is not the owner."
+      },
+      {
+        "expected": {
+          "due_date": null,
+          "evidence": {
+            "due_date": null,
+            "owner": "Owner: Cleo Nash",
+            "project": "Project: Elm registry",
+            "status": "Status: Ready"
+          },
+          "owner": "Cleo Nash",
+          "project": "Elm registry",
+          "status": "Ready"
+        },
+        "id": "x03",
+        "memo": "Project: Elm registry\nOwner: Cleo Nash\nStatus: Ready\nNote: No due date was assigned."
+      },
+      {
+        "expected": {
+          "due_date": "2026-11-08",
+          "evidence": {
+            "due_date": "Due date: 2026-11-08",
+            "owner": null,
+            "project": "Project: Kestrel map",
+            "status": "Status: Blocked"
+          },
+          "owner": null,
+          "project": "Kestrel map",
+          "status": "Blocked"
+        },
+        "id": "x04",
+        "memo": "Project: Kestrel map\nDue date: 2026-11-08\nStatus: Blocked\nNote: Owner is absent from this snapshot."
+      },
+      {
+        "expected": {
+          "due_date": "2026-11-11",
+          "evidence": {
+            "due_date": "Due date: 2026-11-11",
+            "owner": "Owner: Dev Shah",
+            "project": "Project: Ribbon audit",
+            "status": "Status: In progress"
+          },
+          "owner": "Dev Shah",
+          "project": "Ribbon audit",
+          "status": "In progress"
+        },
+        "id": "x05",
+        "memo": "Owner: Dev Shah\nDue date: 2026-11-11\nProject: Ribbon audit\nStatus: In progress\nHistory: the project used to be paused."
+      },
+      {
+        "expected": {
+          "due_date": "2026-11-14",
+          "evidence": {
+            "due_date": "Due date: 2026-11-14",
+            "owner": "Owner: Eri Moss",
+            "project": "Project: Silver queue",
+            "status": "Status: Complete"
+          },
+          "owner": "Eri Moss",
+          "project": "Silver queue",
+          "status": "Complete"
+        },
+        "id": "x06",
+        "memo": "Project: Silver queue\nStatus: Complete\nOwner: Eri Moss\nDue date: 2026-11-14\nNote: A follow-up is planned on November 20."
+      },
+      {
+        "expected": {
+          "due_date": "2026-11-17",
+          "evidence": {
+            "due_date": "Due date: 2026-11-17",
+            "owner": "Owner: Finn Vega",
+            "project": "Project: Maple census",
+            "status": "Status: Awaiting input"
+          },
+          "owner": "Finn Vega",
+          "project": "Maple census",
+          "status": "Awaiting input"
+        },
+        "id": "x07",
+        "memo": "Due date: 2026-11-17\nOwner: Finn Vega\nProject: Maple census\nStatus: Awaiting input\nNote: The input source is a separate team."
+      },
+      {
+        "expected": {
+          "due_date": "2026-11-20",
+          "evidence": {
+            "due_date": "Due date: 2026-11-20",
+            "owner": "Owner: Gia Moon",
+            "project": "Project: Quartz ledger",
+            "status": "Status: Approved"
+          },
+          "owner": "Gia Moon",
+          "project": "Quartz ledger",
+          "status": "Approved"
+        },
+        "id": "x08",
+        "memo": "Project: Quartz ledger\nOwner: Gia Moon\nDue date: 2026-11-20\nStatus: Approved\nNote: Approval here is just a memo status."
+      },
+      {
+        "expected": {
+          "due_date": "2026-11-23",
+          "evidence": {
+            "due_date": "Due date: 2026-11-23",
+            "owner": "Owner: Hal Reed",
+            "project": "Project: Amber catalog",
+            "status": "Status: Paused"
+          },
+          "owner": "Hal Reed",
+          "project": "Amber catalog",
+          "status": "Paused"
+        },
+        "id": "x09",
+        "memo": "Project: Amber catalog\nOwner: Hal Reed\nDue date: 2026-11-23\nStatus: Paused\nHistory: a previous note said Complete."
+      },
+      {
+        "expected": {
+          "due_date": "2026-11-26",
+          "evidence": {
+            "due_date": "Due date: 2026-11-26",
+            "owner": "Owner: Ira Wells",
+            "project": "Project: Harbor matrix",
+            "status": "Status: Scheduled"
+          },
+          "owner": "Ira Wells",
+          "project": "Harbor matrix",
+          "status": "Scheduled"
+        },
+        "id": "x10",
+        "memo": "Status: Scheduled\nProject: Harbor matrix\nOwner: Ira Wells\nDue date: 2026-11-26\nNote: Rehearsal on November 22 is not the due date."
+      }
+    ],
+    "hard_dispatch_ceiling": 40,
+    "models": {
+      "gemini": "gemini-2.5-flash-lite",
+      "openrouter": "openai/gpt-4.1-mini"
+    },
+    "no_retry": true,
+    "prompt": "Return only JSON with keys project, owner, due_date, status, evidence. Use only the memo. Copy each value exactly from its labeled line; evidence must contain those four keys with each entire exact source line. If a label is absent, use null for the value and evidence. Do not infer from notes.",
+    "quality_floor": "At least 9/10 accepted in each repetition for each provider; exact values and exact source lines; no fabricated evidence.",
+    "repetitions": 2,
+    "self_caps_usd": {
+      "gemini": 0.5,
+      "openrouter": 0.5
+    }
+  },
+  "e04": {
+    "adoption": "No production adoption. Passing report requires explicit owner review of exact candidate.",
+    "call_ceiling": {
+      "discovery": 8,
+      "routing": 24,
+      "smoke": 8,
+      "total": 64,
+      "two_arm_evaluator": 24
+    },
+    "discovery": [
+      {
+        "id": "d01",
+        "spec_category": "calendar",
+        "text": "Move the kickoff to Wednesday afternoon around two listed attendees."
+      },
+      {
+        "id": "d02",
+        "spec_category": "calendar",
+        "text": "Find a free hour before Friday using supplied time windows."
+      },
+      {
+        "id": "d03",
+        "spec_category": "calendar",
+        "text": "Shift the interview to the next available morning."
+      },
+      {
+        "id": "d04",
+        "spec_category": "calendar",
+        "text": "Create a schedule from the supplied milestone dates."
+      },
+      {
+        "id": "d05",
+        "spec_category": "code",
+        "text": "Review this supplied Python parser for empty strings."
+      },
+      {
+        "id": "d06",
+        "spec_category": "code",
+        "text": "Explain the error branches of this supplied Go function."
+      },
+      {
+        "id": "d07",
+        "spec_category": "code",
+        "text": "Find likely null bugs in this supplied TypeScript helper."
+      },
+      {
+        "id": "d08",
+        "spec_category": "code",
+        "text": "Describe what this supplied SQL query computes."
+      }
+    ],
+    "heldout": [
+      {
+        "expected": "documents",
+        "id": "h01",
+        "text": "Summarize the attached safety memo in three points."
+      },
+      {
+        "expected": "documents",
+        "id": "h02",
+        "text": "Compare these two supplied release notes for wording changes."
+      },
+      {
+        "expected": "records",
+        "id": "h03",
+        "text": "Count active rows in the supplied inventory table."
+      },
+      {
+        "expected": "records",
+        "id": "h04",
+        "text": "Group the attached CSV values by warehouse."
+      },
+      {
+        "expected": "unclear",
+        "id": "h05",
+        "text": "Summarize the report. No report was supplied."
+      },
+      {
+        "expected": "unclear",
+        "id": "h06",
+        "text": "Compare the versions. Only the latest version was supplied."
+      },
+      {
+        "expected": "calendar",
+        "id": "h07",
+        "text": "Reserve a 30 minute slot next Tuesday for the listed participants."
+      },
+      {
+        "expected": "calendar",
+        "id": "h08",
+        "text": "Move the briefing after the supplied cutoff date."
+      },
+      {
+        "expected": "code",
+        "id": "h09",
+        "text": "Explain the return paths in this supplied Kotlin function."
+      },
+      {
+        "expected": "code",
+        "id": "h10",
+        "text": "Review the supplied JavaScript snippet for undefined values."
+      },
+      {
+        "expected": "other",
+        "id": "h11",
+        "text": "Generate a watercolor picture of a lighthouse."
+      },
+      {
+        "expected": "other",
+        "id": "h12",
+        "text": "Send the provided note to the listed email address."
+      }
+    ],
+    "learning_gate": "Implemented classifier gate: >=90% candidate accuracy, improvement, no regression of baseline-correct decisions, two correct per category at confidence >=0.75, plus every mandatory review correct.",
+    "min_confidence": 0.75,
+    "model": "jev-latest",
+    "no_retry": true,
+    "question": {
+      "route": {
+        "criteria": {
+          "documents": "Compare or summarize at least one supplied document.",
+          "other": "Clear request is outside the two supported processes; caller review is required.",
+          "records": "Summarize or analyze a supplied structured record set.",
+          "unclear": "Desired result or required input is missing or ambiguous; caller review is required."
+        },
+        "instructions": "Choose the supported next process from the request and available inputs. Use unclear if intent or required inputs are missing. Use other for a clear unsupported request. Never invent input or permission.",
+        "type": "choice"
+      }
+    },
+    "routing": [
+      {
+        "expected": "documents",
+        "id": "r01",
+        "mandatory_review": false,
+        "state": "Summarize the attached charter for a board note. Input: one document attached."
+      },
+      {
+        "expected": "documents",
+        "id": "r02",
+        "mandatory_review": false,
+        "state": "Compare these two attached contracts for changes. Input: both documents attached."
+      },
+      {
+        "expected": "documents",
+        "id": "r03",
+        "mandatory_review": false,
+        "state": "Extract decisions from this supplied meeting transcript. Input: transcript document attached."
+      },
+      {
+        "expected": "documents",
+        "id": "r04",
+        "mandatory_review": false,
+        "state": "List obligations in the supplied policy note. Input: one document attached."
+      },
+      {
+        "expected": "documents",
+        "id": "r05",
+        "mandatory_review": false,
+        "state": "Give a two-line synopsis of this attached manual. Input: one document attached."
+      },
+      {
+        "expected": "documents",
+        "id": "r06",
+        "mandatory_review": false,
+        "state": "Contrast the supplied drafts A and B. Input: two documents attached."
+      },
+      {
+        "expected": "records",
+        "id": "r07",
+        "mandatory_review": false,
+        "state": "Count unresolved tickets by team. Input: structured ticket rows attached."
+      },
+      {
+        "expected": "records",
+        "id": "r08",
+        "mandatory_review": false,
+        "state": "Find the median quantity. Input: a numeric record table attached."
+      },
+      {
+        "expected": "records",
+        "id": "r09",
+        "mandatory_review": false,
+        "state": "Group attached CSV rows by country. Input: CSV records attached."
+      },
+      {
+        "expected": "records",
+        "id": "r10",
+        "mandatory_review": false,
+        "state": "Identify missing values in the attached register. Input: structured rows attached."
+      },
+      {
+        "expected": "records",
+        "id": "r11",
+        "mandatory_review": false,
+        "state": "Summarize the supplied ledger by month. Input: tabular records attached."
+      },
+      {
+        "expected": "records",
+        "id": "r12",
+        "mandatory_review": false,
+        "state": "Rank the attached record set by amount. Input: structured rows attached."
+      },
+      {
+        "expected": "unclear",
+        "id": "r13",
+        "mandatory_review": true,
+        "state": "Summarize the memo. Input: no memo was supplied."
+      },
+      {
+        "expected": "unclear",
+        "id": "r14",
+        "mandatory_review": true,
+        "state": "Compare both policies. Input: only the first policy is supplied."
+      },
+      {
+        "expected": "unclear",
+        "id": "r15",
+        "mandatory_review": true,
+        "state": "Please analyze this. Input: no document, records or desired result."
+      },
+      {
+        "expected": "unclear",
+        "id": "r16",
+        "mandatory_review": true,
+        "state": "Make a chart from the table. Input: no table supplied."
+      },
+      {
+        "expected": "unclear",
+        "id": "r17",
+        "mandatory_review": true,
+        "state": "Review the notes or the records, whichever is useful. Input: both supplied; no desired result."
+      },
+      {
+        "expected": "unclear",
+        "id": "r18",
+        "mandatory_review": true,
+        "state": "Tell me what changed. Input: only one document supplied; earlier version missing."
+      },
+      {
+        "expected": "other",
+        "id": "r19",
+        "mandatory_review": true,
+        "state": "Book a team workshop on Friday. Input: dates and people supplied; no documents or records."
+      },
+      {
+        "expected": "other",
+        "id": "r20",
+        "mandatory_review": true,
+        "state": "Explain the supplied Rust function. Input: source code attached; no documents or records."
+      },
+      {
+        "expected": "other",
+        "id": "r21",
+        "mandatory_review": true,
+        "state": "Paint a seaside illustration. Input: art prompt supplied."
+      },
+      {
+        "expected": "other",
+        "id": "r22",
+        "mandatory_review": true,
+        "state": "Send the supplied message to the supplied recipient. Input: recipient and text supplied."
+      },
+      {
+        "expected": "other",
+        "id": "r23",
+        "mandatory_review": true,
+        "state": "Rearrange the project calendar around the deadline. Input: dates and constraints supplied."
+      },
+      {
+        "expected": "other",
+        "id": "r24",
+        "mandatory_review": true,
+        "state": "Review this supplied SQL query for null behavior. Input: source code supplied."
+      }
+    ],
+    "routing_gate": "At least 22/24 correct and all mandatory-review cases correctly reviewed.",
+    "rules_baseline": "Frozen case-insensitive lexical rules: missing/ambiguous input phrases route unclear; clearly unsupported scheduling, code, art or sending routes other; supplied document nouns route documents; structured row nouns route records; conflicting or unknown types route unclear.",
+    "self_cap_usd": 0.25
+  },
+  "label_custody": "Labels frozen with inputs before any model result; no separate human review claimed.",
+  "provenance": "independent synthetic specification",
+  "revision": "fresh-2026-09-22-v2",
+  "export_note": "Selected synthetic protocol; live run IDs omitted. Original private freeze hash retained in providers.json."
+}

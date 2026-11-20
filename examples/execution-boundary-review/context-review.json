@@ -1,0 +1,34 @@
+{
+  "steps": {
+    "brief": {
+      "boundary": "deterministic",
+      "reason": "Frozen helper aggregates bounded pages and emits exact revision deltas.",
+      "output": {
+        "max_return_bytes": 2048,
+        "raw_artifact": true,
+        "paged_or_aggregated": true,
+        "repeated_guidance": true,
+        "revision_delta_includes_removals": true
+      }
+    }
+  },
+  "baseline": {
+    "model_round_trips": 1,
+    "raw_http_calls": 0,
+    "retained_input_tokens": null,
+    "retained_output_tokens": null
+  },
+  "expected": {
+    "model_round_trips": 0,
+    "raw_http_calls": 0,
+    "retained_input_tokens": null,
+    "retained_output_tokens": null
+  },
+  "final_output": {
+    "max_return_bytes": 2048,
+    "raw_artifact": true,
+    "paged_or_aggregated": true,
+    "repeated_guidance": true,
+    "revision_delta_includes_removals": true
+  }
+}

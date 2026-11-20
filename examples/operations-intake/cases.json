@@ -1,0 +1,43 @@
+[
+  {
+    "label": "critical_incident",
+    "input": {
+      "severity": "critical",
+      "summary": "Synthetic service unavailable"
+    },
+    "caller_results": {
+      "escalate": {
+        "queue": "incident",
+        "action": "page_operator"
+      }
+    },
+    "expected_result": {
+      "route": "escalate",
+      "output": {
+        "queue": "incident",
+        "action": "page_operator"
+      }
+    },
+    "expected_skipped": [
+      "routine"
+    ]
+  },
+  {
+    "label": "routine_request",
+    "input": {
+      "severity": "normal",
+      "summary": "Synthetic access question"
+    },
+    "caller_results": {},
+    "expected_result": {
+      "route": "routine",
+      "output": {
+        "queue": "standard",
+        "action": "scheduled_review"
+      }
+    },
+    "expected_skipped": [
+      "escalate"
+    ]
+  }
+]

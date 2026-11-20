@@ -1,0 +1,576 @@
+{
+  "study": "E01",
+  "status": "incomplete_local_acceptance",
+  "protocol_sha256": "ca72ef708079a9ccee9d3aebd1f8a0d19101afcac9e462f806d4a54f65af7632",
+  "sessions": [
+    {
+      "session": "e01-first-session",
+      "elapsed_seconds": 179.2409500000067,
+      "tool_calls": 21,
+      "stop_reason": null,
+      "exit_code": 0,
+      "input_tokens": 701096,
+      "cached_input_tokens": 638208,
+      "output_tokens": 3321,
+      "reasoning_output_tokens": 274,
+      "mcp_error_count": 4,
+      "event_bytes": 46961,
+      "client_billed_cost_usd": null
+    },
+    {
+      "session": "e01-second-session",
+      "elapsed_seconds": 343.7432337498758,
+      "tool_calls": 36,
+      "stop_reason": "tool_call_limit",
+      "exit_code": -15,
+      "input_tokens": null,
+      "cached_input_tokens": null,
+      "output_tokens": null,
+      "reasoning_output_tokens": null,
+      "mcp_error_count": 6,
+      "event_bytes": 71812,
+      "client_billed_cost_usd": null
+    },
+    {
+      "session": "e01-adapter-session",
+      "elapsed_seconds": 297.6259767918382,
+      "tool_calls": 16,
+      "stop_reason": null,
+      "exit_code": 0,
+      "input_tokens": 625138,
+      "cached_input_tokens": 537600,
+      "output_tokens": 5181,
+      "reasoning_output_tokens": 739,
+      "mcp_error_count": 0,
+      "event_bytes": 59453,
+      "client_billed_cost_usd": null
+    },
+    {
+      "session": "e01-recovery-session",
+      "elapsed_seconds": 49.67806808301248,
+      "tool_calls": 7,
+      "stop_reason": null,
+      "exit_code": 0,
+      "input_tokens": 343255,
+      "cached_input_tokens": 314368,
+      "output_tokens": 1495,
+      "reasoning_output_tokens": 448,
+      "mcp_error_count": 5,
+      "event_bytes": 8398,
+      "client_billed_cost_usd": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "elapsed_seconds": 106.69743112497963,
+      "tool_calls": 18,
+      "stop_reason": "tool_call_limit",
+      "exit_code": -15,
+      "input_tokens": null,
+      "cached_input_tokens": null,
+      "output_tokens": null,
+      "reasoning_output_tokens": null,
+      "mcp_error_count": 7,
+      "event_bytes": 56675,
+      "client_billed_cost_usd": null
+    },
+    {
+      "session": "e01-recovery-corrected-session",
+      "elapsed_seconds": 53.99971012515016,
+      "tool_calls": 6,
+      "stop_reason": null,
+      "exit_code": 0,
+      "input_tokens": 368979,
+      "cached_input_tokens": 339712,
+      "output_tokens": 1799,
+      "reasoning_output_tokens": 440,
+      "mcp_error_count": 2,
+      "event_bytes": 11503,
+      "client_billed_cost_usd": null
+    }
+  ],
+  "mcp_calls": [
+    {
+      "session": "e01-first-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_run",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_run",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_run",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-first-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_run",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_run",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_run",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_resume",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": "FORBIDDEN"
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_run",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_resume",
+      "error_code": null
+    },
+    {
+      "session": "e01-second-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-session",
+      "tool": "apr_manage",
+      "error_code": null
+    },
+    {
+      "session": "e01-recovery-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-recovery-session",
+      "tool": "apr_project",
+      "error_code": "FORBIDDEN"
+    },
+    {
+      "session": "e01-recovery-session",
+      "tool": "apr_inspect",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-recovery-session",
+      "tool": "apr_inspect",
+      "error_code": "WORKSPACE_REQUIRED"
+    },
+    {
+      "session": "e01-recovery-session",
+      "tool": "apr_inspect",
+      "error_code": "WORKSPACE_REQUIRED"
+    },
+    {
+      "session": "e01-recovery-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-recovery-session",
+      "tool": "apr_project",
+      "error_code": "FORBIDDEN"
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_manage",
+      "error_code": "INVALID_MANIFEST"
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_discover",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_manage",
+      "error_code": "INVALID_MANIFEST"
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_manage",
+      "error_code": "INVALID_MANIFEST"
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_manage",
+      "error_code": "PARAMETER_DESERIALIZATION"
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_manage",
+      "error_code": "INVALID_MANIFEST"
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_manage",
+      "error_code": "INVALID_MANIFEST"
+    },
+    {
+      "session": "e01-adapter-use-session",
+      "tool": "apr_manage",
+      "error_code": "INVALID_MANIFEST"
+    },
+    {
+      "session": "e01-recovery-corrected-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-recovery-corrected-session",
+      "tool": "apr_project",
+      "error_code": "FORBIDDEN"
+    },
+    {
+      "session": "e01-recovery-corrected-session",
+      "tool": "apr_project",
+      "error_code": null
+    },
+    {
+      "session": "e01-recovery-corrected-session",
+      "tool": "apr_inspect",
+      "error_code": null
+    },
+    {
+      "session": "e01-recovery-corrected-session",
+      "tool": "apr_inspect",
+      "error_code": "FORBIDDEN"
+    }
+  ],
+  "runtime_runs": [
+    {
+      "id": "run_d2f17ce129da4206a4f72237976a54a4",
+      "state": "succeeded",
+      "version": "sha256:53e397e5cf8703e5e0890a6eb754ac7a6cb5af56399e75a5e59d3096a518383b",
+      "output_kind": "note_artifact",
+      "artifact_hash_verified": true
+    },
+    {
+      "id": "run_402d544efc584223818be5955240803c",
+      "state": "succeeded",
+      "version": "sha256:53e397e5cf8703e5e0890a6eb754ac7a6cb5af56399e75a5e59d3096a518383b",
+      "output_kind": "note_artifact",
+      "artifact_hash_verified": true
+    },
+    {
+      "id": "run_8d618593175c435dbc564fd98ca42744",
+      "state": "succeeded",
+      "version": "sha256:bab6bab7596ee804a2f24e1233abbe5a25fc91114778caf202910b3b356c505c",
+      "output_kind": "note_artifact",
+      "artifact_hash_verified": true
+    },
+    {
+      "id": "run_32783dd96bba496b8c721465acc91b68",
+      "state": "failed",
+      "version": "sha256:1b760cbaaf2c3eb22ddd2233754f45030510b7ad900288169614de28b3b5024d",
+      "output": null,
+      "output_kind": "caller_choice"
+    },
+    {
+      "id": "run_cdd9d41db633473cb82ec1cf0d2710a7",
+      "state": "succeeded",
+      "version": "sha256:bb315b2139285671684ce190022aa831d96625c31aeb999df95acca62c369092",
+      "output_kind": "caller_choice",
+      "expected_choice_verified": true
+    }
+  ],
+  "saved_notes_exact": 3,
+  "saved_notes_attempted": 3,
+  "provider_dispatches": 0,
+  "client_cost_complete": false,
+  "owner_approval_surface": "CLI in disposable state; no native approval-flow claim",
+  "labels_exported": false
+}

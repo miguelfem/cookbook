@@ -1,0 +1,16 @@
+{
+  "name": "typesafe-computer-use",
+  "author": "Aaron Levin",
+  "repository": "https://github.com/awlevin/typesafe-computer-use",
+  "revision": "7d120f1944d0156773d5089b81f8e46d108a6c8d",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Aaron Levin",
+  "license_path": "third_party/licenses/typesafe-computer-use-7d120f19/LICENSE",
+  "license_sha256": "fb99135e22841bb564b275b5c0755ce1e5418faff2c806f25d4a11696214c87c",
+  "original_files": [
+    "typesafe_computer_use/macos.py",
+    "typesafe_computer_use/perception.py"
+  ],
+  "adapted_file": "integrations/computer-use/computer_worker.py",
+  "notes": "Adapted native event posting, accessibility metadata and OCR block merging. APR owns the finite graph and protected provider integration."
+}

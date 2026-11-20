@@ -1,0 +1,229 @@
+{
+  "schema_version": "0.1",
+  "name": "local.review-package",
+  "description": "Review a record and package source artifacts",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "record",
+      "sources"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "record": {
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "sources": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "approved",
+      "package"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "approved": {
+        "type": "boolean"
+      },
+      "package": {
+        "type": "object"
+      }
+    }
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "builtin"
+    },
+    {
+      "kind": "artifacts"
+    },
+    {
+      "kind": "agent",
+      "capability": "review"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 10000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 0,
+    "max_agent_requests": 1
+  },
+  "steps": [
+    {
+      "id": "select",
+      "kind": "builtin",
+      "operation": "json.select",
+      "effect": "pure",
+      "needs": [],
+      "retry": {
+        "max_attempts": 2
+      },
+      "inputs": {
+        "value": {
+          "input": ""
+        },
+        "pointer": {
+          "literal": "/record"
+        }
+      }
+    },
+    {
+      "id": "save",
+      "kind": "builtin",
+      "operation": "json.write",
+      "effect": "pure",
+      "needs": [
+        "select"
+      ],
+      "retry": {
+        "max_attempts": 2
+      },
+      "inputs": {
+        "value": {
+          "step": "select",
+          "pointer": "/value"
+        }
+      }
+    },
+    {
+      "id": "manifest",
+      "kind": "builtin",
+      "operation": "artifact.manifest",
+      "effect": "pure",
+      "needs": [],
+      "retry": {
+        "max_attempts": 2
+      },
+      "inputs": {
+        "sources": {
+          "input": "/sources"
+        }
+      }
+    },
+    {
+      "id": "validate",
+      "kind": "builtin",
+      "operation": "artifact.validate_set",
+      "effect": "pure",
+      "needs": [],
+      "retry": {
+        "max_attempts": 2
+      },
+      "inputs": {
+        "items": {
+          "input": "/sources"
+        },
+        "media_type_prefix": {
+          "literal": "text/"
+        }
+      }
+    },
+    {
+      "id": "review",
+      "kind": "agent",
+      "effect": "agent",
+      "needs": [
+        "select",
+        "save",
+        "manifest",
+        "validate"
+      ],
+      "retry": {
+        "max_attempts": 1
+      },
+      "capability": "review",
+      "instructions": "Review the record and source validation. Return whether it is approved.",
+      "inputs": {
+        "record": {
+          "step": "select",
+          "pointer": "/value"
+        },
+        "record_artifact": {
+          "step": "save",
+          "pointer": "/artifact"
+        },
+        "source_manifest": {
+          "step": "manifest",
+          "pointer": "/artifact"
+        },
+        "validation": {
+          "step": "validate",
+          "pointer": "/report"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "approved"
+        ],
+        "properties": {
+          "approved": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "bundle",
+      "kind": "builtin",
+      "operation": "artifact.bundle",
+      "effect": "pure",
+      "needs": [
+        "review",
+        "validate"
+      ],
+      "retry": {
+        "max_attempts": 2
+      },
+      "inputs": {
+        "artifacts": {
+          "step": "validate",
+          "pointer": "/artifacts"
+        },
+        "format": {
+          "literal": "zip"
+        },
+        "report": {
+          "step": "review",
+          "pointer": ""
+        }
+      }
+    }
+  ],
+  "output": {
+    "approved": {
+      "step": "review",
+      "pointer": "/approved"
+    },
+    "package": {
+      "step": "bundle",
+      "pointer": "/artifact"
+    }
+  }
+}

@@ -1,0 +1,657 @@
+{
+  "version": 1,
+  "policies": [
+    4,
+    32,
+    64
+  ],
+  "jobs": [
+    {
+      "id": "job-00",
+      "payload": {
+        "index": 0,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 2400
+    },
+    {
+      "id": "job-01",
+      "payload": {
+        "index": 1,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-02",
+      "payload": {
+        "index": 2,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-03",
+      "payload": {
+        "index": 3,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-04",
+      "payload": {
+        "index": 4,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-05",
+      "payload": {
+        "index": 5,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-06",
+      "payload": {
+        "index": 6,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-07",
+      "payload": {
+        "index": 7,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-08",
+      "payload": {
+        "index": 8,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-09",
+      "payload": {
+        "index": 9,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-10",
+      "payload": {
+        "index": 10,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-11",
+      "payload": {
+        "index": 11,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-12",
+      "payload": {
+        "index": 12,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-13",
+      "payload": {
+        "index": 13,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-14",
+      "payload": {
+        "index": 14,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-15",
+      "payload": {
+        "index": 15,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-16",
+      "payload": {
+        "index": 16,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-17",
+      "payload": {
+        "index": 17,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-18",
+      "payload": {
+        "index": 18,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-19",
+      "payload": {
+        "index": 19,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-20",
+      "payload": {
+        "index": 20,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-21",
+      "payload": {
+        "index": 21,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-22",
+      "payload": {
+        "index": 22,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-23",
+      "payload": {
+        "index": 23,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-24",
+      "payload": {
+        "index": 24,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-25",
+      "payload": {
+        "index": 25,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-26",
+      "payload": {
+        "index": 26,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-27",
+      "payload": {
+        "index": 27,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-28",
+      "payload": {
+        "index": 28,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-29",
+      "payload": {
+        "index": 29,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-30",
+      "payload": {
+        "index": 30,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-31",
+      "payload": {
+        "index": 31,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-32",
+      "payload": {
+        "index": 32,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-33",
+      "payload": {
+        "index": 33,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-34",
+      "payload": {
+        "index": 34,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-35",
+      "payload": {
+        "index": 35,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-36",
+      "payload": {
+        "index": 36,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-37",
+      "payload": {
+        "index": 37,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-38",
+      "payload": {
+        "index": 38,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-39",
+      "payload": {
+        "index": 39,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-40",
+      "payload": {
+        "index": 40,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-41",
+      "payload": {
+        "index": 41,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-42",
+      "payload": {
+        "index": 42,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-43",
+      "payload": {
+        "index": 43,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-44",
+      "payload": {
+        "index": 44,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-45",
+      "payload": {
+        "index": 45,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-46",
+      "payload": {
+        "index": 46,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-47",
+      "payload": {
+        "index": 47,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-48",
+      "payload": {
+        "index": 48,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-49",
+      "payload": {
+        "index": 49,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-50",
+      "payload": {
+        "index": 50,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-51",
+      "payload": {
+        "index": 51,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-52",
+      "payload": {
+        "index": 52,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-53",
+      "payload": {
+        "index": 53,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-54",
+      "payload": {
+        "index": 54,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-55",
+      "payload": {
+        "index": 55,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-56",
+      "payload": {
+        "index": 56,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-57",
+      "payload": {
+        "index": 57,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-58",
+      "payload": {
+        "index": 58,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-59",
+      "payload": {
+        "index": 59,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    },
+    {
+      "id": "job-60",
+      "payload": {
+        "index": 60,
+        "answer": "Ada",
+        "evidence": "  preserve spaces  "
+      },
+      "delay_ms": 550
+    },
+    {
+      "id": "job-61",
+      "payload": {
+        "index": 61,
+        "answer": 7,
+        "evidence": "line one\nline two"
+      },
+      "delay_ms": 630
+    },
+    {
+      "id": "job-62",
+      "payload": {
+        "index": 62,
+        "answer": "Mérida / 東京",
+        "evidence": "quote: \"yes\""
+      },
+      "delay_ms": 710
+    },
+    {
+      "id": "job-63",
+      "payload": {
+        "index": 63,
+        "answer": [
+          true,
+          false,
+          null
+        ],
+        "evidence": "exact JSON"
+      },
+      "delay_ms": 790
+    }
+  ],
+  "worker_sha256": "f4c4ca5a322764f81df1c17c16dfae216c88b09f11854701775f14bf70f4e112",
+  "binary_sha256": "779e75c0b17038e0f9d4a317068a5d3127d15ebecff3cc69574cacd0af273781",
+  "helper_sha256": "08c2f3131539b3362fbf95fd622590bb248623b36dc2f808d42be4b7bc87ae60",
+  "imported_helper_sha256": "dbb13da91a31f9532ea1763a3da99e3782bc0b13106ae674577ca3a6e2352876",
+  "setup_boundary": "Fresh private state, assignment, grant, policy, service and process registration precede measured run.",
+  "quality": "Exact complete id/payload and monotonic worker intervals for all 64 items; SQLite integrity and effect counts.",
+  "measurement": "Local native Python only. CLI status sampling and MCP inspection are included in measured wall time. No models, providers, token claims, or normal user state."
+}

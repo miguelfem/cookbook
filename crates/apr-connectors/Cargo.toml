@@ -1,0 +1,32 @@
+[package]
+name = "apr-connectors"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[features]
+test-http = []
+
+[dependencies]
+apr-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+ureq.workspace = true
+zeroize.workspace = true
+sha2.workspace = true
+libc.workspace = true
+tempfile.workspace = true
+fs2.workspace = true
+toml_edit = { workspace = true, features = ["serde"] }
+url = "=2.5.8"
+base64 = "=0.22.1"
+uuid.workspace = true
+
+[target.'cfg(target_os = "macos")'.dependencies]
+keyring = { workspace = true, features = ["apple-native"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+keyring = { workspace = true, features = ["sync-secret-service", "crypto-rust", "vendored"] }

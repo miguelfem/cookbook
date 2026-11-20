@@ -1,0 +1,19 @@
+{
+  "identifier": "setup",
+  "description": "Trusted bundled setup window only. Never used for artifact or remote content.",
+  "windows": [
+    "setup"
+  ],
+  "permissions": [
+    "allow-desktop-status",
+    "allow-owner-request",
+    "dialog:allow-open",
+    "dialog:allow-message",
+    "allow-oauth-begin",
+    "allow-oauth-status",
+    "allow-oauth-cancel",
+    "allow-update-check",
+    "allow-update-install",
+    "allow-oauth-discover-begin"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "protocol_version": "0.1",
+  "run_id": "run_demo_001",
+  "request_id": "handoff_demo_review",
+  "submission_key": "submit_demo_review_v1",
+  "accepted": true,
+  "duplicate": false,
+  "revision": 9,
+  "state": "running",
+  "summary": "The review decision was committed. The scheduler will assemble the package."
+}

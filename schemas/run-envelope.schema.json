@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:apr:run-envelope:0.1",
+  "title": "APR run envelope",
+  "type": "object",
+  "required": [
+    "protocol_version",
+    "run_id",
+    "state",
+    "revision",
+    "summary"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "0.1"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "queued",
+        "running",
+        "waiting_for_agent",
+        "waiting_for_child",
+        "paused",
+        "blocked",
+        "needs_reconciliation",
+        "succeeded",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "request": {
+      "type": "object"
+    },
+    "truncated": {
+      "type": "boolean"
+    },
+    "root_run_id": {
+      "type": "string"
+    },
+    "parent_run_id": {
+      "type": "string"
+    },
+    "parent_step_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

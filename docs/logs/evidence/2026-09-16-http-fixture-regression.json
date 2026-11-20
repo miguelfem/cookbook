@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-09-16T22:32:15.378238+00:00",
+  "source_files": [
+    "crates/apr-connectors/tests/transport.rs"
+  ],
+  "hosted_trigger": {
+    "run_id": 35156580607,
+    "test": "http::broker_injects_secret_and_returns_validated_json",
+    "observed_error": "Uncertain",
+    "platform": "aarch64-apple-darwin"
+  },
+  "diagnosis": {
+    "reproduced_defect": "The fixture returned after reading headers without consuming the declared POST body.",
+    "evidence_strength": "A synchronization barrier forced headers to be read before the body was sent. The original fixture captured zero body bytes; expected body length was 11 bytes.",
+    "hosted_causation_limit": "The exact hosted low-level transport error was not captured. The fixture defect is consistent with the failure, but connection reset versus deadline was not established from hosted logs.",
+    "deadline_scope": "APR validates input, obtains the credential binding and builds the request before ureq starts its global transport timer. ureq 3.4.2 sends request headers and body in separate transport phases."
+  },
+  "red_regression": {
+    "test": "http::fixture_consumes_a_post_body_sent_after_its_headers",
+    "result": "failed",
+    "captured_body_bytes": 0,
+    "expected_body_bytes": 11,
+    "elapsed_seconds": 0.0
+  },
+  "correction": {
+    "production_connector_code_changed": false,
+    "fixture_consumes_content_length": true,
+    "fixture_rejects_early_eof": true,
+    "fixture_max_header_bytes": 16384,
+    "fixture_max_body_bytes": 65536,
+    "fixture_deadline_ms": 2000,
+    "accept_read_write_bounded": true,
+    "broker_timeout_ms_unchanged": 250,
+    "deliberate_timeout_fixture_delay_ms_unchanged": 450
+  },
+  "validation": {
+    "default_connector_tests": {
+      "passed": 1,
+      "failed": 0,
+      "ignored_native_credential_test": 1
+    },
+    "all_feature_connector_tests": {
+      "passed": 6,
+      "failed": 0,
+      "ignored_native_credential_test": 1
+    },
+    "stress": {
+      "suite_runs": 30,
+      "concurrent_workers": 4,
+      "tests_per_run": 6,
+      "failed_runs": 0,
+      "elapsed_seconds": 4.07
+    },
+    "strict_all_target_all_feature_clippy": "passed",
+    "scoped_rustfmt_check": "passed",
+    "diff_whitespace_check": "passed"
+  },
+  "limitations": [
+    "No native credential backend test was run.",
+    "This correction is not part of the triggering hosted run; a subsequent hosted matrix is required."
+  ],
+  "fix_source_commit": "e80754cf69c12003d0e002a2519ce8bc267223bc"
+}

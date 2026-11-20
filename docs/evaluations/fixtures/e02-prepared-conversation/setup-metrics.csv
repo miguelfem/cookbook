@@ -1,0 +1,4 @@
+arm,case,model,requested_turn_effort,effective_service_tier,wall_request_to_completed_seconds,tool_event_seconds,auto_review_seconds,auto_review_count,auto_review_decisions,model_review_usage,apr_durable_seconds,tool_count,source_read_count,turn_total_tokens,turn_input_tokens,turn_cached_input_tokens,turn_noncached_input_tokens,turn_output_tokens,turn_reasoning_output_tokens
+direct_luna,setup,gpt-5.6-luna,low,,16.22949,0.68,0,0,,,,3,2,60303,59885,48384,11501,418,67
+cookbook_luna_default,setup,gpt-5.6-luna,low,,30.91281,8.41,8.236,2,"approved,approved",,0.115,3,2,132553,131873,108288,23585,680,235
+cookbook_sol_default,setup,gpt-5.6-sol,low,,20.885755,6.418,6.214,1,approved,,0.145,2,2,88009,87667,72320,15347,342,50

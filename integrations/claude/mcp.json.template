@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "apr": {
+      "type": "stdio",
+      "command": "/absolute/path/to/apr",
+      "args": [
+        "mcp",
+        "--attachment-file",
+        "/absolute/path/to/private-apr-state/attachments/assignment.json"
+      ]
+    }
+  }
+}

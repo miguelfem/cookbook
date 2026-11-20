@@ -1,0 +1,7 @@
+case_index,case_id,order_in_case,condition,accepted_exact,exit_code,stop_reason,elapsed_seconds,input_tokens,cached_input_tokens,reported_noncached_input_tokens,output_tokens,reasoning_output_tokens,tool_calls,tool_errors,command_calls,apr_run_calls,apr_inspect_calls,command_event_seconds,apr_run_event_seconds,tool_event_seconds_sum,outside_tool_event_seconds,completed_exact_output_in_apr_run,runtime_created_to_succeeded_ms,runtime_effect_ms,client_billed_cost_usd
+1,onecall-cedar,1,direct_agent,True,0,,19.504910625051707,49823,39168,10655,527,110,3,0,3,0,0,9.151211000978947,0,9.151211000978947,10.35369962407276,,,,
+1,onecall-cedar,2,cookbook,True,0,,21.38677191687748,72038,64512,7526,441,81,2,0,1,1,0,5.0914595001377165,5.434441457968205,10.525900958105922,10.860870958771557,True,122,116,
+2,onecall-maple,1,cookbook,True,0,,37.0346555840224,71972,58368,13604,412,72,2,0,1,1,0,10.830875082872808,10.946117207873613,21.77699229074642,15.257663293275982,True,146,142,
+2,onecall-maple,2,direct_agent,True,0,,24.549051084090024,49687,39168,10519,455,99,2,0,2,0,0,11.743185790954158,0,11.743185790954158,12.805865293135867,,,,
+3,onecall-spruce,1,direct_agent,True,0,,18.55375770898536,66606,57344,9262,544,99,3,0,3,0,0,10.178701333003119,0,10.178701333003119,8.37505637598224,,,,
+3,onecall-spruce,2,cookbook,True,0,,19.976898291846737,72034,54272,17762,427,75,2,0,1,1,0,4.635130417067558,6.409092958085239,11.044223375152797,8.93267491669394,True,111,106,

@@ -1,0 +1,60 @@
+{
+  "client": "Codex 0.155.0-alpha.9.2",
+  "model": "gpt-5.6-luna",
+  "requested_effort": "low",
+  "effective_turn_effort": "unobserved",
+  "claude_code": "not installed; untested",
+  "first_project_notes_exact": 2,
+  "second_project_note_exact": true,
+  "real_handoff_exact": true,
+  "cross_workspace_forbidden": true,
+  "effect_intents": 0,
+  "turns": [
+    {
+      "phase": "first-project",
+      "status": "completed",
+      "stop_reason": null,
+      "wall_seconds": 95.292572625,
+      "tool_calls": 18,
+      "usage": {
+        "totalTokens": 530970,
+        "inputTokens": 527732,
+        "cachedInputTokens": 488448,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 3238,
+        "reasoningOutputTokens": 413
+      }
+    },
+    {
+      "phase": "wrong-workspace-attempt",
+      "status": "completed",
+      "stop_reason": null,
+      "wall_seconds": 79.743354792,
+      "tool_calls": 9,
+      "usage": {
+        "totalTokens": 471346,
+        "inputTokens": 468915,
+        "cachedInputTokens": 446208,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2431,
+        "reasoningOutputTokens": 567
+      }
+    },
+    {
+      "phase": "corrected-second-project",
+      "status": "completed",
+      "stop_reason": null,
+      "wall_seconds": 117.0532295,
+      "tool_calls": 22,
+      "usage": {
+        "totalTokens": 876829,
+        "inputTokens": 872868,
+        "cachedInputTokens": 825344,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 3961,
+        "reasoningOutputTokens": 342
+      }
+    }
+  ],
+  "amendment": "Second turn originally used the first project as its Codex writable workspace; one fresh correctly rooted second-project session passed. Original failed attempt retained. Broader first-use adapter setup remains failed in E02."
+}

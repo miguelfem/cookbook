@@ -1,0 +1,61 @@
+{
+  "label": "Jev synthetic routing",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "method": "POST",
+  "auth": {
+    "kind": "bearer",
+    "credential_ref": "pending"
+  },
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "state",
+      "model",
+      "questions"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "state": {
+        "type": "string",
+        "maxLength": 8000
+      },
+      "model": {
+        "const": "jev-latest"
+      },
+      "questions": {
+        "const": {
+          "team": {
+            "type": "choice",
+            "instructions": "Choose the team that can resolve this ticket. Use unclear when there is insufficient information.",
+            "criteria": {
+              "operations": "Account operations or fulfilment",
+              "engineering": "Software bugs or integration failures",
+              "unclear": "No supported team can be identified"
+            }
+          }
+        }
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "model",
+      "answers",
+      "usage"
+    ],
+    "properties": {
+      "model": {
+        "type": "string"
+      },
+      "answers": {
+        "type": "object"
+      },
+      "usage": {
+        "type": "object"
+      }
+    }
+  },
+  "timeout_ms": 30000,
+  "max_response_bytes": 65536
+}

@@ -1,0 +1,32 @@
+{
+  "connections": {
+    "records": {
+      "access": "pending",
+      "caller_has_service_tool": true,
+      "proposal_ref": "scoped-records-request"
+    },
+    "policy": {
+      "access": "pending",
+      "caller_has_service_tool": true,
+      "proposal_ref": "scoped-policy-request"
+    }
+  },
+  "baseline": {
+    "model_round_trips": 2,
+    "raw_http_calls": 2,
+    "retained_input_tokens": null,
+    "retained_output_tokens": null
+  },
+  "expected": {
+    "model_round_trips": 0,
+    "raw_http_calls": 2,
+    "retained_input_tokens": null,
+    "retained_output_tokens": null
+  },
+  "final_output": {
+    "max_return_bytes": 4096,
+    "raw_artifact": false,
+    "paged_or_aggregated": true,
+    "revision_delta_includes_removals": true
+  }
+}

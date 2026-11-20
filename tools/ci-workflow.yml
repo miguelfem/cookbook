@@ -1,0 +1,66 @@
+name: Runtime checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  rust:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    env:
+      CARGO_INCREMENTAL: "0"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87
+        with:
+          toolchain: 1.94.0
+          components: clippy, rustfmt
+      - name: Linux native build prerequisites
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y build-essential pkg-config python3-venv
+      - name: Verify Python and pin the native worker interpreter
+        run: |
+          python3 -I - <<'PY'
+          import os
+          from pathlib import Path
+          import sys
+          assert sys.version_info >= (3, 11), "CI requires Python 3.11 or newer"
+          executable = Path(sys.executable).resolve(strict=True)
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as output:
+              output.write(f"APR_TEST_PYTHON={executable}\n")
+          PY
+          cc --version
+      - name: Fetch the locked dependency graph
+        run: cargo fetch --locked
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --workspace --all-targets --all-features --locked -- -D warnings
+      - run: cargo test --workspace --locked
+      # All features includes the fault-injection and test HTTP contracts.
+      # Fixtures use local synthetic inputs; this does not call a model provider.
+      - run: cargo test --workspace --all-features --locked
+      - name: Validate documentation and complete JSON Schemas
+        run: |
+          python3 -m venv "$RUNNER_TEMP/apr-docs-venv"
+          "$RUNNER_TEMP/apr-docs-venv/bin/python" -m pip install -r requirements-check.txt
+          "$RUNNER_TEMP/apr-docs-venv/bin/python" tools/check_docs.py --full-schema
+      - name: Test development distribution tooling
+        run: python3 -m unittest discover -s tools/tests -p 'test_*.py'
+      - name: Build the default CLI and verify synthetic outcomes and development packaging
+        run: |
+          APR_CI_DIR="$(mktemp -d "$RUNNER_TEMP/apr-smoke.XXXXXX")"
+          trap 'rm -rf "$APR_CI_DIR"' EXIT
+          APR_CI_TARGET="$(rustc -vV | sed -n 's/^host: //p')"
+          test -n "$APR_CI_TARGET"
+          CARGO_TARGET_DIR="$APR_CI_DIR/target" cargo build --release --locked -p apr-cli --bin apr
+          python3 tools/benchmark_outcomes.py --apr "$APR_CI_DIR/target/release/apr" --iterations 1 > "$APR_CI_DIR/synthetic-outcomes.json"
+          python3 tools/distribution.py package --apr "$APR_CI_DIR/target/release/apr" --target "$APR_CI_TARGET" --mode development --output "$APR_CI_DIR/apr-development.tar.gz"

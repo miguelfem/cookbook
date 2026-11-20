@@ -1,0 +1,29 @@
+# Scheduled jobs
+
+APR schedules are durable assignment-owned authorizations to create ordinary runs. They are stored in SQLite and dispatched by the local service independently of any client connection. The [setup runbook](../runbooks/scheduled-jobs.md) describes CLI, MCP and login-service setup. The [implementation plan](../plans/computer-use-and-schedules.md) owns delivery work; the validation log owns executed evidence.
+
+## Time and firing
+
+Three triggers are supported: one UTC instant, a fixed interval in seconds, and a five-field numeric cron expression in UTC. CLI instant arguments use RFC3339 with an explicit timezone; schedule wire timestamps use Unix milliseconds (`at_ms`, `start_at_ms`, `next_due_ms`). Cron has minute, hour, day-of-month, month and day-of-week fields, with lists, ranges, steps and `*`. Sunday is 0 or 7. Restricted day-of-month and day-of-week fields match with OR, as in traditional cron. Named weekdays/months, timezone names, seconds fields and natural-language expressions are rejected.
+
+The service polls due schedules independently of the runnable-work queue. Each bounded tick handles at most 32 due jobs. Ticks share the coordinator with state changes, while native/HTTP workers execute outside its lock. The service checks schedules about every 200 ms during external work; serial control/sampling work and system load can still delay a tick. Timing is best-effort and the next tick coalesces overdue work. A transaction records a nominal occurrence, creates its queued run and advances the schedule together. A crash therefore commits all three or none. A `(schedule_id, due_at_ms)` primary key deduplicates retained occurrences, and the durable next-due cursor prevents replay after history compaction or run retention. Root runs also retain their originating schedule and nominal due time, so older unfinished work continues to prevent overlap.
+
+Downtime coalesces to at most one overdue occurrence per schedule. Intervals retain their original cadence; cron chooses its next matching time after the current tick. APR never replays every missed hour after a laptop has slept for a week. A one-time job fires when next observed due. Wall-clock changes do not rewind already recorded occurrences.
+
+Each schedule allows only one unfinished run tree. Waiting handoffs, child runs, paused/blocked work and unresolved external effects hold that slot. An overlapping recurring occurrence is recorded as `skipped_overlap` and the clock advances. There is no queue of missed occurrences. A completed or failed run permits the next occurrence, except that unresolved external effects continue to block duplication.
+
+## Immutable work and authority
+
+Creation requires an author attachment. It validates the selected registered process, input, resolved configuration, child graph, scripts, artifacts and current execution grants, then stores their immutable identities and binding revisions. Later assignment/project defaults and catalog additions do not modify accepted schedules. Credentials remain protected references; a schedule never stores a plaintext API key.
+
+The creating attachment ID is audit metadata. Expiry or revocation prevents further calls through that attachment and does not rescind already accepted independent jobs. Assignment closure pauses its schedules and cancels active work using existing run semantics. The registered project identity and exact execution grants are rechecked at firing and run dispatch. A missing/replaced project or changed/revoked binding pauses a schedule with an inspectable reason. Changing the scheduled definition or rebinding credentials requires explicit deletion and creation of a new schedule; `resume` never silently adopts a new grant revision.
+
+Creation is idempotent per assignment and request key. Retransmitting the same request returns the same schedule; changing the request under that key is a conflict. A deletion leaves a tombstone, so a delayed create retry cannot recreate the job. Reads and controls enforce attachment assignment scope; run-only attachments can inspect jobs and fulfill permitted caller handoffs but cannot create/control schedules.
+
+## Controls, storage and operational limits
+
+States are `active`, `paused`, `completed` (a one-time job has fired), and `deleted`. Schedule completion describes dispatch, not the result of its run. Pause and delete affect future occurrences; an accepted run has its own pause/cancel controls. Resume revalidates the original template. No operation fabricates a caller result or wakes an unrelated conversation. If a scheduled process reaches an agent step, it remains `waiting_for_agent` until an authorized caller supplies the observed result.
+
+Backup includes schedule definitions and history. Restore pauses schedules alongside revoking device-local authority; it cannot silently start a second copy on a new device. Verified version 8 backups can migrate to the new version 9 store before authority is sanitized. Retention treats active/paused schedule inputs, configuration and referenced artifacts as roots. Deleted/completed schedules release those artifact roots; the durable timing cursor and creation-key tombstone prevent replay. Each job retains at most 100 occurrence records and exposes the latest 20 in detailed inspection. The current implementation caps an assignment at 100 undeleted jobs. Normal run retention remains separate and cannot hide unresolved effects from overlap checks.
+
+Scheduling cannot run a powered-off or sleeping device. APR does not wake the computer, provision a cloud worker or install an OS service implicitly. An optional generated launchd/systemd user-service file can keep the supervisor available after login, subject to the owner's installation. Native desktop jobs also require an unlocked graphical session and prepared OS permissions. Different desktop jobs share the real foreground application; they are not isolated sessions.

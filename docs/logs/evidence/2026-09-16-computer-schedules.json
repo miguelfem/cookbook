@@ -1,0 +1,188 @@
+{
+  "source_commit": "f7faac04b413c81ea255277743eb9543d61b6858",
+  "conclusion": "success",
+  "local": {
+    "platform": "macOS ARM64",
+    "rust": "1.94.0",
+    "default_tests": {
+      "passed": 204,
+      "failed": 0,
+      "ignored": 1
+    },
+    "fault_injection_tests": {
+      "passed": 231,
+      "failed": 0,
+      "ignored": 1
+    },
+    "all_feature_tests": {
+      "passed": 232,
+      "failed": 0,
+      "ignored": 1
+    },
+    "python_computer_contract_tests": 27,
+    "python_distribution_tests": 12,
+    "published_working_files_sha_verified": 53
+  },
+  "hosted_jobs": [
+    {
+      "name": "rust (ubuntu-latest)",
+      "conclusion": "success",
+      "rust_suites": {
+        "Run cargo test --workspace --locked": {
+          "passed": 204,
+          "failed": 0,
+          "ignored": 1
+        },
+        "Run cargo test --workspace --all-features --locked": {
+          "passed": 232,
+          "failed": 0,
+          "ignored": 1
+        }
+      },
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+          "conclusion": "success"
+        },
+        {
+          "name": "Linux native build prerequisites",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify Python and pin the native worker interpreter",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fetch the locked dependency graph",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --workspace --locked",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --workspace --all-features --locked",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate documentation and complete JSON Schemas",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test development distribution tooling",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "rust (macos-latest)",
+      "conclusion": "success",
+      "rust_suites": {
+        "Run cargo test --workspace --locked": {
+          "passed": 204,
+          "failed": 0,
+          "ignored": 1
+        },
+        "Run cargo test --workspace --all-features --locked": {
+          "passed": 232,
+          "failed": 0,
+          "ignored": 1
+        }
+      },
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87",
+          "conclusion": "success"
+        },
+        {
+          "name": "Linux native build prerequisites",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Verify Python and pin the native worker interpreter",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fetch the locked dependency graph",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --workspace --all-targets --all-features --locked -- -D warnings",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --workspace --locked",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --workspace --all-features --locked",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate documentation and complete JSON Schemas",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test development distribution tooling",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build the default CLI and verify synthetic outcomes and development packaging",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "live_desktop_tested": false,
+  "live_jev_tested": false,
+  "release_assets_published": false,
+  "note": "Hosted jobs verify default release builds, synthetic workflow outcomes and complete development packages. The local ignored test needs an unlocked native credential backend. Rust computer tests also invoke the Python contract suite; those counts are not additive Rust tests."
+}

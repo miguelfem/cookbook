@@ -1,0 +1,21 @@
+{
+  "study": "E05",
+  "revision": "agent-spec-v1",
+  "date": "2026-09-22",
+  "labels": "deterministic_specification_agent_evaluation_not_human",
+  "source_entity_rule": "e05:{cycle}:{split}:{index}; split is dev or held and index is 1..6",
+  "input_rule": {"answer": "answer/{source_entity}", "evidence": "evidence/{source_entity}"},
+  "expected_rule": "exactly the input answer and evidence keys and values; no other keys",
+  "cycles": [
+    {"id": "simpler", "candidate": "one direct json.select for answer with input evidence", "min_step_reduction": 1, "expected_if_human_labeled": "pass"},
+    {"id": "cheaper_wrong", "candidate": "one json.select of evidence used as answer", "min_step_reduction": 1, "expected_if_human_labeled": "fail"},
+    {"id": "missing_evidence", "candidate": "one direct json.select for answer reused as evidence", "min_step_reduction": 1, "expected_if_human_labeled": "fail"},
+    {"id": "unsupported", "candidate": "one non-allowlisted pure json.write", "min_step_reduction": 1, "expected_if_human_labeled": "inconclusive"},
+    {"id": "effect", "candidate": "one ungranted write connector with a provider-call allowance", "min_step_reduction": 1, "expected_if_human_labeled": "inconclusive"}
+  ],
+  "split_method": "separate synthetic source entity per case; unique input per entity and cycle",
+  "cases_per_cycle": {"development": 6, "holdout": 6},
+  "cost_latency_measurement": "unknown; pure completed-step count only",
+  "paid_call_budget": 0,
+  "stop": "do not represent agent-derived deterministic labels as human; if human provenance is required, record INVALID_INPUT and do not evaluate or adopt"
+}

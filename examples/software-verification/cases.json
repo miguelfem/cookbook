@@ -1,0 +1,43 @@
+[
+  {
+    "label": "passing_checks",
+    "input": {
+      "checks_passed": true,
+      "change_id": "synthetic-42"
+    },
+    "caller_results": {},
+    "expected_result": {
+      "route": "ready",
+      "output": {
+        "status": "ready_for_owner_review",
+        "reason": "Supplied checks passed"
+      }
+    },
+    "expected_skipped": [
+      "investigate"
+    ]
+  },
+  {
+    "label": "failing_checks",
+    "input": {
+      "checks_passed": false,
+      "change_id": "synthetic-43"
+    },
+    "caller_results": {
+      "investigate": {
+        "status": "needs_fix",
+        "reason": "Synthetic caller flags the supplied failed check"
+      }
+    },
+    "expected_result": {
+      "route": "investigate",
+      "output": {
+        "status": "needs_fix",
+        "reason": "Synthetic caller flags the supplied failed check"
+      }
+    },
+    "expected_skipped": [
+      "ready"
+    ]
+  }
+]

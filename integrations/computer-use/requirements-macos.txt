@@ -1,0 +1,6 @@
+# Explicit owner-installed dependencies. APR never installs these at runtime.
+# Pins follow upstream 7d120f1944d0156773d5089b81f8e46d108a6c8d.
+ocrmac==1.0.1
+pyobjc-framework-ApplicationServices==12.2.2
+pyobjc-framework-Quartz==12.2.2
+pyobjc-framework-Cocoa==12.2.2

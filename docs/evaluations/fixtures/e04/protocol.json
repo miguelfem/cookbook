@@ -1,0 +1,79 @@
+{
+  "study": "E04",
+  "revision": "2026-09-22.1",
+  "model": "jev-latest",
+  "routing_question": {
+    "route": {
+      "type": "choice",
+      "instructions": "Choose the supported next process from the request and available inputs. Use unclear if intent or required inputs are missing. Use other for a clear unsupported request. Never invent a supplied input or permission.",
+      "criteria": {
+        "documents": "Compare or summarize at least one supplied document.",
+        "records": "Summarize or analyze a supplied structured record set.",
+        "unclear": "The desired result or required input is missing or ambiguous; caller review is required.",
+        "other": "The clear request is outside these two supported processes; caller review is required."
+      }
+    }
+  },
+  "routing_policy": {"min_confidence": 0.75, "mandatory_review_labels": ["unclear", "other"], "no_match": "unclear", "needs_clarification": "unclear"},
+  "rules_baseline": "Case-insensitive exact phrase 'supplied document' selects documents; 'supplied record set' selects records; otherwise review. If both occur, review.",
+  "routing_acceptance": "Correct route on at least 22/24 and all mandatory-review cases; zero missed required reviews. A provider's confidence alone does not certify correctness. This is a small synthetic pilot, not calibration.",
+  "learning": {
+    "baseline_categories": {"documents":"Document comparison or summary with documents supplied.","records":"Structured record summary or analysis with records supplied.","other":"No supported category fits or intent is unclear."},
+    "candidate_additions": {"calendar":"Plan or adjust a calendar schedule from supplied dates and constraints.","code":"Review or explain supplied source code without executing it."},
+    "discovery_max": 16,
+    "heldout_max": 32,
+    "evaluator_calls_max": 64,
+    "candidate_gate": "Implemented classifier.evaluate gates: >=90% accuracy, improvement, no regression of previously correct decisions, two correct per category at confidence >=0.75; every mandatory-review route must also be correct. No automatic adoption."
+  },
+  "bounds": {"smoke_jev_calls_max":8,"routing_jev_calls_max":24,"learning_jev_calls_max":64,"total_jev_calls_max":96,"jev_usd_ceiling":0.25,"reserved_input_tokens_per_call":2500,"no_uncertain_retries":true},
+  "routing_cases": [
+    {"id":"r01","state":"Request: Summarize the supplied document for the release brief. Inputs: one supplied document.","label":"documents"},
+    {"id":"r02","state":"Request: Compare the two supplied documents for changed terms. Inputs: two supplied documents.","label":"documents"},
+    {"id":"r03","state":"Request: Draft an abstract from the attached memo. Inputs: one attached document.","label":"documents"},
+    {"id":"r04","state":"Request: Identify contradictions between the attached policies. Inputs: two attached documents.","label":"documents"},
+    {"id":"r05","state":"Request: Summarize the supplied document in three bullets. Inputs: one supplied document; no records.","label":"documents"},
+    {"id":"r06","state":"Request: Extract the key decisions from the attached notes. Inputs: one attached document.","label":"documents"},
+    {"id":"r07","state":"Request: Summarize the supplied record set by region. Inputs: one supplied record set.","label":"records"},
+    {"id":"r08","state":"Request: Count status values in the supplied record set. Inputs: one supplied record set.","label":"records"},
+    {"id":"r09","state":"Request: Find the highest value in the attached CSV. Inputs: structured rows supplied.","label":"records"},
+    {"id":"r10","state":"Request: Group the attached table by month. Inputs: structured rows supplied.","label":"records"},
+    {"id":"r11","state":"Request: Describe missing fields in the supplied record set. Inputs: one supplied record set.","label":"records"},
+    {"id":"r12","state":"Request: Compute median amount from the attached rows. Inputs: structured rows supplied.","label":"records"},
+    {"id":"r13","state":"Request: Summarize this. Inputs: no document or record set supplied.","label":"unclear"},
+    {"id":"r14","state":"Request: Compare the two reports. Inputs: only one document supplied.","label":"unclear"},
+    {"id":"r15","state":"Request: Analyze the records or the document, whichever is better. Inputs: one supplied document and one supplied record set; no intended output specified.","label":"unclear"},
+    {"id":"r16","state":"Request: Give me a brief. Inputs: none; no topic given.","label":"unclear"},
+    {"id":"r17","state":"Request: Count rows in a dataset. Inputs: no dataset supplied.","label":"unclear"},
+    {"id":"r18","state":"Request: Compare the supplied document with last year's version. Inputs: current document only; prior version missing.","label":"unclear"},
+    {"id":"r19","state":"Request: Schedule three interviews next week. Inputs: dates and participants supplied, no documents or record sets.","label":"other"},
+    {"id":"r20","state":"Request: Explain this source-code function. Inputs: source code supplied, no documents or record sets.","label":"other"},
+    {"id":"r21","state":"Request: Create an image of a mountain. Inputs: image prompt supplied, no documents or record sets.","label":"other"},
+    {"id":"r22","state":"Request: Send a notification to the team. Inputs: recipient and message supplied, no documents or record sets.","label":"other"},
+    {"id":"r23","state":"Request: Fix the calendar conflict. Inputs: dates and constraints supplied, no documents or record sets.","label":"other"},
+    {"id":"r24","state":"Request: Review the supplied Python function for edge cases. Inputs: source code supplied, no documents or record sets.","label":"other"}
+  ],
+  "discovery": [
+    {"id":"d01","text":"Arrange a project kickoff on Tuesday after 10 with three attendees.","proposed":"calendar"},
+    {"id":"d02","text":"Move the review meeting to Friday while avoiding lunch hours.","proposed":"calendar"},
+    {"id":"d03","text":"Explain this supplied Rust function and its error paths.","proposed":"code"},
+    {"id":"d04","text":"Review this supplied JavaScript parser for empty input.","proposed":"code"}
+  ],
+  "heldout": [
+    {"id":"h01","text":"Summarize the attached warranty memo in two bullets.","expected":"documents"},
+    {"id":"h02","text":"Compare these two supplied policy documents for revisions.","expected":"documents"},
+    {"id":"h03","text":"Extract decisions from the attached meeting notes document.","expected":"documents"},
+    {"id":"h04","text":"Count open items in the supplied table of records.","expected":"records"},
+    {"id":"h05","text":"Group the attached CSV rows by department.","expected":"records"},
+    {"id":"h06","text":"Compute the median from this supplied numeric record set.","expected":"records"},
+    {"id":"h07","text":"Put a design review on Thursday morning for three participants.","expected":"calendar"},
+    {"id":"h08","text":"Find a free 30 minute slot next Monday for the two named attendees.","expected":"calendar"},
+    {"id":"h09","text":"Shift the planning meeting to a time after the listed deadline.","expected":"calendar"},
+    {"id":"h10","text":"Explain the supplied Go function's return branches.","expected":"code"},
+    {"id":"h11","text":"Review this attached TypeScript snippet for null handling.","expected":"code"},
+    {"id":"h12","text":"Describe what this supplied SQL query computes.","expected":"code"},
+    {"id":"h13","text":"Draw a landscape illustration in watercolor.","expected":"other"},
+    {"id":"h14","text":"Send an email to the listed recipient.","expected":"other"},
+    {"id":"h15","text":"Summarize the report, but no report was provided.","expected":"other"},
+    {"id":"h16","text":"Generate a short melody from these notes.","expected":"other"}
+  ]
+}

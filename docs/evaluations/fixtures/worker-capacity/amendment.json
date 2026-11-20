@@ -1,0 +1,30 @@
+{
+  "purpose": "Explain the preserved pilot failures and the final benchmark protocol amendment.",
+  "binary_sha256": "779e75c0b17038e0f9d4a317068a5d3127d15ebecff3cc69574cacd0af273781",
+  "pilots": [
+    {
+      "protocol_sha256": "8375fe7c0b7e7e026cd0a92a26467a014f9e460bb0669065f0e040dc878c9ea5",
+      "failure_sha256": "5e6edfcc2e6885d3a44a75e03c55c52e9d950aaa3d1f58c0fb71f3e3bdac47a8",
+      "observation": "Policy 4 failed immediately: native request snapshots carried a relative marker_dir, which resolved under each temporary worker cwd. Four effects became uncertain; no worker markers were written. The helper was changed to resolve --output before creating arm paths.",
+      "attempt": 1
+    },
+    {
+      "protocol_sha256": "e8fdbc8e7e9175ebe2381dd906c1aba4a8318fb2126e6b35fc46646ec5c1b26f",
+      "failure_sha256": "034fbc5f4a74a506301dc11ae31b38dd5279b7dd5b6dc3e0dcc7a3f2848baef5",
+      "metrics_sha256": "d9de71933bb85d82a67df9c8c6ad4562fb91fd3121b57fada569b17910ef193f",
+      "observation": "Absolute-path policy 4 and 32 arms passed; policy 64 dispatched 64 intents in 466 ms but only 63 marker files appeared. The other workers timed out after 20 s while repeatedly scanning the marker directory. The exact reason the missing worker did not write its marker is not established.",
+      "attempt": 2
+    }
+  ],
+  "amendment": "The final helper uses one release-file poll per worker. The coordinator counts start markers and writes the release file at the configured cap, avoiding each worker scanning the shared directory. All policies were rerun in fresh disposable state; no failed intent was retried or reconciled.",
+  "final_protocol_sha256": "00a1bb0c52016f94bad4c91493992614c5c2b12e8dd16cc3695fa967b4daffed",
+  "final_metrics_sha256": "127214437d15ebeb6db607f1bcde395f7ac0ce0e526f77f055ebeaaa9dcecff9",
+  "final_decision_sha256": "428528dcc48a7d39b372b9e0b63cf34a7c9c8d11adfd0eed865743ee320904ed",
+  "final_helper_sha256": "08c2f3131539b3362fbf95fd622590bb248623b36dc2f808d42be4b7bc87ae60",
+  "all_attempts": {
+    "succeeded_effects": 320,
+    "uncertain_effects": 68,
+    "provider_calls": 0,
+    "failed_intents_retried": false
+  }
+}

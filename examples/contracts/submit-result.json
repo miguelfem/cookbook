@@ -1,0 +1,19 @@
+{
+  "protocol_version": "0.1",
+  "action": "submit",
+  "run_id": "run_demo_001",
+  "request_id": "handoff_demo_review",
+  "step_instance_id": "review",
+  "generation": 1,
+  "submission_key": "submit_demo_review_v1",
+  "continuation_token": "DEMO_ONLY_NOT_A_VALID_TOKEN",
+  "output": {
+    "approved": true
+  },
+  "provenance": {
+    "source": "caller_tool",
+    "client": "codex",
+    "tool_call_ref": "demo-call-001",
+    "verification": "agent_reviewed_record_and_sources"
+  }
+}

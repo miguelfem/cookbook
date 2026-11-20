@@ -1,0 +1,102 @@
+{
+  "status": "passed",
+  "source": "Read-only packaged runtime SQLite state and its saved local result; synthetic loopback browser fixture.",
+  "scope": "Two solo roots and one batch root with two children. Relative times are measured worker attempt start/finish, not browser navigation or model time.",
+  "counts": {
+    "succeeded_runs": 5,
+    "solo_runs": 2,
+    "batch_parent_runs": 1,
+    "batch_child_runs": 2,
+    "successful_python_effect_intents": 20,
+    "handoffs": 0,
+    "connector_effect_intents": 0,
+    "provider_calls": 0,
+    "model_decision_requests": 0,
+    "exact_expected_outputs": 4,
+    "new_requests_on_duplicate_start": 0,
+    "agent_tool_calls_for_whole_batch": 1
+  },
+  "batch_worker_timeline": {
+    "time_origin": "first batch child worker attempt start",
+    "units": "milliseconds",
+    "children": [
+      {
+        "label": "Batch child 1",
+        "actions": [
+          {
+            "phase": "Observe 1",
+            "start_ms": 0,
+            "end_ms": 814,
+            "duration_ms": 814
+          },
+          {
+            "phase": "Act 1",
+            "start_ms": 822,
+            "end_ms": 1010,
+            "duration_ms": 188
+          },
+          {
+            "phase": "Observe 2",
+            "start_ms": 1014,
+            "end_ms": 1192,
+            "duration_ms": 178
+          },
+          {
+            "phase": "Act 2",
+            "start_ms": 1210,
+            "end_ms": 1368,
+            "duration_ms": 158
+          },
+          {
+            "phase": "Close",
+            "start_ms": 1385,
+            "end_ms": 1485,
+            "duration_ms": 100
+          }
+        ]
+      },
+      {
+        "label": "Batch child 2",
+        "actions": [
+          {
+            "phase": "Observe 1",
+            "start_ms": 3,
+            "end_ms": 815,
+            "duration_ms": 812
+          },
+          {
+            "phase": "Act 1",
+            "start_ms": 821,
+            "end_ms": 1068,
+            "duration_ms": 247
+          },
+          {
+            "phase": "Observe 2",
+            "start_ms": 1072,
+            "end_ms": 1263,
+            "duration_ms": 191
+          },
+          {
+            "phase": "Act 2",
+            "start_ms": 1268,
+            "end_ms": 1427,
+            "duration_ms": 159
+          },
+          {
+            "phase": "Close",
+            "start_ms": 1441,
+            "end_ms": 1583,
+            "duration_ms": 142
+          }
+        ]
+      }
+    ],
+    "child_span_overlap_ms": 1482
+  },
+  "solo_and_batch_wall_ms": [
+    2046.066,
+    1520.26,
+    1677.067
+  ],
+  "limitations": "Synthetic local fixture. This demonstrates runtime reuse and overlapping worker attempts; it does not measure client LLM tokens, billed cost, or savings versus a native agent."
+}

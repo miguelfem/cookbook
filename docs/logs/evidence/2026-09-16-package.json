@@ -1,0 +1,83 @@
+{
+  "binary_bytes": 12804800,
+  "binary_sha256": "beb5b9d6e83f9d397d07010b07704b5dfa0877b5a79de367222174fb874501dc",
+  "cached_unchanged_member_count": 708,
+  "caveat": "Development artifact from a supplied release binary and cached verified packaging inputs. No fresh notice source scan, code signing, stable release, model qualification, or source/build attestation is claimed.",
+  "installed": {
+    "archive_sha256": "b9c90e49558af2b2c976a2fe9f9bb79b23a89654a327a9f6fa2dd862b90f23a8",
+    "binary": "<temporary-install-prefix>/bin/apr",
+    "previous_releases_retained": 0,
+    "status": "installed"
+  },
+  "package": {
+    "archive": "apr-development.tar.gz",
+    "bytes": 5830917,
+    "components": 195,
+    "license_entries": 328,
+    "missing_upstream_license_texts": [],
+    "mode": "development",
+    "sha256": "bb1c7ea723380dae16abbe297ddcf7e4966a6580cb95a0fa48a226249bd2cffe"
+  },
+  "packaging_input_provenance": {
+    "kind": "cached_verified_packaging_inputs",
+    "parent_provenance": {
+      "kind": "cached_verified_packaging_inputs",
+      "reason": "Fresh source scan was terminated after prolonged Documents filesystem license reads; all archive integrity checks remain enabled.",
+      "source_archive_sha256": "41d07463ae0c67bf4a78575d6f2c816d587ed2cfff09bb03571fbd0a4aef42ac",
+      "source_scan_completed": false,
+      "unchanged_inputs": "exact previous dependency, toolchain, lockfile and notice bytes; unchanged graph confirmed at the source freeze"
+    },
+    "reason": "Authorized cached-input refresh following the managed integration-lock lifecycle and concurrent service-startup fixes. Dependency graph, lockfile and notice inputs are unchanged; prior Documents license read delays are retained in the provenance chain.",
+    "release_context": {
+      "association": "Operator-supplied release-ready build context; the binary hash is verified, but this script does not independently attest its source or compiler.",
+      "cached_archive_sha256": "b9c90e49558af2b2c976a2fe9f9bb79b23a89654a327a9f6fa2dd862b90f23a8",
+      "declared_features": [],
+      "declared_target": "aarch64-apple-darwin",
+      "source_revision": "e80754cf69c12003d0e002a2519ce8bc267223bc",
+      "source_verification": {
+        "committed_source_index_matches": true,
+        "executed_harness_and_fixture_bytes_match_commit": true,
+        "full_working_tree_content_scan_completed": false,
+        "limitation": "The initial broad Git working-tree source reread timed out on Documents filesystem reads. Source-to-binary association relies on the operator release-ready statement; the exact binary digest, committed source/index, executed harness/fixtures, and package inputs are verified."
+      }
+    },
+    "source_archive_sha256": "b9c90e49558af2b2c976a2fe9f9bb79b23a89654a327a9f6fa2dd862b90f23a8",
+    "source_scan_completed": false,
+    "unchanged_inputs": "Every archive member other than bin/apr and package.json is reused byte-for-byte from the fully verified cached package."
+  },
+  "previous_binary_sha256": "a420b93948c99a8da44fd50f23f3b6d4a6e2976db81c1f5c95e43e8cd1222983",
+  "release_context": {
+    "association": "Operator-supplied release-ready build context; the binary hash is verified, but this script does not independently attest its source or compiler.",
+    "cached_archive_sha256": "b9c90e49558af2b2c976a2fe9f9bb79b23a89654a327a9f6fa2dd862b90f23a8",
+    "declared_features": [],
+    "declared_target": "aarch64-apple-darwin",
+    "source_revision": "e80754cf69c12003d0e002a2519ce8bc267223bc",
+    "source_verification": {
+      "committed_source_index_matches": true,
+      "executed_harness_and_fixture_bytes_match_commit": true,
+      "full_working_tree_content_scan_completed": false,
+      "limitation": "The initial broad Git working-tree source reread timed out on Documents filesystem reads. Source-to-binary association relies on the operator release-ready statement; the exact binary digest, committed source/index, executed harness/fixtures, and package inputs are verified."
+    }
+  },
+  "removed": {
+    "preserved": [
+      "runtime state",
+      "client settings",
+      "unowned files",
+      "permanent installer lock"
+    ],
+    "status": "removed"
+  },
+  "reproducible_bytes": true,
+  "unowned_state_preserved": true,
+  "update_executables_distinct": true,
+  "updated": {
+    "archive_sha256": "bb1c7ea723380dae16abbe297ddcf7e4966a6580cb95a0fa48a226249bd2cffe",
+    "binary": "<temporary-install-prefix>/bin/apr",
+    "previous_releases_retained": 1,
+    "status": "installed"
+  },
+  "version_after": "apr 0.1.0",
+  "version_before": "apr 0.1.0",
+  "public_record_redactions": "Temporary archive and installation paths are replaced; measurements, hashes and verification limitations are preserved."
+}

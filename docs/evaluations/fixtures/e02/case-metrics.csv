@@ -1,0 +1,10 @@
+case_index,order_in_case,condition,accepted,failure_reason,session_exit_code,stop_reason,elapsed_seconds,input_tokens,cached_input_tokens,output_tokens,reasoning_output_tokens,tool_calls,tool_result_event_bytes,event_bytes,profile_reads,ledger_reads,source_response_bytes,recipe_run_count,recipe_run_state,recipe_output_exact,client_billed_cost_usd,provider_cost_usd
+1,1,direct_agent,True,,0,,15.087216666899621,49574,35072,451,92,2,2157,3397,1,1,321,,,,,
+1,2,reusable_script,True,,0,,19.76213899999857,68212,53248,475,84,3,5969,7299,1,1,321,,,,,
+1,3,cookbook,True,,0,,71.33035291684791,502848,467712,2077,265,12,12083,17683,1,1,321,1,succeeded,True,,
+2,1,reusable_script,True,,0,,12.459904666990042,50486,43264,351,34,2,5975,7229,1,1,268,,,,,
+2,2,cookbook,False,output_mismatch,0,,54.93001995887607,365761,341760,1739,371,7,5463,9420,0,0,0,0,,,,
+2,3,direct_agent,True,,0,,29.756107334047556,49626,41216,467,94,3,2234,3658,1,1,268,,,,,
+3,1,cookbook,True,,0,,67.20343733392656,266378,246528,1977,272,12,12098,18356,1,1,361,1,succeeded,True,,
+3,2,direct_agent,True,,0,,16.81248295819387,49711,41216,508,98,3,2341,3761,1,1,361,,,,,
+3,3,reusable_script,True,,0,,20.943882332881913,50454,41216,370,32,2,5866,7200,1,1,361,,,,,

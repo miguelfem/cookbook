@@ -1,0 +1,103 @@
+{
+  "study": "Prepared token-efficiency comparison on normal ProjectBroker surface",
+  "status": "amended_frozen_pending_review_no_model_turns",
+  "fixture_root_file": "fixture-root.txt",
+  "task": "deterministic synthetic paginated settlement pipeline with exact full JSON output",
+  "development_case": "dev-spruce",
+  "failure_acceptance_case": "dev-failure",
+  "holdouts": [
+    "page-amber",
+    "page-cobalt",
+    "page-linden"
+  ],
+  "arms": {
+    "direct_luna": {
+      "model": "gpt-5.6-luna",
+      "reasoning": "low",
+      "cookbook": false
+    },
+    "cookbook_luna_compact": {
+      "model": "gpt-5.6-luna",
+      "reasoning": "low",
+      "cookbook": true,
+      "result_view": "compact"
+    },
+    "direct_sol": {
+      "model": "gpt-5.6-sol",
+      "reasoning": "low",
+      "cookbook": false
+    },
+    "cookbook_sol_compact": {
+      "model": "gpt-5.6-sol",
+      "reasoning": "low",
+      "cookbook": true,
+      "result_view": "compact"
+    }
+  },
+  "setup_order": [
+    "direct_luna",
+    "cookbook_sol_compact",
+    "direct_sol",
+    "cookbook_luna_compact"
+  ],
+  "case_order": {
+    "page-amber": [
+      "direct_luna",
+      "cookbook_luna_compact",
+      "direct_sol",
+      "cookbook_sol_compact"
+    ],
+    "page-cobalt": [
+      "cookbook_sol_compact",
+      "direct_luna",
+      "cookbook_luna_compact",
+      "direct_sol"
+    ],
+    "page-linden": [
+      "direct_sol",
+      "cookbook_sol_compact",
+      "direct_luna",
+      "cookbook_luna_compact"
+    ]
+  },
+  "session_design": "one ephemeral app-server thread per arm; one setup/dev turn and three held-out turns retained in that thread",
+  "direct_preparation": "identical prepared local worker implements the same paginated pipeline off-thread; setup validates the development case and may retain any useful context",
+  "cookbook_preparation": "recipe registered model-free in the disposable ProjectBroker assignment; each setup turn reconnects through apr_project and runs the development case",
+  "cookbook_surface": "candidate apr --state-dir DISPOSABLE mcp --projects, all normally advertised tools, no enabled_tools pruning, owner-approved persistent per-tool apr_run approval_mode=approve",
+  "measurement": "turn/start send through matching turn/completed receipt; trailing 200ms usage drain excluded from wall and retained only for final cumulative usage",
+  "quality": "parse exactly one full JSON object and require exact equality to the separately authored deterministic oracle; verify every expected page exactly once, case isolation, no direct pages/oracle read, and identical full outputs across arms",
+  "failure_validation": "before model use, both the direct worker and registered recipe must fail on injected page 3 without partial success output",
+  "approval": "workspace-write, on-request, auto_review; no harness approval answers; any method+id server request blocks the turn",
+  "bounds": {
+    "model_turns_total": 16,
+    "seconds_per_turn": 180,
+    "tool_calls_per_turn": 12,
+    "provider_calls": 0,
+    "model_turns_total_across_attempts": 17
+  },
+  "retry_policy": "no replacement attempts after this sole authorized infrastructure amendment; no uncertain dispatch retries; retain every setup and holdout attempt",
+  "oracle_provenance": "separately authored deterministic specification oracle, frozen before prompts and model use; not human reviewed",
+  "comparison": "primary within-model direct versus trusted compact CookBook; Luna versus Sol reported separately; setup costs separate; no causal subtraction of approval, worker, or cache intervals",
+  "known_realism_limit": "local deterministic pagination supports exact attribution but excludes network variance, authentication, remote rate limits and long-lived production conversation drift",
+  "amendment": {
+    "reason": "first infrastructure attempt stopped after direct-Luna setup because Codex added an exact disposable project trust row; zero holdouts exposed",
+    "preserved_aborted_attempt": "../token-efficiency-projects-aborted-attempt",
+    "aborted_model_turns": 1,
+    "aborted_holdout_turns": 0,
+    "aborted_direct_luna_setup": {
+      "wall_seconds": 27.289846,
+      "total_tokens": 85808,
+      "input_tokens": 84968,
+      "cached_input_tokens": 70656,
+      "output_tokens": 840,
+      "reasoning_output_tokens": 130,
+      "tool_calls": 3,
+      "quality_exact": true
+    },
+    "amended_model_turns": 16,
+    "study_model_turns_total": 17,
+    "replacement_policy": "this is the sole authorized bookkeeping-defect amendment; no further replacement runs",
+    "config_gate": "remove only exact /tmp and /private/tmp aliases for the two disposable direct/CookBook roots from parsed semantic digest, require each removed value to equal {trust_level: trusted}, and freeze every other config value plus APR command and apr_run policy",
+    "config_mutation": "runner does not write config or answer approval requests; root removes verified disposable rows after study"
+  }
+}

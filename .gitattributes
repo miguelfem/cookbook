@@ -1,0 +1,2 @@
+# Preserve exact upstream license bytes, including their terminal blank lines.
+third_party/licenses/** whitespace=-blank-at-eof

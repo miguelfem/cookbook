@@ -1,0 +1,5 @@
+# Synthetic paginated settlement pipeline
+
+For a supplied case ID, return exactly one JSON object with the complete canonical fields described below. Fetch every source page from START by following next_cursor. Keep the first occurrence of duplicate event IDs. Invalid rows have missing/empty required strings, unsupported currency/status, or non-integer amount/risk. From valid unique rows, require status settled, amount_minor > 0, and risk_score < 50. Normalize account whitespace and title case. Aggregate currency totals and account+currency totals; top_accounts contains the five groups ordered by total_minor descending, then currency and account ascending. Evidence includes ordered page IDs and SHA-256 of their `|`-joined IDs. Return no Markdown.
+
+Fields: case_id, dataset_version, state, pages_scanned, rows_scanned, qualifying_rows, duplicate_rows, invalid_rows, rejected {amount,risk,status}, currency_totals, top_accounts, evidence {page_ids,page_set_sha256}. Do not read shared/pages.json or any oracle directly.

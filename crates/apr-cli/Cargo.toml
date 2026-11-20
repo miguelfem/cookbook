@@ -1,0 +1,33 @@
+[package]
+name = "apr-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "apr"
+path = "src/main.rs"
+
+[features]
+fault-injection = ["apr-runtime/fault-injection"]
+jev = ["apr-runtime/jev"]
+
+[dependencies]
+apr-core.workspace = true
+apr-runtime.workspace = true
+apr-mcp.workspace = true
+apr-integrations.workspace = true
+apr-connectors.workspace = true
+serde_json.workspace = true
+clap.workspace = true
+tokio.workspace = true
+libc.workspace = true
+uuid.workspace = true
+time.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+sha2.workspace = true
+rusqlite.workspace = true

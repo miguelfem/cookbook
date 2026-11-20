@@ -1,0 +1,71 @@
+{
+  "protocol_version": "0.1",
+  "run_id": "run_demo_001",
+  "assignment_id": "asgn_demo_review",
+  "process_version": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "state": "waiting_for_agent",
+  "revision": 8,
+  "summary": "The record and source checks are saved. A review decision is waiting for the current agent.",
+  "completed_steps": [
+    "select",
+    "save",
+    "manifest",
+    "validate"
+  ],
+  "request": {
+    "request_id": "handoff_demo_review",
+    "step_instance_id": "review",
+    "generation": 1,
+    "capability": "review",
+    "instructions": "Review the record and source validation. Return whether it is approved.",
+    "input": {
+      "record": {
+        "title": "Synthetic supplier proposal"
+      },
+      "record_artifact": {
+        "artifact_id": "art_demo_record",
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "media_type": "application/json",
+        "bytes": 512
+      },
+      "source_manifest": {
+        "artifact_id": "art_demo_sources",
+        "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "media_type": "application/json",
+        "bytes": 256
+      },
+      "validation": {
+        "valid": true
+      }
+    },
+    "artifact_inputs": [
+      {
+        "artifact_id": "art_demo_record",
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "media_type": "application/json",
+        "bytes": 512
+      },
+      {
+        "artifact_id": "art_demo_sources",
+        "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "media_type": "application/json",
+        "bytes": 256
+      }
+    ],
+    "result_schema": {
+      "type": "object",
+      "required": [
+        "approved"
+      ],
+      "properties": {
+        "approved": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "continuation_token": "DEMO_ONLY_NOT_A_VALID_TOKEN",
+    "expires_at": "2026-09-15T22:00:00Z"
+  },
+  "truncated": false
+}

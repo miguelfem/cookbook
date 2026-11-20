@@ -1,0 +1,84 @@
+{
+  "review_receipt_sha256": "feb1ff54571319cc9fa668a9eca66fa25dbd30df4079873a2e10a86474859107",
+  "cycles": [
+    {
+      "control": "simpler",
+      "expected": "pass",
+      "observed": "pass",
+      "evaluated_cases": 6,
+      "candidate_correct": 6,
+      "baseline_correct": 6,
+      "candidate_steps_total": 6,
+      "baseline_steps_total": 12,
+      "evaluations_used": 1,
+      "report_digest": "sha256:1670d44beebe1d68d87c75a204e95c0b8b82352b73b5fff21a32afb419c123f2"
+    },
+    {
+      "control": "cheaper_wrong",
+      "expected": "fail",
+      "observed": "fail",
+      "evaluated_cases": 6,
+      "candidate_correct": 0,
+      "baseline_correct": 6,
+      "candidate_steps_total": 6,
+      "baseline_steps_total": 12,
+      "evaluations_used": 1,
+      "report_digest": "sha256:171d3701445517fdb77ae51e5a5beb9503aae49936e709878f085a503297487c"
+    },
+    {
+      "control": "missing_evidence",
+      "expected": "fail",
+      "observed": "fail",
+      "evaluated_cases": 6,
+      "candidate_correct": 0,
+      "baseline_correct": 6,
+      "candidate_steps_total": 6,
+      "baseline_steps_total": 12,
+      "evaluations_used": 1,
+      "report_digest": "sha256:337da54ccec952b0c95b030cd68ccce2f497a3aefbeaf449f5eb2b1d01a1e216"
+    },
+    {
+      "control": "unsupported",
+      "expected": "inconclusive",
+      "observed": "inconclusive",
+      "evaluated_cases": 0,
+      "candidate_correct": 0,
+      "baseline_correct": 0,
+      "candidate_steps_total": 0,
+      "baseline_steps_total": 0,
+      "evaluations_used": 1,
+      "report_digest": "sha256:45798daaeee9ed2b4b338b2f30d12345f5649344091141234c313911ccb36546"
+    },
+    {
+      "control": "effect",
+      "expected": "inconclusive",
+      "observed": "inconclusive",
+      "evaluated_cases": 0,
+      "candidate_correct": 0,
+      "baseline_correct": 0,
+      "candidate_steps_total": 0,
+      "baseline_steps_total": 0,
+      "evaluations_used": 1,
+      "report_digest": "sha256:f88018dface4d56dadfeb071294555ef74f19bbfafccc0a42d08f76597809fff"
+    }
+  ],
+  "runtime_counts": {
+    "saved_accounts": 0,
+    "execution_grants": 0,
+    "effect_intents": 0,
+    "billing_calls": 0,
+    "runs": 1,
+    "schedules": 1,
+    "improvement_cycles": 5
+  },
+  "all_cli_reports_match": true,
+  "adoption_and_rollback": {
+    "process_name": "synthetic.copy-review",
+    "scope": "future discovery in this assignment; existing runs and schedules remain pinned",
+    "selected_process_ref": "sha256:8b1594cd000984e2b4e5bd6ced3c616c5989795b887a4a5b5e2ee51f0b5bbe0a",
+    "selection_revision": 2
+  },
+  "historical_pins_preserved": true,
+  "integrity": "ok",
+  "scope": "Regression with the exact previously reviewed labels, exposed to agents. Not fresh blind quality evidence. Archived CLI detail argument failed after evaluation; read-only same-report retrieval completed without reevaluation."
+}

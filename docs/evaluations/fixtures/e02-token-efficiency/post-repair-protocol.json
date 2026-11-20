@@ -1,0 +1,42 @@
+{
+  "study": "Post-repair ProjectBroker client regression; explicitly not a replacement benchmark",
+  "status": "prepared_candidate_pending_no_model_turns",
+  "fixture_root_file": "fixture-root.txt",
+  "task": "same deterministic synthetic paginated settlement pipeline and oracle as the preserved benchmark",
+  "development_case": "dev-spruce",
+  "holdouts": ["page-amber"],
+  "arms": {
+    "cookbook_luna_post_repair": {
+      "model": "gpt-5.6-luna",
+      "reasoning": "low",
+      "cookbook": true,
+      "result_view": "compact"
+    },
+    "cookbook_sol_post_repair": {
+      "model": "gpt-5.6-sol",
+      "reasoning": "low",
+      "cookbook": true,
+      "result_view": "compact"
+    }
+  },
+  "setup_order": ["cookbook_luna_post_repair", "cookbook_sol_post_repair"],
+  "case_order": {
+    "page-amber": ["cookbook_sol_post_repair", "cookbook_luna_post_repair"]
+  },
+  "session_design": "one ephemeral app-server thread per arm; one setup/dev turn and one prepared-reuse turn retained in that thread",
+  "cookbook_surface": "normal user-level six-tool ProjectBroker connection redirected only to disposable state; no enabled-tools pruning; owner-approved persistent apr_run trust",
+  "model_free_acceptance": "connect with semantically equal JSON proof serialized with sorted keys and two trailing newlines; require workspace in run/inspect/resume/manage schemas; grant only the synthetic Python interpreter; register workload; zero runtime dispatches",
+  "prompt_equivalence": "setup and reuse instructions preserve the benchmark behavior; no instruction to skip or reread the APR skill",
+  "measurement": "turn/start send through matching turn/completed receipt; trailing 200ms usage drain excluded from wall and retained only for cumulative usage",
+  "quality": "parse one full JSON object and require exact equality to the frozen deterministic oracle; verify expected pages exactly once and no direct pages/oracle read",
+  "approval": "workspace-write, on-request, auto_review; no harness approval answers; any method+id server request blocks the turn",
+  "bounds": {
+    "model_turns_total": 4,
+    "seconds_per_turn": 180,
+    "tool_calls_per_turn": 12,
+    "provider_calls": 0
+  },
+  "retry_policy": "no retries or replacement attempts; retain all four outcomes",
+  "oracle_provenance": "same separately authored deterministic oracle as the benchmark; independently audited, not human reviewed",
+  "interpretation": "client regression for proof robustness, workspace schema and natural skill routing only; do not merge into or replace benchmark results"
+}

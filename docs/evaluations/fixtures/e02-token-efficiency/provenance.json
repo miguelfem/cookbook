@@ -1,0 +1,23 @@
+{
+  "report.md": "dad14572451a5ef6b5533021e19a363dd764839445b97bf2b2aa544273c54068",
+  "aggregate-summary.json": "aedf33c08d6ec02becdfa1488911ff8b4537b19a88f833b0b68cdd17a368c418",
+  "evidence-manifest.json": "3f2a504e9ef96c5772f7c84794b3dceb6d2dbecbc5a786c562813d13eec5b572",
+  "protocol.json": "1b3a0deecc3f0eddc6b8e4d013e2524265189445b33ca2438040742a8613c40d",
+  "ready-freeze.json": "3c059f56ebdc81500caeb5d5f116cf14574ecd9a90bc438807adf1fb9e9882ce",
+  "harness-freeze.json": "2dd3c81c2c35a2e5900b627e0896349014ccb9a2c81b9ffbf22926d680e1aed6",
+  "public_exports": {
+    "metrics.json": "b4024844265a9db57bb468617aa8c9591a4f6065f1d2d5fbfb1c7eaca6338479",
+    "prepared-token-efficiency.png": "474d638f0376b46bb1b21d4d30c6e975e50a464d068478b7aa0881037e16f815",
+    "post-repair-protocol.json": "ce82ad3d1de5fcd310a72fcaec871cce5ae259e5b7745f205aedf3613c5a88de",
+    "post-repair-case-metrics.csv": "746e1db38eb1db1cc32091bbec26a0c6af6631aec4e31348b534c32af12d6be9",
+    "contract.md": "ecff8c87e2fdff00c69b40941ed973264f73f2e166bd49f72bd6f8df355ff91c",
+    "case-metrics.csv": "e4f5abc4c9470053d121c6a69d8c47dd4685998d0a8b26a7bfc1a8653e21a038",
+    "expected-outputs.json": "f6a2984e9ba585833738b3fc6ab754011b4ba92a6b885d85b7a87a8374e7c175",
+    "post-repair-tool-events.jsonl": "d3c1a1b185398e3f3bc075ea13c8f854346302a21c43905e997116a2ad6b85d4",
+    "protocol.json": "1b3a0deecc3f0eddc6b8e4d013e2524265189445b33ca2438040742a8613c40d",
+    "post-repair-metrics.json": "427110db8787b1a48c567c44b4100a375d0fcd3b6f06faceab018b3533ee1812",
+    "verification.json": "bac284227f28d7945758d42674aab8848aa76eabdb2f711761f9afac1fa9f392",
+    "source-pages.json": "c54a1c81b6f80cd0e10f112fd5b35e54c460a536b2ff4ae15a058c0388274272"
+  },
+  "public_export_format": "CSV line endings normalized to LF; parsed values unchanged. Private frozen files remain byte-identical."
+}

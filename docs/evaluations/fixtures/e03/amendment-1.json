@@ -1,0 +1,17 @@
+{
+  "study": "E03",
+  "revision": "2026-09-22.1-amendment-1",
+  "base_protocol_sha256": "56a802a152bbd0fdb359531de53fcce6b9fc9021fd8960ac7b51b4b3d15542ba",
+  "reason": "The first selected library revisions had a stale source-lock pin and the adapter requires hash-pinned, project-relative payloads under its reviewed ignored input directory. Neither first cell yielded a result. This amendment uses an already approved current OpenRouter library revision and places only synthetic payloads in the required ignored directory.",
+  "retained_attempts": [
+    {"provider": "gemini", "case_id": "s01", "repetition": 1, "run_id": "run_3e335fbdfd5849b7a8ebf171990172e7", "status": "needs_reconciliation", "counts_against_dispatch_limit": true},
+    {"provider": "openrouter", "case_id": "s01", "repetition": 1, "run_id": "run_4ba20a3178e345a0992100c665f16b49", "status": "needs_reconciliation", "counts_against_dispatch_limit": true}
+  ],
+  "allowed_remaining": {
+    "openrouter": {"library_id": "tool-c99afb6b43ea44cea7508eebc72f5fcf", "revision": 1, "local_name": "eval_openrouter_current", "cells": "All original OpenRouter cases/repetitions except s01 repetition 1", "maximum_new_dispatches": 19},
+    "gemini": {"cells": "All original Gemini cases/repetitions except s01 repetition 1", "maximum_new_dispatches": 19, "condition": "Only after a currently approved compatible binding is verified and locally bound; otherwise unrun."}
+  },
+  "unchanged": ["10 synthetic memos", "same extraction instruction and rubric", "temperature 0", "max 240 output tokens", "requested model IDs", "quality floor", "no uncertain retries", "40 total attempted cells", "OpenRouter $1 self-cap and owner $10 hard ceiling"],
+  "payload_location": "Unique synthetic files in the adapter's git-ignored cookbook/.local/api-inputs/ directory, with exact SHA-256 passed to the protected tool. No existing file may be replaced.",
+  "stop": "Stop an arm on any new uncertain external outcome; do not replace a failed or attempted cell. Unknown charges remain unknown pending evidence."
+}

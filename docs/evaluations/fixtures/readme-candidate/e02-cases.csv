@@ -1,0 +1,10 @@
+case,arm,model,full_output_exact,both_sources_called,cookbook_succeeded_recipe_run,wall_seconds,tool_calls,totalTokens,inputTokens,cachedInputTokens,cacheWriteInputTokens,outputTokens,reasoningOutputTokens,noncachedInputTokens
+held-onyx,direct,gpt-5.6-luna,True,True,,14.534905167,2,124485,123905,113664,0,580,122,10241
+held-onyx,script,gpt-5.6-luna,True,True,,14.266132625,2,75006,74452,70912,0,554,73,3540
+held-onyx,cookbook,gpt-5.6-luna,True,True,True,23.210859042,3,156815,155953,151296,0,862,128,4657
+held-opal,script,gpt-5.6-luna,True,True,,13.846389959,2,77677,77218,73984,0,459,7,3234
+held-opal,cookbook,gpt-5.6-luna,True,True,True,27.990526292,3,167666,166933,162560,0,733,68,4373
+held-opal,direct,gpt-5.6-luna,True,True,,13.143083416,2,128314,127831,123904,0,483,38,3927
+held-ruby,cookbook,gpt-5.6-luna,True,True,True,33.665616583,3,177733,177059,171776,0,674,17,5283
+held-ruby,direct,gpt-5.6-luna,True,True,,12.747668333,2,132059,131598,105472,0,461,27,26126
+held-ruby,script,gpt-5.6-luna,True,True,,13.180197666,2,80091,79635,77056,0,456,8,2579

@@ -1,0 +1,7 @@
+# Inactive example. Replace both absolute paths and merge only this table into
+# the trusted project's local .codex/config.toml. No installer runs this file.
+[mcp_servers.apr]
+command = "/absolute/path/to/apr"
+args = ["mcp", "--attachment-file", "/absolute/path/to/private-apr-state/attachments/assignment.json"]
+startup_timeout_sec = 10
+tool_timeout_sec = 30

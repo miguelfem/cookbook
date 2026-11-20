@@ -1,0 +1,39 @@
+{
+  "source_commit": "fb29e763cf77721784bf34b693bf4dca7ff7fa08",
+  "source_dirty": false,
+  "source_sha256": "23c6fbecbc20c2907910072446d3c301c0860f865effce0b95819e550647d8ab",
+  "platform": "macOS 26.6.2 ARM64",
+  "app_version": "0.2.0",
+  "included_features": [
+    "jev"
+  ],
+  "development_signed": true,
+  "notarized": false,
+  "package": {
+    "file": "CookBook APR_0.2.0_aarch64.dmg",
+    "bytes": 18562625,
+    "sha256": "004b005d940a629a64b4baf9a254b5707e80a346adbc66cb2bea104dbda37dc3"
+  },
+  "native_ui_pass": true,
+  "installed_bytes_match": true,
+  "existing_state_preserved": true,
+  "test_counts": {
+    "default_passed": 398,
+    "fault_injection_passed": 440,
+    "ignored_per_suite": 1,
+    "batch_outputs_passed": 18,
+    "job_outputs_passed": 72
+  },
+  "transport_totals": {
+    "baseline": {
+      "caller_tool_calls": 26,
+      "response_bytes": 43916
+    },
+    "candidate": {
+      "caller_tool_calls": 9,
+      "response_bytes": 9894
+    }
+  },
+  "protocol_sha256": "2e0bb85fe434880ac06e5c8e803aa7da1882ca5a208af59983819406a639329d",
+  "model_tokens": null
+}

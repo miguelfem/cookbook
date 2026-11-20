@@ -1,0 +1,30 @@
+[
+  {
+    "check": "fmt",
+    "exit_code": 0,
+    "elapsed_seconds": 0.166,
+    "passed": 0,
+    "ignored": 0
+  },
+  {
+    "check": "clippy",
+    "exit_code": 0,
+    "elapsed_seconds": 0.956,
+    "passed": 0,
+    "ignored": 0
+  },
+  {
+    "check": "default",
+    "exit_code": 0,
+    "elapsed_seconds": 30.583,
+    "passed": 169,
+    "ignored": 1
+  },
+  {
+    "check": "all_features",
+    "exit_code": 0,
+    "elapsed_seconds": 46.68,
+    "passed": 194,
+    "ignored": 1
+  }
+]

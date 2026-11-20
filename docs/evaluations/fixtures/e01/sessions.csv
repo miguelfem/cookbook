@@ -1,0 +1,7 @@
+session,elapsed_seconds,tool_calls,stop_reason,exit_code,input_tokens,cached_input_tokens,output_tokens,reasoning_output_tokens,mcp_error_count,event_bytes,client_billed_cost_usd
+e01-first-session,179.2409500000067,21,,0,701096,638208,3321,274,4,46961,
+e01-second-session,343.7432337498758,36,tool_call_limit,-15,,,,,6,71812,
+e01-adapter-session,297.6259767918382,16,,0,625138,537600,5181,739,0,59453,
+e01-recovery-session,49.67806808301248,7,,0,343255,314368,1495,448,5,8398,
+e01-adapter-use-session,106.69743112497963,18,tool_call_limit,-15,,,,,7,56675,
+e01-recovery-corrected-session,53.99971012515016,6,,0,368979,339712,1799,440,2,11503,

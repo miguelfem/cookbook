@@ -1,0 +1,47 @@
+{
+  "provider": "synthetic-api",
+  "revision": "synthetic-v1",
+  "currency": "USD",
+  "identity": {
+    "pointer": "/model",
+    "equals": "fixture-model"
+  },
+  "meters": [
+    {
+      "name": "uncached_input",
+      "unit": "tokens",
+      "add": [
+        "/usage/input_tokens"
+      ],
+      "subtract": [
+        "/usage/input_tokens_details/cached_tokens"
+      ],
+      "rate": {
+        "amount": "2.00",
+        "per_units": 1000000
+      }
+    },
+    {
+      "name": "cached_input",
+      "unit": "tokens",
+      "add": [
+        "/usage/input_tokens_details/cached_tokens"
+      ],
+      "rate": {
+        "amount": "0.50",
+        "per_units": 1000000
+      }
+    },
+    {
+      "name": "output",
+      "unit": "tokens",
+      "add": [
+        "/usage/output_tokens"
+      ],
+      "rate": {
+        "amount": "8.00",
+        "per_units": 1000000
+      }
+    }
+  ]
+}

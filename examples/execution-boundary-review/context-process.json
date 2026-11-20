@@ -1,0 +1,365 @@
+{
+  "schema_version": "0.2",
+  "name": "synthetic.context-brief",
+  "description": "Frozen helper aggregates generated pages, retains full raw data, and returns a bounded revision brief.",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "item_count",
+      "page_size",
+      "guidance",
+      "previous_guidance",
+      "previous_revision",
+      "missing_page"
+    ],
+    "properties": {
+      "item_count": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 5000
+      },
+      "page_size": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 500
+      },
+      "guidance": {
+        "type": "array",
+        "maxItems": 16,
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "text"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 32,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            "text": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "previous_guidance": {
+        "type": "array",
+        "maxItems": 16,
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "text"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 32,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            "text": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "previous_revision": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 64
+      },
+      "missing_page": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 0,
+        "maximum": 127
+      }
+    },
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "result"
+    ],
+    "properties": {
+      "result": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "complete",
+              "unchanged",
+              "incomplete"
+            ]
+          },
+          "revision": {
+            "type": "string",
+            "maxLength": 64
+          },
+          "raw_sha256": {
+            "type": "string",
+            "maxLength": 64
+          },
+          "item_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5000
+          },
+          "delta": {
+            "type": "object",
+            "required": [
+              "added",
+              "changed",
+              "removed"
+            ],
+            "properties": {
+              "added": {
+                "type": "array",
+                "maxItems": 16,
+                "items": {
+                  "type": "string",
+                  "maxLength": 32
+                }
+              },
+              "changed": {
+                "type": "array",
+                "maxItems": 16,
+                "items": {
+                  "type": "string",
+                  "maxLength": 32
+                }
+              },
+              "removed": {
+                "type": "array",
+                "maxItems": 16,
+                "items": {
+                  "type": "string",
+                  "maxLength": 32
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "raw": {
+            "type": "object",
+            "required": [
+              "artifact_id",
+              "sha256",
+              "media_type",
+              "bytes"
+            ],
+            "properties": {
+              "artifact_id": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "sha256": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "media_type": {
+                "const": "application/x-ndjson"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1048576
+              }
+            },
+            "additionalProperties": false
+          },
+          "missing_page": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 127
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "script",
+      "language": "python"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 10000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 0,
+    "max_agent_requests": 0
+  },
+  "files": [
+    {
+      "path": "context-helper.py",
+      "sha256": "3db9fdaa0215aeaf267c42a4221e8eef5b6e438c43719bddfe02df3994d7f88e"
+    }
+  ],
+  "steps": [
+    {
+      "id": "brief",
+      "kind": "script",
+      "entrypoint": "context-helper.py",
+      "needs": [],
+      "effect": "write",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "item_count": {
+          "input": "/item_count"
+        },
+        "page_size": {
+          "input": "/page_size"
+        },
+        "guidance": {
+          "input": "/guidance"
+        },
+        "previous_guidance": {
+          "input": "/previous_guidance"
+        },
+        "previous_revision": {
+          "input": "/previous_revision"
+        },
+        "missing_page": {
+          "input": "/missing_page"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "complete",
+              "unchanged",
+              "incomplete"
+            ]
+          },
+          "revision": {
+            "type": "string",
+            "maxLength": 64
+          },
+          "raw_sha256": {
+            "type": "string",
+            "maxLength": 64
+          },
+          "item_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5000
+          },
+          "delta": {
+            "type": "object",
+            "required": [
+              "added",
+              "changed",
+              "removed"
+            ],
+            "properties": {
+              "added": {
+                "type": "array",
+                "maxItems": 16,
+                "items": {
+                  "type": "string",
+                  "maxLength": 32
+                }
+              },
+              "changed": {
+                "type": "array",
+                "maxItems": 16,
+                "items": {
+                  "type": "string",
+                  "maxLength": 32
+                }
+              },
+              "removed": {
+                "type": "array",
+                "maxItems": 16,
+                "items": {
+                  "type": "string",
+                  "maxLength": 32
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "raw": {
+            "type": "object",
+            "required": [
+              "artifact_id",
+              "sha256",
+              "media_type",
+              "bytes"
+            ],
+            "properties": {
+              "artifact_id": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "sha256": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "media_type": {
+                "const": "application/x-ndjson"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1048576
+              }
+            },
+            "additionalProperties": false
+          },
+          "missing_page": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 127
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ],
+  "output": {
+    "result": {
+      "step": "brief",
+      "pointer": ""
+    }
+  }
+}

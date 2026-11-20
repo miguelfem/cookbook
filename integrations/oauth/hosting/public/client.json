@@ -1,0 +1,19 @@
+{
+  "application_type": "native",
+  "client_id": "https://itscookbook.dev/client.json",
+  "client_name": "CookBook APR",
+  "grant_types": [
+    "authorization_code",
+    "refresh_token"
+  ],
+  "redirect_uris": [
+    "http://127.0.0.1:48557/oauth/callback",
+    "http://127.0.0.1:48558/oauth/callback",
+    "http://127.0.0.1:48559/oauth/callback",
+    "http://127.0.0.1:48560/oauth/callback"
+  ],
+  "response_types": [
+    "code"
+  ],
+  "token_endpoint_auth_method": "none"
+}

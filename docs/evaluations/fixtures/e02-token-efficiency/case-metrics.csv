@@ -1,0 +1,17 @@
+arm,case_id,phase,state,stop_reason,exact,source_pages_exact,source_page_count,prohibited_source_reads_in_arm,explicit_skill_reads_in_arm,wall_seconds,tool_call_count,tool_seconds,review_count,review_seconds,apr_durable_seconds,model,requested_reasoning_effort,effective_service_tier,model_call_count,model_review_usage,total_tokens,input_tokens,cached_input_tokens,noncached_input_tokens,output_tokens,reasoning_output_tokens
+direct_luna,dev-spruce,setup,completed,,True,True,5,0,1,20.800953667,2,0.018,0,0,,gpt-5.6-luna,low,,,,68724,67934,51456,16478,790,148
+direct_luna,page-amber,holdout,completed,,True,True,6,0,1,13.752392083,1,0.065,0,0,,gpt-5.6-luna,low,,,,64354,63873,55808,8065,481,42
+direct_luna,page-cobalt,holdout,completed,,True,True,7,0,1,11.81461125,1,0.039,0,0,,gpt-5.6-luna,low,,,,66120,65677,62976,2701,443,7
+direct_luna,page-linden,holdout,completed,,True,True,5,0,1,11.653150416,1,0.004,0,0,,gpt-5.6-luna,low,,,,67866,67438,65024,2414,428,6
+cookbook_luna_compact,dev-spruce,setup,completed,,False,False,0,0,1,60.881771083,5,0.003,1,10.995,,gpt-5.6-luna,low,,,,225983,224586,187136,37450,1397,407
+cookbook_luna_compact,page-amber,holdout,completed,,False,False,0,0,1,14.467332292,1,0.001,0,0,,gpt-5.6-luna,low,,,,67425,67064,58880,8184,361,216
+cookbook_luna_compact,page-cobalt,holdout,completed,,False,False,0,0,1,4.737814416,0,0.0,0,0,,gpt-5.6-luna,low,,,,34045,33958,33536,422,87,55
+cookbook_luna_compact,page-linden,holdout,completed,,False,False,0,0,1,12.562933916,1,0.001,0,0,,gpt-5.6-luna,low,,,,68799,68639,67072,1567,160,17
+direct_sol,dev-spruce,setup,completed,,True,True,5,0,1,44.316912916,3,0.028,0,0,,gpt-5.6-sol,low,,,,93742,92962,78720,14242,780,129
+direct_sol,page-amber,holdout,completed,,True,True,6,0,1,21.729521917,1,0.032,0,0,,gpt-5.6-sol,low,,,,64287,63797,56192,7605,490,45
+direct_sol,page-cobalt,holdout,completed,,True,True,7,0,1,18.075311584,1,0.047,0,0,,gpt-5.6-sol,low,,,,66160,65710,64384,1326,450,14
+direct_sol,page-linden,holdout,completed,,True,True,5,0,1,19.41342625,1,0.016,0,0,,gpt-5.6-sol,low,,,,67999,67571,66304,1267,428,6
+cookbook_sol_compact,dev-spruce,setup,completed,,True,True,5,0,4,88.072443292,4,0.24200000000000002,2,12.808,0.152,gpt-5.6-sol,low,,,,194293,193101,177152,15949,1192,161
+cookbook_sol_compact,page-amber,holdout,completed,,True,True,6,0,4,29.608141625,2,0.298,0,0,0.215,gpt-5.6-sol,low,,,,101135,100419,91520,8899,716,75
+cookbook_sol_compact,page-cobalt,holdout,completed,,True,True,7,0,4,30.117031792,2,0.286,0,0,0.22,gpt-5.6-sol,low,,,,107163,106536,103936,2600,627,19
+cookbook_sol_compact,page-linden,holdout,completed,,True,True,5,0,4,25.404866083,2,0.22,0,0,0.182,gpt-5.6-sol,low,,,,113093,112494,110080,2414,599,9

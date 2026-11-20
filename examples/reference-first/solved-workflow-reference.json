@@ -1,0 +1,83 @@
+{
+  "reference_schema_version": "1",
+  "workflow_name": "synthetic.support-intake",
+  "status": "template_requires_observed_evidence",
+  "source": {
+    "kind": "locally_redacted_reference",
+    "description": "Replace this synthetic description with the accepted workflow's observed steps.",
+    "evidence_refs": ["artifact:replace-with-observed-run-evidence"],
+    "observed_at": null,
+    "unknowns": ["provider quality", "caller time", "unrecorded external effects"]
+  },
+  "contract": {
+    "variable_inputs": {
+      "records": {
+        "schema": {"type": "array", "items": {"type": "object"}},
+        "example_ref": "artifact:replace-with-observed-input"
+      },
+      "queue": {"schema": {"type": "string"}, "example_value": "support"}
+    },
+    "output_schema": {
+      "type": "object",
+      "required": ["items", "artifact"],
+      "properties": {
+        "items": {"type": "array"},
+        "artifact": {"type": "object"}
+      }
+    }
+  },
+  "observed_steps": [
+    {
+      "id": "normalize",
+      "kind": "deterministic_or_script",
+      "actual_tool_or_operation": "replace-with-observed-tool",
+      "inputs": ["records"],
+      "checks": ["required record ID", "bounded text", "stable key"],
+      "source_ref": "artifact:replace-with-observed-source",
+      "artifact_refs": ["artifact:replace-with-observed-normalized-output"],
+      "residual_decision": null,
+      "unknowns": []
+    },
+    {
+      "id": "assign",
+      "kind": "residual_judgment",
+      "actual_tool_or_operation": "replace-with-observed-model-or-caller-decision",
+      "inputs": ["normalized records", "queue"],
+      "checks": ["declared labels only", "low confidence reviewed"],
+      "source_ref": null,
+      "artifact_refs": [],
+      "residual_decision": {
+        "boundary": "bounded_classification_or_caller_review",
+        "reason": "Record why this part was not established as deterministic."
+      },
+      "unknowns": ["confidence calibration"]
+    },
+    {
+      "id": "publish",
+      "kind": "artifact_or_service_effect",
+      "actual_tool_or_operation": "replace-with-observed-approved-operation",
+      "inputs": ["assigned items"],
+      "checks": ["schema validation", "receipt or provider reference"],
+      "source_ref": null,
+      "artifact_refs": ["artifact:replace-with-observed-final-output"],
+      "residual_decision": null,
+      "unknowns": ["external effect outcome when not reconciled"]
+    }
+  ],
+  "equivalence_cases": [
+    {
+      "case_id": "replace-with-observed-case-1",
+      "input_ref": "artifact:replace-with-observed-input-1",
+      "expected_output_ref": "artifact:replace-with-observed-output-1",
+      "checks": ["same required fields", "same declared assignment", "same artifact or receipt semantics"]
+    }
+  ],
+  "review_sidecar": {
+    "steps": {
+      "normalize": {"boundary": "deterministic", "reason": "Observed normalization checks are repeatable."},
+      "assign": {"boundary": "bounded_classification", "reason": "Observed evidence leaves semantic assignment as the residual decision."},
+      "publish": {"boundary": "service", "reason": "Use only the observed approved operation and its declared receipt."}
+    },
+    "unknowns": ["Replace this sidecar with measured call inventory and output budgets before audit."]
+  }
+}

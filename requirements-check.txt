@@ -1,0 +1,2 @@
+# Optional, only for full JSON Schema validation of the design fixtures.
+jsonschema==4.23.0

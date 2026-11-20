@@ -1,0 +1,104 @@
+{
+  "purpose": "Post-repair regression only; same previously exposed cases; not a replacement or matched benchmark",
+  "quality": {
+    "planned_model_turns": 4,
+    "attempted_rows": 4,
+    "exact_holdouts": 2,
+    "holdouts": 2,
+    "failures": []
+  },
+  "per_turn_independent_checks": [
+    {
+      "arm": "cookbook_luna_post_repair",
+      "case": "dev-spruce",
+      "exact": true,
+      "pages": 5,
+      "skill_reads": 1,
+      "mcp_tools": [
+        "apr_project",
+        "apr_project",
+        "apr_project",
+        "apr_run"
+      ],
+      "review_events": 0
+    },
+    {
+      "arm": "cookbook_luna_post_repair",
+      "case": "page-amber",
+      "exact": true,
+      "pages": 6,
+      "skill_reads": 0,
+      "mcp_tools": [
+        "apr_run"
+      ],
+      "review_events": 0
+    },
+    {
+      "arm": "cookbook_sol_post_repair",
+      "case": "dev-spruce",
+      "exact": true,
+      "pages": 5,
+      "skill_reads": 1,
+      "mcp_tools": [
+        "apr_project",
+        "apr_project",
+        "apr_run"
+      ],
+      "review_events": 0
+    },
+    {
+      "arm": "cookbook_sol_post_repair",
+      "case": "page-amber",
+      "exact": true,
+      "pages": 6,
+      "skill_reads": 0,
+      "mcp_tools": [
+        "apr_run"
+      ],
+      "review_events": 0
+    }
+  ],
+  "candidate_apr_sha256": "df9b08eae1d36d10b2dded2047d63e9cb1e2239845417e535ab05842b36b37b8",
+  "skill_sha256": "ec7a9297d92b86300f4557c37b0cb7c43b2ebec3041e80a3e9b81714129e01c2",
+  "skill_bytes": 3160,
+  "model_free_acceptance": {
+    "proof_semantically_equal": true,
+    "trailing_newlines": 2,
+    "schema_workspace_required": {
+      "apr_run": true,
+      "apr_inspect": true,
+      "apr_resume": true,
+      "apr_manage": true
+    },
+    "runtime_dispatches": 0
+  },
+  "cleanup": {
+    "app_servers_closed": true,
+    "service_returncode": 0,
+    "disposable_trust_rows_removed_by_root_after_run": true
+  },
+  "private_evidence_sha256": {
+    "ready-freeze.json": "0fb1e6327458db032f286aaa8685adff1375aa8f17c77aa58f840c1c63977558",
+    "harness-freeze.json": "88f54c26b6ea68af61bfbc282b1bca919da4dd34bc6d66b64fa7a858d5e48ed2",
+    "protocol.json": "ce82ad3d1de5fcd310a72fcaec871cce5ae259e5b7745f205aedf3613c5a88de",
+    "case-metrics.csv": "81256dce76682e0458cce0a35fa38ffdaa9117451e93a0d208aa737836823e55",
+    "run_regression.py": "277289cd6295c451cf9a28f9c5d0954b8097be13cd58909336fd8715e6cada68",
+    "grade.py": "98709fffbe58399b681976bf9663dc24d61d991b99a31a7fdb5bc72fcf5cc299",
+    "report.md": "e66d67b7d251d674f4efe90e0a15e6bf03d51dcdb47fd955ea3281e6b6a6c1dd",
+    "regression-summary.json": "53fef11aa7951224d57ac4b6b22842686518af112c60eca5da4252d0a0f9ced2",
+    "tool-events.jsonl": "d3c1a1b185398e3f3bc075ea13c8f854346302a21c43905e997116a2ad6b85d4",
+    "evidence-manifest.json": "4b951155bdc47e7926facf68d68fced4a854abd1d9c229d558e37e5d85a88b89"
+  },
+  "unknowns": [
+    "effective reasoning effort",
+    "service tier",
+    "model-call count",
+    "review-model tokens",
+    "billed dollars"
+  ],
+  "setup_caveats": {
+    "luna_failed_stale_skill_path_read": 1,
+    "luna_extra_project_prepare": 1,
+    "successful_skill_reads_each_setup": 1
+  }
+}

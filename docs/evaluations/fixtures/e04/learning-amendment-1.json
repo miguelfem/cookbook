@@ -1,0 +1,24 @@
+{
+  "study": "E04 Other-learning only",
+  "revision": "2026-09-22.1-learning-amendment-1",
+  "base_protocol_sha256": "665a7698bb95e8c512eea19fd6ffd16ca5d2be2abb45d832fee54fc68f141f2a",
+  "reason": "The previously frozen category draft omitted `unclear`, which the exact approved Jev Choice schema requires. No learning-discovery, baseline-evaluator, or candidate-evaluator provider call has occurred. This revision corrects only the pre-evaluation taxonomy and independent synthetic holdout construction. The unresolved routing smoke is unchanged and must settle before live evaluation.",
+  "baseline_categories": {
+    "documents": "Summarize or compare supplied documents.",
+    "records": "Summarize or analyze a supplied structured record set.",
+    "unclear": "The intended result or required input is missing or ambiguous; caller review is required.",
+    "other": "The clear request is outside the supported categories; caller review is required."
+  },
+  "candidate_additions": {
+    "calendar": "Plan or adjust a calendar schedule from supplied dates and constraints.",
+    "code": "Review or explain supplied source code without executing it."
+  },
+  "discovery_source": "Use only d01-d04 from base protocol; two distinct examples support each proposed addition. None may appear in heldout.",
+  "heldout_source": "Use base h01-h14 and h16, exclude ambiguous h15 before any learning model output, and append h17 and h18 below. Total 17 examples; every baseline and candidate category including Other has at least two.",
+  "new_heldout": [
+    {"id": "h17", "text": "Summarize the briefing, but no briefing was supplied.", "expected": "unclear"},
+    {"id": "h18", "text": "Compare the two requested reports; only one report is available.", "expected": "unclear"}
+  ],
+  "bounds": {"discovery_max": 16, "heldout_max": 32, "evaluator_jev_calls_max": 64, "planned_evaluator_jev_calls": 34, "no_retries": true},
+  "unchanged": ["jev-latest", "same approved Jev binding and endpoint", "frozen heldout labels kept away from provider payloads", "implemented classifier gates", "no automatic candidate adoption", "$0.25 Jev study self-cap"]
+}

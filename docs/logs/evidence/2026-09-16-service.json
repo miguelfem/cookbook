@@ -1,0 +1,108 @@
+{
+  "benchmark": "apr-local-service-v1",
+  "binary_bytes": 12804800,
+  "binary_sha256": "beb5b9d6e83f9d397d07010b07704b5dfa0877b5a79de367222174fb874501dc",
+  "caveats": [
+    "This samples the supplied binary; the script does not prove it was built in release mode.",
+    "Readiness is a foreground service start with precreated SQLite state and warm OS caches, not cold MCP or app startup.",
+    "RSS is three current idle resident-set samples after three discovery warmups, not peak RSS or complete installed footprint.",
+    "Latency includes Python JSON, a fresh Unix socket, attachment authentication, service dispatch, and response parsing; calls are sequential against an empty catalog.",
+    "Python, ps, client apps, active workers, provider usage, quality, and token savings are not measured.",
+    "Temporary project, SQLite state, and attachment credentials are removed; the runtime-managed permanent endpoint lock is retained.",
+    "Small local samples depend on host load and OS caches and do not establish performance across devices or real workflows."
+  ],
+  "graceful_owned_service_shutdown": true,
+  "idle_service_rss_bytes": {
+    "count": 3,
+    "max": 10616832,
+    "median": 10616832,
+    "min": 10616832,
+    "p95_nearest_rank": 10616832,
+    "samples": [
+      10616832,
+      10616832,
+      10616832
+    ]
+  },
+  "idle_wait_seconds": 1.0,
+  "iterations_per_action": 20,
+  "latency_ms": {
+    "discover_empty_catalog_ms": {
+      "count": 20,
+      "max": 30.473,
+      "median": 29.595,
+      "min": 19.964,
+      "p95_nearest_rank": 29.995,
+      "samples": [
+        28.306,
+        29.774,
+        29.745,
+        19.965,
+        29.72,
+        29.898,
+        29.972,
+        29.47,
+        25.327,
+        29.884,
+        29.92,
+        19.964,
+        30.473,
+        26.042,
+        29.995,
+        26.08,
+        25.214,
+        24.563,
+        21.495,
+        29.828
+      ]
+    },
+    "service_info_ms": {
+      "count": 20,
+      "max": 30.383,
+      "median": 29.926,
+      "min": 21.071,
+      "p95_nearest_rank": 30.368,
+      "samples": [
+        25.612,
+        28.341,
+        23.046,
+        30.184,
+        30.368,
+        30.222,
+        30.202,
+        27.701,
+        21.163,
+        30.356,
+        30.227,
+        21.071,
+        27.153,
+        30.005,
+        30.147,
+        24.921,
+        30.215,
+        29.846,
+        30.383,
+        29.129
+      ]
+    }
+  },
+  "machine": "arm64",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python_version": "3.11.1",
+  "release_context": {
+    "association": "Operator-supplied release-ready build context; the binary hash is verified, but this script does not independently attest its source or compiler.",
+    "cached_archive_sha256": "b9c90e49558af2b2c976a2fe9f9bb79b23a89654a327a9f6fa2dd862b90f23a8",
+    "declared_features": [],
+    "declared_target": "aarch64-apple-darwin",
+    "source_revision": "e80754cf69c12003d0e002a2519ce8bc267223bc",
+    "source_verification": {
+      "committed_source_index_matches": true,
+      "executed_harness_and_fixture_bytes_match_commit": true,
+      "full_working_tree_content_scan_completed": false,
+      "limitation": "The initial broad Git working-tree source reread timed out on Documents filesystem reads. Source-to-binary association relies on the operator release-ready statement; the exact binary digest, committed source/index, executed harness/fixtures, and package inputs are verified."
+    }
+  },
+  "rss_source": "ps -p <owned service pid> -o rss=; KiB multiplied by 1024",
+  "service_readiness_ms": 38.085,
+  "timestamp_utc": "2026-09-16T22:39:20.689241+00:00"
+}

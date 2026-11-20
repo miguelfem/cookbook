@@ -1,0 +1,57 @@
+{
+  "source_revision": "e80754cf69c12003d0e002a2519ce8bc267223bc",
+  "platform": "macOS 26.6.2 ARM64",
+  "rust_toolchain": "1.94.0",
+  "build_environment": {
+    "CARGO_TARGET_DIR": "<temporary-build-directory>",
+    "CARGO_INCREMENTAL": "0"
+  },
+  "checks": [
+    {
+      "check": "fmt",
+      "exit_code": 0,
+      "elapsed_seconds": 30.509,
+      "passed": 0,
+      "ignored": 0,
+      "command": "cargo fmt --all -- --check"
+    },
+    {
+      "check": "clippy",
+      "exit_code": 0,
+      "elapsed_seconds": 3.518,
+      "passed": 0,
+      "ignored": 0,
+      "command": "cargo clippy --workspace --all-targets --all-features --locked --offline -- -D warnings"
+    },
+    {
+      "check": "default",
+      "exit_code": 0,
+      "elapsed_seconds": 35.08,
+      "passed": 174,
+      "ignored": 1,
+      "command": "cargo test --workspace --locked --offline"
+    },
+    {
+      "check": "all_features",
+      "exit_code": 0,
+      "elapsed_seconds": 35.33,
+      "passed": 199,
+      "ignored": 1,
+      "command": "cargo test --workspace --all-features --locked --offline"
+    },
+    {
+      "check": "release",
+      "exit_code": 0,
+      "elapsed_seconds": 28.986,
+      "passed": 0,
+      "ignored": 0,
+      "command": "cargo build --release --locked --offline -p apr-cli"
+    }
+  ],
+  "binary": {
+    "sha256": "beb5b9d6e83f9d397d07010b07704b5dfa0877b5a79de367222174fb874501dc",
+    "bytes": 12804800,
+    "features": []
+  },
+  "native_credential_test": "One test is intentionally ignored in each workspace suite; the separate earlier synthetic macOS Keychain smoke is recorded in the validation log."
+}

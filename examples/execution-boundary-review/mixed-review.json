@@ -1,0 +1,48 @@
+{
+  "steps": {
+    "judge": {
+      "boundary": "open_judgment",
+      "reason": "The caller evaluates novel evidence against the user's acceptance criteria; approved service tools only provide facts and persistence.",
+      "output": {
+        "max_return_bytes": 2048,
+        "raw_artifact": false,
+        "paged_or_aggregated": true,
+        "revision_delta_includes_removals": true
+      }
+    }
+  },
+  "connections": {
+    "records": {
+      "access": "pending",
+      "caller_has_service_tool": true,
+      "proposal_ref": "scoped-records-request"
+    },
+    "policy": {
+      "access": "pending",
+      "caller_has_service_tool": true,
+      "proposal_ref": "scoped-policy-request"
+    },
+    "updates": {
+      "access": "pending",
+      "proposal_ref": "scoped-update-request"
+    }
+  },
+  "baseline": {
+    "model_round_trips": 3,
+    "raw_http_calls": 3,
+    "retained_input_tokens": null,
+    "retained_output_tokens": null
+  },
+  "expected": {
+    "model_round_trips": 1,
+    "raw_http_calls": 3,
+    "retained_input_tokens": null,
+    "retained_output_tokens": null
+  },
+  "final_output": {
+    "max_return_bytes": 2048,
+    "raw_artifact": false,
+    "paged_or_aggregated": false,
+    "revision_delta_includes_removals": false
+  }
+}

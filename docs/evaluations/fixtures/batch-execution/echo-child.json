@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.2",
+  "name": "batch.echo-child",
+  "description": "Synthetic, provider-free batch execution proof.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40
+      },
+      "payload": {
+        "type": "object"
+      }
+    },
+    "required": [
+      "id",
+      "payload"
+    ]
+  },
+  "output_schema": {
+    "type": "object"
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "builtin"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 1000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 0,
+    "max_agent_requests": 0,
+    "max_call_depth": 4,
+    "max_child_runs": 16,
+    "max_step_instances": 64
+  },
+  "steps": [
+    {
+      "id": "echo",
+      "kind": "builtin",
+      "operation": "json.select",
+      "effect": "pure",
+      "needs": [],
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "value": {
+          "input": "/payload"
+        },
+        "pointer": {
+          "literal": ""
+        }
+      }
+    }
+  ],
+  "output": {
+    "id": {
+      "input": "/id"
+    },
+    "echoed": {
+      "step": "echo",
+      "pointer": "/value"
+    },
+    "worker": {
+      "literal": "echo"
+    }
+  }
+}

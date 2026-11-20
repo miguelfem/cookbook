@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "name": "native.normalize",
+  "description": "Normalize repeated whitespace using a pinned trusted Python worker.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "text"
+    ],
+    "properties": {
+      "text": {
+        "type": "string",
+        "maxLength": 8000
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object"
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "uppercase"
+      ],
+      "properties": {
+        "uppercase": {
+          "type": "boolean"
+        }
+      }
+    },
+    "defaults": {
+      "uppercase": false
+    },
+    "run_override_keys": [
+      "uppercase"
+    ]
+  },
+  "capabilities": [
+    {
+      "kind": "script",
+      "language": "python"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 2000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 0,
+    "max_agent_requests": 0
+  },
+  "files": [
+    {
+      "path": "main.py",
+      "sha256": "52c25d907711314ceac6c2bb030511c2eb4a1e44252f31ca6fbfd7a599737b5b"
+    }
+  ],
+  "steps": [
+    {
+      "id": "normalize",
+      "kind": "script",
+      "entrypoint": "main.py",
+      "needs": [],
+      "effect": "write",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "text": {
+          "input": "/text"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "normalized",
+          "word_count"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "normalized": {
+            "type": "string"
+          },
+          "word_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  ],
+  "output": {
+    "result": {
+      "step": "normalize",
+      "pointer": ""
+    }
+  }
+}

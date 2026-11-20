@@ -1,0 +1,217 @@
+{
+  "schema_version": "0.2",
+  "name": "classification.evaluate-categories",
+  "description": "Compare baseline and candidate on independently labeled held-out examples. A passing report still requires caller review and exact-version registration.",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "candidate": {
+        "type": "object"
+      },
+      "heldout": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 32,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "expected": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 48
+            }
+          },
+          "required": [
+            "id",
+            "text",
+            "expected"
+          ]
+        }
+      }
+    },
+    "required": [
+      "candidate",
+      "heldout"
+    ]
+  },
+  "output_schema": {
+    "type": "object"
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {},
+      "required": []
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "builtin"
+    },
+    {
+      "kind": "connection",
+      "name": "typesafe"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 30000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 64,
+    "max_agent_requests": 0,
+    "max_call_depth": 1,
+    "max_child_runs": 1,
+    "max_step_instances": 100
+  },
+  "steps": [
+    {
+      "id": "plan",
+      "kind": "builtin",
+      "operation": "classifier.evaluation_plan",
+      "effect": "pure",
+      "needs": [],
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "candidate": {
+          "input": "/candidate"
+        },
+        "heldout": {
+          "input": "/heldout"
+        }
+      }
+    },
+    {
+      "id": "baseline",
+      "kind": "connector",
+      "operation": "jev.evaluate",
+      "connection": "typesafe",
+      "effect": "read",
+      "needs": [
+        "plan"
+      ],
+      "retry": {
+        "max_attempts": 1
+      },
+      "foreach": {
+        "items": {
+          "step": "plan",
+          "pointer": "/heldout"
+        },
+        "key": "/id",
+        "max_items": 32,
+        "concurrency": 1
+      },
+      "inputs": {
+        "state": {
+          "item": "/text"
+        },
+        "model": {
+          "step": "plan",
+          "pointer": "/model"
+        },
+        "questions": {
+          "step": "plan",
+          "pointer": "/baseline_questions"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "answers",
+          "requested_model"
+        ]
+      }
+    },
+    {
+      "id": "candidate",
+      "kind": "connector",
+      "operation": "jev.evaluate",
+      "connection": "typesafe",
+      "effect": "read",
+      "needs": [
+        "plan"
+      ],
+      "retry": {
+        "max_attempts": 1
+      },
+      "foreach": {
+        "items": {
+          "step": "plan",
+          "pointer": "/heldout"
+        },
+        "key": "/id",
+        "max_items": 32,
+        "concurrency": 1
+      },
+      "inputs": {
+        "state": {
+          "item": "/text"
+        },
+        "model": {
+          "step": "plan",
+          "pointer": "/model"
+        },
+        "questions": {
+          "step": "plan",
+          "pointer": "/candidate_questions"
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "answers",
+          "requested_model"
+        ]
+      }
+    },
+    {
+      "id": "evaluate",
+      "kind": "builtin",
+      "operation": "classifier.evaluate",
+      "effect": "pure",
+      "needs": [
+        "baseline",
+        "candidate"
+      ],
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "plan": {
+          "step": "plan",
+          "pointer": ""
+        },
+        "baseline": {
+          "step": "baseline",
+          "pointer": ""
+        },
+        "candidate": {
+          "step": "candidate",
+          "pointer": ""
+        }
+      }
+    }
+  ],
+  "output": {
+    "report": {
+      "step": "evaluate",
+      "pointer": ""
+    }
+  }
+}

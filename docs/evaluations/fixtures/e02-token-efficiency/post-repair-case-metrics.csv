@@ -1,0 +1,5 @@
+arm,case_id,phase,state,stop_reason,exact,source_pages_exact,source_page_count,prohibited_source_reads_in_arm,explicit_skill_reads_in_arm,wall_seconds,tool_call_count,tool_seconds,review_count,review_seconds,apr_durable_seconds,model,requested_reasoning_effort,effective_service_tier,model_call_count,model_review_usage,total_tokens,input_tokens,cached_input_tokens,noncached_input_tokens,output_tokens,reasoning_output_tokens,skill_reads_this_turn,apr_run_calls_this_turn,apr_project_calls_this_turn
+cookbook_luna_post_repair,dev-spruce,setup,completed,,True,True,5,0,1,53.173277792,6,0.24100000000000002,0,0,0.172,gpt-5.6-luna,low,,,,279389,277760,243968,33792,1629,239,1,1,3
+cookbook_luna_post_repair,page-amber,holdout,completed,,True,True,6,0,1,14.251772166,1,0.252,0,0,0.198,gpt-5.6-luna,low,,,,70683,70140,61952,8188,543,34,0,1,0
+cookbook_sol_post_repair,dev-spruce,setup,completed,,True,True,5,0,1,53.362687875,4,0.252,0,0,0.204,gpt-5.6-sol,low,,,,194478,193327,177408,15919,1151,83,1,1,2
+cookbook_sol_post_repair,page-amber,holdout,completed,,True,True,6,0,1,22.934374833,1,0.254,0,0,0.206,gpt-5.6-sol,low,,,,66797,66182,58240,7942,615,20,0,1,0

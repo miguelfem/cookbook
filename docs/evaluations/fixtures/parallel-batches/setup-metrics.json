@@ -1,0 +1,32 @@
+[
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "setup_ms": 614.24
+  },
+  {
+    "pair": 1,
+    "arm": "candidate",
+    "setup_ms": 713.162
+  },
+  {
+    "pair": 2,
+    "arm": "baseline",
+    "setup_ms": 276.797
+  },
+  {
+    "pair": 2,
+    "arm": "candidate",
+    "setup_ms": 279.609
+  },
+  {
+    "pair": 3,
+    "arm": "baseline",
+    "setup_ms": 287.553
+  },
+  {
+    "pair": 3,
+    "arm": "candidate",
+    "setup_ms": 280.18
+  }
+]

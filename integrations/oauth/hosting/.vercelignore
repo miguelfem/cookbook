@@ -1,0 +1,5 @@
+.vercel
+.env
+.env.*
+.gitignore
+README.md

@@ -1,0 +1,245 @@
+[
+  {
+    "case": "held-onyx",
+    "arm": "direct",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": null,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 14.534905167,
+    "tool_calls": 2,
+    "usage": {
+      "totalTokens": 124485,
+      "inputTokens": 123905,
+      "cachedInputTokens": 113664,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 580,
+      "reasoningOutputTokens": 122
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  },
+  {
+    "case": "held-onyx",
+    "arm": "script",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": null,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 14.266132625,
+    "tool_calls": 2,
+    "usage": {
+      "totalTokens": 75006,
+      "inputTokens": 74452,
+      "cachedInputTokens": 70912,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 554,
+      "reasoningOutputTokens": 73
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  },
+  {
+    "case": "held-onyx",
+    "arm": "cookbook",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": true,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 23.210859042,
+    "tool_calls": 3,
+    "usage": {
+      "totalTokens": 156815,
+      "inputTokens": 155953,
+      "cachedInputTokens": 151296,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 862,
+      "reasoningOutputTokens": 128
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  },
+  {
+    "case": "held-opal",
+    "arm": "script",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": null,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 13.846389959,
+    "tool_calls": 2,
+    "usage": {
+      "totalTokens": 77677,
+      "inputTokens": 77218,
+      "cachedInputTokens": 73984,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 459,
+      "reasoningOutputTokens": 7
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  },
+  {
+    "case": "held-opal",
+    "arm": "cookbook",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": true,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 27.990526292,
+    "tool_calls": 3,
+    "usage": {
+      "totalTokens": 167666,
+      "inputTokens": 166933,
+      "cachedInputTokens": 162560,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 733,
+      "reasoningOutputTokens": 68
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  },
+  {
+    "case": "held-opal",
+    "arm": "direct",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": null,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 13.143083416,
+    "tool_calls": 2,
+    "usage": {
+      "totalTokens": 128314,
+      "inputTokens": 127831,
+      "cachedInputTokens": 123904,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 483,
+      "reasoningOutputTokens": 38
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  },
+  {
+    "case": "held-ruby",
+    "arm": "cookbook",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": true,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 33.665616583,
+    "tool_calls": 3,
+    "usage": {
+      "totalTokens": 177733,
+      "inputTokens": 177059,
+      "cachedInputTokens": 171776,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 674,
+      "reasoningOutputTokens": 17
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  },
+  {
+    "case": "held-ruby",
+    "arm": "direct",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": null,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 12.747668333,
+    "tool_calls": 2,
+    "usage": {
+      "totalTokens": 132059,
+      "inputTokens": 131598,
+      "cachedInputTokens": 105472,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 461,
+      "reasoningOutputTokens": 27
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  },
+  {
+    "case": "held-ruby",
+    "arm": "script",
+    "model": "gpt-5.6-luna",
+    "full_output_exact": true,
+    "both_sources_called": true,
+    "cookbook_succeeded_recipe_run": null,
+    "source_audit": {
+      "profile_calls": 1,
+      "ledger_calls": 1,
+      "has_both_sources": true
+    },
+    "turn_status": "completed",
+    "stop_reason": null,
+    "wall_seconds": 13.180197666,
+    "tool_calls": 2,
+    "usage": {
+      "totalTokens": 80091,
+      "inputTokens": 79635,
+      "cachedInputTokens": 77056,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 456,
+      "reasoningOutputTokens": 8
+    },
+    "provider_calls": 0,
+    "client_dollars": null
+  }
+]

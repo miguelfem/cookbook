@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1",
+  "name": "operations.jev-observation",
+  "description": "Optional typed Jev observation; no automatic business action.",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "ticket"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "ticket": {
+        "type": "string",
+        "maxLength": 8000
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object"
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "model"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      }
+    },
+    "defaults": {
+      "model": "jev-latest"
+    },
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "connection",
+      "name": "typesafe"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 2000,
+    "max_artifact_bytes": 1048576,
+    "max_provider_calls": 1,
+    "max_agent_requests": 0
+  },
+  "steps": [
+    {
+      "id": "observe",
+      "kind": "connector",
+      "operation": "jev.evaluate",
+      "connection": "typesafe",
+      "needs": [],
+      "effect": "read",
+      "retry": {
+        "max_attempts": 1
+      },
+      "inputs": {
+        "state": {
+          "input": "/ticket"
+        },
+        "model": {
+          "config": "/model"
+        },
+        "questions": {
+          "literal": {
+            "team": {
+              "type": "choice",
+              "instructions": "Choose the team that can resolve this ticket. Use unclear when there is insufficient information.",
+              "criteria": {
+                "operations": "Account operations or fulfilment",
+                "engineering": "Software bugs or integration failures",
+                "unclear": "No supported team can be identified"
+              }
+            },
+            "urgent": {
+              "type": "noul",
+              "instructions": "Does the ticket explicitly describe an immediate deadline or ongoing outage?"
+            }
+          }
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "provider",
+          "requested_model",
+          "reported_model",
+          "answers",
+          "usage"
+        ]
+      }
+    }
+  ],
+  "output": {
+    "observation": {
+      "step": "observe",
+      "pointer": ""
+    }
+  }
+}

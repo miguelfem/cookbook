@@ -1,0 +1,26 @@
+[package]
+name = "cookbook-desktop"
+version = "0.2.0"
+edition = "2024"
+rust-version = "1.94"
+publish = false
+[features]
+default = []
+jev = ["apr-runtime/jev"]
+[workspace]
+resolver = "3"
+[build-dependencies]
+tauri-build = { version = "2.7.4", features = [] }
+[dependencies]
+tauri = { version = "2.12.5", features = [] }
+tauri-plugin-dialog = "2"
+apr-runtime = { path = "../../../crates/apr-runtime" }
+apr-connectors = { path = "../../../crates/apr-connectors" }
+apr-integrations = { path = "../../../crates/apr-integrations" }
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = { version = "=1.0.149", features = ["float_roundtrip"] }
+libc = "=0.2.191"
+
+tauri-plugin-updater = "2.14.0"
+
+uuid = { version = "=1.22.0", features = ["v4"] }

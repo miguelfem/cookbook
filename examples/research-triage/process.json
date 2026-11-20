@@ -1,0 +1,214 @@
+{
+  "schema_version": "0.2",
+  "name": "research.triage",
+  "description": "Synthetic research triage with exact routing, optional caller review and an immutable report",
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "candidate_class",
+      "title"
+    ],
+    "properties": {
+      "candidate_class": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "result",
+      "report"
+    ],
+    "properties": {
+      "result": {
+        "type": "object"
+      },
+      "report": {
+        "type": "object"
+      }
+    },
+    "additionalProperties": false
+  },
+  "config": {
+    "schema": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "defaults": {},
+    "run_override_keys": []
+  },
+  "capabilities": [
+    {
+      "kind": "builtin"
+    },
+    {
+      "kind": "artifacts"
+    },
+    {
+      "kind": "agent",
+      "capability": "review"
+    }
+  ],
+  "limits": {
+    "max_step_ms": 10000,
+    "max_artifact_bytes": 65536,
+    "max_provider_calls": 0,
+    "max_agent_requests": 1
+  },
+  "steps": [
+    {
+      "id": "route",
+      "kind": "decision",
+      "effect": "pure",
+      "needs": [],
+      "inputs": {},
+      "retry": {
+        "max_attempts": 1
+      },
+      "decision": {
+        "source": "rules",
+        "routes": [
+          "accept",
+          "review"
+        ],
+        "cases": [
+          {
+            "value": {
+              "input": "/candidate_class"
+            },
+            "equals": "primary",
+            "route": "accept"
+          }
+        ],
+        "default": "review"
+      }
+    },
+    {
+      "id": "accept",
+      "kind": "builtin",
+      "effect": "pure",
+      "needs": [
+        "route"
+      ],
+      "retry": {
+        "max_attempts": 1
+      },
+      "when": {
+        "decision": "route",
+        "route": "accept"
+      },
+      "operation": "json.select",
+      "inputs": {
+        "value": {
+          "literal": {
+            "disposition": "retain",
+            "reason": "Primary source"
+          }
+        },
+        "pointer": {
+          "literal": ""
+        }
+      }
+    },
+    {
+      "id": "review",
+      "kind": "agent",
+      "effect": "agent",
+      "needs": [
+        "route"
+      ],
+      "retry": {
+        "max_attempts": 1
+      },
+      "when": {
+        "decision": "route",
+        "route": "review"
+      },
+      "capability": "review",
+      "instructions": "Review this synthetic research candidate. Return a disposition and reason; do not browse or claim source verification.",
+      "inputs": {
+        "record": {
+          "input": ""
+        }
+      },
+      "result_schema": {
+        "type": "object",
+        "required": [
+          "disposition",
+          "reason"
+        ],
+        "properties": {
+          "disposition": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "id": "join",
+      "kind": "join",
+      "effect": "pure",
+      "needs": [
+        "route",
+        "accept",
+        "review"
+      ],
+      "inputs": {},
+      "retry": {
+        "max_attempts": 1
+      },
+      "join": {
+        "decision": "route",
+        "branches": {
+          "accept": {
+            "step": "accept",
+            "pointer": "/value"
+          },
+          "review": {
+            "step": "review",
+            "pointer": ""
+          }
+        }
+      }
+    },
+    {
+      "id": "report",
+      "kind": "builtin",
+      "operation": "json.write",
+      "effect": "pure",
+      "needs": [
+        "join"
+      ],
+      "retry": {
+        "max_attempts": 2
+      },
+      "inputs": {
+        "value": {
+          "step": "join",
+          "pointer": ""
+        }
+      }
+    }
+  ],
+  "output": {
+    "result": {
+      "step": "join",
+      "pointer": ""
+    },
+    "report": {
+      "step": "report",
+      "pointer": "/artifact"
+    }
+  }
+}

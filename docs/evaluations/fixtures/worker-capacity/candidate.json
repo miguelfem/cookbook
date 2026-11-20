@@ -1,0 +1,48 @@
+{
+  "source_commit": "78c28d08403fc1261078cbe8d7c71d10b6617c75",
+  "apr_sha256": "779e75c0b17038e0f9d4a317068a5d3127d15ebecff3cc69574cacd0af273781",
+  "desktop_sha256": "e9b3da13280bcadeadfcae04bea2f527d8c76d7ffbd33268f91fe7a5907b1778",
+  "package": "CookBook APR_0.2.0_aarch64.dmg",
+  "package_sha256": "91a24a46590236042395388c25b28c69627a862d330635239a7a67a597c41607",
+  "version": "0.2.0",
+  "schema": 18,
+  "platform": "macOS 26.6.2 ARM64",
+  "hardware": "Apple M4, 10 CPUs, 16 GiB RAM",
+  "features": [
+    "jev"
+  ],
+  "signing": "Apple Development; not notarized",
+  "runtime_checks": {
+    "default_passed": 410,
+    "fault_passed": 453,
+    "ignored_each_suite": 1,
+    "ui_passed": 46,
+    "connector_test_http_passed": 65
+  },
+  "native_ui": {
+    "save_32_local8": true,
+    "save_64_local16_connection3": true,
+    "reject_65": true,
+    "stale_revision_rejected": true,
+    "refresh_after_external_edit": true,
+    "installed_default_limits": [
+      4,
+      4
+    ]
+  },
+  "installation": {
+    "existing_tables_unchanged": true,
+    "credentials_unchanged": true,
+    "selection_unchanged": true,
+    "new_table": "worker_policy",
+    "schema": 18,
+    "accounts": 6,
+    "grants": 10,
+    "policy": {
+      "max_local_workers": 4,
+      "max_workers": 4,
+      "per_connection": {},
+      "revision": 0
+    }
+  }
+}

@@ -1,0 +1,410 @@
+[
+  {
+    "case_id": "r01",
+    "expected": "documents",
+    "mandatory_review": false,
+    "raw_prediction": "documents",
+    "confidence": 0.93,
+    "effective_route": "documents",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.553,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 424,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r02",
+    "expected": "documents",
+    "mandatory_review": false,
+    "raw_prediction": "documents",
+    "confidence": 0.78,
+    "effective_route": "documents",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.44,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 421,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r03",
+    "expected": "documents",
+    "mandatory_review": false,
+    "raw_prediction": "documents",
+    "confidence": 0.61,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": true,
+    "elapsed_seconds": 0.475,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 421,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r04",
+    "expected": "documents",
+    "mandatory_review": false,
+    "raw_prediction": "documents",
+    "confidence": 0.88,
+    "effective_route": "documents",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.43,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 421,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r05",
+    "expected": "documents",
+    "mandatory_review": false,
+    "raw_prediction": "documents",
+    "confidence": 0.82,
+    "effective_route": "documents",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.563,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 423,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r06",
+    "expected": "documents",
+    "mandatory_review": false,
+    "raw_prediction": "documents",
+    "confidence": 0.82,
+    "effective_route": "documents",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.475,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 422,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r07",
+    "expected": "records",
+    "mandatory_review": false,
+    "raw_prediction": "records",
+    "confidence": 0.94,
+    "effective_route": "records",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.483,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 420,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r08",
+    "expected": "records",
+    "mandatory_review": false,
+    "raw_prediction": "records",
+    "confidence": 0.42,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": true,
+    "elapsed_seconds": 0.667,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 420,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r09",
+    "expected": "records",
+    "mandatory_review": false,
+    "raw_prediction": "records",
+    "confidence": 0.65,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": true,
+    "elapsed_seconds": 0.647,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 420,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r10",
+    "expected": "records",
+    "mandatory_review": false,
+    "raw_prediction": "records",
+    "confidence": 0.6,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": true,
+    "elapsed_seconds": 0.529,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 423,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r11",
+    "expected": "records",
+    "mandatory_review": false,
+    "raw_prediction": "records",
+    "confidence": 0.83,
+    "effective_route": "records",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.511,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 423,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r12",
+    "expected": "records",
+    "mandatory_review": false,
+    "raw_prediction": "records",
+    "confidence": 0.68,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": true,
+    "elapsed_seconds": 0.485,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 421,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r13",
+    "expected": "unclear",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 0.99,
+    "effective_route": "unclear",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.471,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 420,
+      "output_tokens": 47
+    }
+  },
+  {
+    "case_id": "r14",
+    "expected": "unclear",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 0.95,
+    "effective_route": "unclear",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.513,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 420,
+      "output_tokens": 47
+    }
+  },
+  {
+    "case_id": "r15",
+    "expected": "unclear",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 1.0,
+    "effective_route": "unclear",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.489,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 421,
+      "output_tokens": 47
+    }
+  },
+  {
+    "case_id": "r16",
+    "expected": "unclear",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 0.97,
+    "effective_route": "unclear",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.486,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 420,
+      "output_tokens": 47
+    }
+  },
+  {
+    "case_id": "r17",
+    "expected": "unclear",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 0.95,
+    "effective_route": "unclear",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.613,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 427,
+      "output_tokens": 47
+    }
+  },
+  {
+    "case_id": "r18",
+    "expected": "unclear",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 0.94,
+    "effective_route": "unclear",
+    "accepted": true,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.515,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 423,
+      "output_tokens": 47
+    }
+  },
+  {
+    "case_id": "r19",
+    "expected": "other",
+    "mandatory_review": true,
+    "raw_prediction": "other",
+    "confidence": 0.52,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.473,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 426,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r20",
+    "expected": "other",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 0.41,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.519,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 425,
+      "output_tokens": 47
+    }
+  },
+  {
+    "case_id": "r21",
+    "expected": "other",
+    "mandatory_review": true,
+    "raw_prediction": "other",
+    "confidence": 0.52,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.532,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 418,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r22",
+    "expected": "other",
+    "mandatory_review": true,
+    "raw_prediction": "other",
+    "confidence": 0.49,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.527,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 423,
+      "output_tokens": 46
+    }
+  },
+  {
+    "case_id": "r23",
+    "expected": "other",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 0.68,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.525,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 424,
+      "output_tokens": 47
+    }
+  },
+  {
+    "case_id": "r24",
+    "expected": "other",
+    "mandatory_review": true,
+    "raw_prediction": "unclear",
+    "confidence": 0.54,
+    "effective_route": "unclear",
+    "accepted": false,
+    "mandatory_review_ok": true,
+    "unnecessary_review": false,
+    "elapsed_seconds": 0.429,
+    "model": "jev-1.13.0",
+    "usage": {
+      "input_tokens": 422,
+      "output_tokens": 47
+    }
+  }
+]

@@ -1,0 +1,10 @@
+arm,case,model,requested_turn_effort,effective_turn_effort,service_tier,exact_output,source_read_count,tool_call_count,wall_seconds,tool_seconds,tool_timing_status,auto_review_seconds,auto_review_count,auto_review_decisions,auto_review_tokens,apr_worker_seconds,outside_tool_seconds,input_tokens,cached_input_tokens,noncached_input_tokens,output_tokens,reasoning_output_tokens,total_tokens,original_summary_wall_seconds,excluded_post_completion_drain_seconds
+direct_luna,convo-amber,gpt-5.6-luna,low,,,True,2,2,10.531933,,unresolved_identical_event_timestamps,0,0,,,,,53900,45568,8332,292,52,54192,10.734521292,0.20258829199999973
+direct_luna,convo-cobalt,gpt-5.6-luna,low,,,True,2,2,14.583942,,unresolved_identical_event_timestamps,0,0,,,,,54982,52736,2246,265,26,55247,14.789127875,0.20518587499999974
+direct_luna,convo-linden,gpt-5.6-luna,low,,,True,2,2,8.091646,,unresolved_identical_event_timestamps,0,0,,,,,56020,54784,1236,270,30,56290,8.296767042,0.20512104200000003
+cookbook_luna_default,convo-amber,gpt-5.6-luna,low,,,True,2,1,10.792043,3.311,observed,3.157,1,approved,,0.112,7.481043,75746,67072,8674,249,31,75995,10.997772791,0.20572979099999955
+cookbook_luna_default,convo-cobalt,gpt-5.6-luna,low,,,True,2,1,13.324853,5.136,observed,4.982,1,approved,,0.137,8.188853,77208,75264,1944,208,7,77416,13.530041833,0.20518883300000113
+cookbook_luna_default,convo-linden,gpt-5.6-luna,low,,,True,2,1,9.819979,2.964,observed,2.807,1,approved,,0.117,6.855979,78612,77312,1300,208,6,78820,10.023046042,0.2030670420000007
+cookbook_sol_default,convo-amber,gpt-5.6-sol,low,,,True,2,1,12.372649,5.209,observed,5.049,1,approved,,0.106,7.163649,59473,52096,7377,199,0,59672,12.578097208,0.20544820800000174
+cookbook_sol_default,convo-cobalt,gpt-5.6-sol,low,,,True,2,1,12.323104,3.688,observed,3.526,1,approved,,0.12,8.635104,60848,59904,944,198,0,61046,12.526655625,0.20355162499999935
+cookbook_sol_default,convo-linden,gpt-5.6-sol,low,,,True,2,1,9.04785,2.784,observed,2.624,1,approved,,0.126,6.26385,62215,61184,1031,199,0,62414,9.2524805,0.20463050000000038
